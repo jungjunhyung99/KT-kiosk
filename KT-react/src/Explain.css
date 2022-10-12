@@ -1,0 +1,33 @@
+.explain {
+    position: absolute;
+}
+
+.explain1 {
+    position: absolute;
+    left: 100px;
+    top: 20px;
+}
+
+.first{
+    position:absolute;
+    left: 100px;
+    top: 150px;
+}
+
+.second{
+    position:absolute;
+    left: 500px;
+    top:150px;
+}
+
+.third{
+    position:absolute;
+    left: 900px;
+    top: 150px;
+}
+
+.fourth{
+    position:absolute;
+    left:1300px;
+    top:150px;
+}
