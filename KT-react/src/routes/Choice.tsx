@@ -46,9 +46,9 @@ const StyledLink = styled(Link)`
 `;
 
 function Choice () {
-  const middleMatch = useMatch("/Menu/home/middle");
-  const hardMatch = useMatch("/Menu/home/hard");
-  const easyMatch = useMatch("/Menu/home/easy");
+  const middleMatch = useMatch("/Menu/home/middle/*");
+  const hardMatch = useMatch("/Menu/home/hard/*");
+  const easyMatch = useMatch("/Menu/home/easy/*");
   return (
     <Container>
       <h1>식당 키오스크 실전연습</h1>
