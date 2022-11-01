@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import Box from '@mui/material/Box';
-import './Explain.css';
+import '../Explain.css';
 
 function Explain() {
 
@@ -50,12 +50,12 @@ function Explain() {
          </Box>
          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-         <div class="slider-wrap">
-         <div class="cont">1</div>
-         <div class="cont">2</div>
-         <div class="cont">3</div>
-        <div class="cont">4</div>
-        <div class="cont">5</div>
+         <div className="slider-wrap">
+         <div className="cont">1</div>
+         <div className="cont">2</div>
+         <div className="cont">3</div>
+        <div className="cont">4</div>
+        <div className="cont">5</div>
         </div>
         
         
