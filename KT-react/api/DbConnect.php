@@ -5,7 +5,7 @@
 	*/
 	class DbConnect {
 		private $server = 'localhost';
-		private $dbname = 'react-crud';
+		private $dbname = 'KT-kiosk';
 		private $user = 'root';
 		private $pass = '';
 
