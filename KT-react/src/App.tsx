@@ -11,6 +11,8 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { createGlobalStyle } from 'styled-components';
 import Explain from './routes/Explain';
+import { RecoilRoot } from 'recoil';
+import Game from './routes/Game';
 
 
 
@@ -84,23 +86,26 @@ a {
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home/>}>
-        </Route>
-        <Route path="/Menu" element={<Menu/>}>
-          <Route path="/Menu/explain" element={<Explain/>}/>
-          <Route path="/Menu/chart" element={<Chart/>}/>
-            <Route path="/Menu/home" element={<Choice/>}>
-            <Route path="/Menu/home/easy" element={<EasyChoice/>}/>
-            <Route path="/Menu/home/middle" element={<MiddleChoice/>}/>
-            <Route path="/Menu/home/hard" element={<HardChoice/>}/>
-        </Route>
-        </Route>
-      </Routes>
-      </Router>
-      </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home/>}>
+          </Route>
+          <Route path="/Menu" element={<Menu/>}>
+            <Route path="/Menu/explain" element={<Explain/>}/>
+            <Route path="/Menu/game" element={<Game/>}/>
+            <Route path="/Menu/chart" element={<Chart/>}/>
+              <Route path="/Menu/home" element={<Choice/>}>
+              <Route path="/Menu/home/easy" element={<EasyChoice/>}/>
+              <Route path="/Menu/home/middle" element={<MiddleChoice/>}/>
+              <Route path="/Menu/home/hard" element={<HardChoice/>}/>
+          </Route>
+          </Route>
+        </Routes>
+        </Router>
+        </ThemeProvider>
+      </RecoilRoot>
       );
 }
 

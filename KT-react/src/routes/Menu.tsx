@@ -76,15 +76,15 @@ const NavBar = styled.nav`
 `;
 
 const Body = styled.div`
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
     flex: 4;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     background-color: #eff3f7;
-`;
-
-const ModalContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
 `;
 
 const ContentContainer = styled.div`
@@ -231,6 +231,11 @@ function Menu() {
                             <StyledLink to="/Menu/explain">
                                 <NavTitle>
                                     키오스크 설명서
+                                </NavTitle>
+                            </StyledLink>
+                            <StyledLink to="/Menu/game">
+                                <NavTitle>
+                                    뇌활력 게임
                                 </NavTitle>
                             </StyledLink>
                                 <StyledLink to="/Menu/home"><List>식당</List></StyledLink>
