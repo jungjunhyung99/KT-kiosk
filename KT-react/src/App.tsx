@@ -13,6 +13,8 @@ import { createGlobalStyle } from 'styled-components';
 import Explain from './routes/Explain';
 import { RecoilRoot } from 'recoil';
 import Game from './routes/Game';
+import Explain2 from './routes/Explain2';
+import Cafe from './routes/Cafe';
 
 
 
@@ -93,7 +95,8 @@ function App() {
           <Route path="/" element={<Home/>}>
           </Route>
           <Route path="/Menu" element={<Menu/>}>
-            <Route path="/Menu/explain" element={<Explain/>}/>
+            <Route path="/Menu/Cafe" element={<Cafe/>}/>
+            <Route path="/Menu/explain" element={<Explain2/>}/>
             <Route path="/Menu/game" element={<Game/>}/>
             <Route path="/Menu/chart" element={<Chart/>}/>
               <Route path="/Menu/home" element={<Choice/>}>

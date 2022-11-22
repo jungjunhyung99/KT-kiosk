@@ -1,6 +1,6 @@
 import { yellow } from "@mui/material/colors";
 import { padding } from "@mui/system";
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useLayoutEffect, useState} from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { probState } from "../atom";
@@ -21,7 +21,7 @@ function Game() {
     const [score, setScore] = useState(0);
     const [flag, setFlag] = useState<boolean>(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         reroll();
     },[realProb.length === 0]);
 
@@ -48,26 +48,40 @@ function Game() {
 
     const onClick = () => {
         reroll();
+        console.log(realProb);
         setFlag((prev) => !prev);
     };
 
     const colorClick = (event:React.MouseEvent<HTMLButtonElement>) => {
         let index = 0;
-        let probArray = [""];
         if(event.currentTarget.innerText === "노"){
+            
+            if(realProb[0] === "노란색"){
+                setScore(score + 1);
+            }
+            else{
+                setScore(score - 2);
+            }
             index = realProb.indexOf("노란색");
             realProb.splice(index,1);
-            setScore(score + 1);
         }
         if(event.currentTarget.innerText === "빨"){
+            if(realProb[0] === "빨간색"){
+                setScore(score + 1);
+            }
+            else{
+                setScore(score - 2);
+            }
             index = realProb.indexOf("빨간색");
             realProb.splice(index,1);
-            setScore(score + 1);
         }
         if(event.currentTarget.innerText === "파"){
+            if(realProb[0] === "파란색"){
+                setScore(score + 1);
+            }
+            else{setScore(score - 2);}
             index = realProb.indexOf("파란색");
             realProb.splice(index,1);
-            setScore(score + 1);
         }
     };
 
@@ -82,10 +96,10 @@ function Game() {
             <br/>
             <div style={{display:"flex"}}>
             <Span>
-            <h1 onClick={colorClick as any} style={{color:"yellow", padding:"50px"}}>노</h1>
+            <h1 onClick={colorClick as any} style={{color:"yellow", padding:"50px", cursor:"pointer"}}>노</h1>
             </Span>
-            <h1 onClick={colorClick as any} style={{color:"blue",padding:"50px"}}>파</h1>
-            <h1 onClick={colorClick as any} style={{color:"red",padding:"50px"}}>빨</h1>
+            <h1 onClick={colorClick as any} style={{color:"blue",padding:"50px",cursor:"pointer"}}>파</h1>
+            <h1 onClick={colorClick as any} style={{color:"red",padding:"50px",cursor:"pointer"}}>빨</h1>
             </div>
             <div>
                 <h1>점수 : {score}</h1>

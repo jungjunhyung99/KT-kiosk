@@ -54,9 +54,8 @@ const HeadLi = styled.li<{isActive: boolean}>`
 
 const BodyContainer = styled.div`
     display: flex;
-    margin: 0;
-    padding: 0;
-    height: 100%;
+    height: 3vh;
+    
 `;
 
 const NavBar = styled.nav`
@@ -243,7 +242,7 @@ function Menu() {
                                 <StyledLink to="/Menu/"><List>교통시설</List></StyledLink>
                                 <StyledLink to="/Menu/"><List>극장</List></StyledLink>
                                 <StyledLink to="/Menu/chart"><List>은행</List></StyledLink>
-                                <StyledLink to="/Menu/chart"><List>카페</List></StyledLink>
+                                <StyledLink to="/Menu/Cafe"><List>카페</List></StyledLink>
                                 <StyledLink to="/Menu/chart"><List>업무</List></StyledLink>
                                 <StyledLink to="/Menu/chart"><List>기타</List></StyledLink>
                                 </Olist>
