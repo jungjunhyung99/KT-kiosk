@@ -1,33 +1,33 @@
 .explain {
-    position: absolute;
+    position:relative;
 }
 
 .explain1 {
-    position: absolute;
+    position: relative;
     left: 100px;
     top: 20px;
 }
 
 .first{
-    position:absolute;
-    left: 100px;
-    top: 150px;
+    position:relative;
+    left: 200px;
+    top: 70px;
 }
 
 .second{
-    position:absolute;
-    left: 500px;
-    top:150px;
+    position:relative;
+    left: 1100px;
+    top:-540px;
 }
 
 .third{
-    position:absolute;
-    left: 900px;
-    top: 150px;
+    position:relative;
+    left: 200px;
+    top: -700px;
 }
 
 .fourth{
-    position:absolute;
-    left:1300px;
-    top:150px;
+    position:relative;
+    left: 1100px;
+    top:-1315px;
 }
