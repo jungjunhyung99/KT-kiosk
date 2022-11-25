@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Cell from "./Cell";
+import './Board.css';
 
 function Board({numbers, handleClick}){
     console.log("Board");
