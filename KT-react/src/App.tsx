@@ -15,6 +15,7 @@ import { RecoilRoot } from 'recoil';
 import Game from './routes/Game';
 import Explain2 from './routes/Explain2';
 import Cafe from './routes/Cafe';
+import Sample from './routes/Sample';
 
 
 
@@ -96,8 +97,12 @@ function App() {
           </Route>
           <Route path="/Menu" element={<Menu/>}>
             <Route path="/Menu/Cafe" element={<Cafe/>}/>
-            <Route path="/Menu/explain" element={<Explain2/>}/>
+            <Route path="/Menu/explain2" element={<Explain/>}/>
+            <Route path="/Menu/explain" element={<Explain2/>}>
+              <Route path="/Menu/explain/:objId" element={<Menu/>}/>
+            </Route>
             <Route path="/Menu/game" element={<Game/>}/>
+            <Route path="/Menu/test" element={<Sample/>}/>
             <Route path="/Menu/chart" element={<Chart/>}/>
               <Route path="/Menu/home" element={<Choice/>}>
               <Route path="/Menu/home/easy" element={<EasyChoice/>}/>

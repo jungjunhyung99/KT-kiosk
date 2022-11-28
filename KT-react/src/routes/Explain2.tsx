@@ -1,4 +1,4 @@
-import {AnimatePresence, motion} from "framer-motion";
+import {AnimatePresence, motion, useScroll, useViewportScroll} from "framer-motion";
 import styled from "styled-components";
 import useQuery from "react-query";
 import Americano from "../image/americano.png"
@@ -6,6 +6,7 @@ import CGV from "../image/CGV.jpg";
 import Ramen from "../image/Ramen.jpg";
 import { useMatch, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
+import Cafe from "./Cafe";
 
 const Container = styled(motion.div)`
     background: gray;
@@ -23,6 +24,27 @@ const Info = styled(motion.div)`
     font-size: 18px;
   }
 `;
+
+const Overlay = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  width: 130%; // 수정 필요
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+`;
+
+const BigMovie = styled(motion.div)`
+  position: absolute;
+  width: 70vw;
+  height: 90vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: white;
+  border: 2px solid white;
+`;
+
 
 const Box = styled(motion.div)<{bgPhoto: string}>`
     background-image: url(${(props)=>props.bgPhoto});
@@ -141,9 +163,10 @@ const offset = 3;
 
 function Explain2 () {
     const navigate = useNavigate();
-    const modalMatch = useMatch("/Menu/:objId");
+    const modalMatch = useMatch("/Menu/explain/:objId");
     const [index, setIndex] = useState(0);
     const [leaving, setLeaving] = useState(false);
+    const {scrollY} = useScroll();
     const increaseIndex = () => {
         if (kioskObj){
             if(leaving) return;
@@ -155,39 +178,57 @@ function Explain2 () {
     };
 
     const toggleLeaving = () => setLeaving((prev) => !prev);
-
+    const onOverlayClick = () => navigate(-1);
     const onBoxClicked = (objId : string) => {
-     navigate(`/Menu/${objId}`);
+     navigate(`/Menu/explain/${objId}`);
     };
 
     return (
-        // <AnimatePresence initial={false} onExitComplete={toggleLeaving}>    
-        //     <button onClick={increaseIndex}></button>
-        //     <Row
-        //     variants={rowVariants}
-        //     initial="hidden"
-        //     animate="visible"
-        //     exit="exit"
-        //     transition={{type: "tween", duration: 1}}
-        //     key={index}
-        //     >
-        //         {kioskObj.slice(offset * index, offset * index + offset).map((obj) => 
-        //         <Box 
-        //         layoutId={obj.id + ""}
-        //         bgPhoto={obj.img} 
-        //         key={obj.id}
-        //         variants={boxVariant} initial whileHover="hover" 
-        //         transition={{type:"tween"}}
-        //         onClick={() => onBoxClicked(obj.id)}  >
+          <>
+            <AnimatePresence initial={false} onExitComplete={toggleLeaving}>    
+            <button onClick={increaseIndex}></button>
+            <Row
+            variants={rowVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            transition={{type: "tween", duration: 1}}
+            key={index}
+            >
+                {kioskObj.slice(offset * index, offset * index + offset).map((obj) => 
+                <Box 
+                layoutId={obj.id + ""}
+                bgPhoto={obj.img} 
+                key={obj.id}
+                variants={boxVariant} initial whileHover="hover" 
+                transition={{type:"tween"}}
+                onClick={() => onBoxClicked(obj.id)}  >
                     
-        //         <Info variants={infoVariants}>
-        //             <h4>{obj.sub}</h4>
-        //         </Info> 
-        //         </Box>
-        //         )}
-        //     </Row>
-        // </AnimatePresence>
-        <div></div>
+                <Info variants={infoVariants}>
+                    <h4>{obj.sub}</h4>
+                </Info> 
+                </Box>
+                )}
+            </Row>
+        </AnimatePresence>
+        <AnimatePresence>
+            {modalMatch ? (
+              <>
+                <Overlay
+                  onClick={onOverlayClick}
+                  exit= {{opacity: 0}}
+                  animate={{opacity:1}}
+                />
+                <BigMovie
+                  style={{ top: scrollY.get() + 100 }}
+                  layoutId={modalMatch.params as any}
+                >
+                  <Cafe/>
+                </BigMovie>
+              </>
+            ) : null}
+          </AnimatePresence>
+          </>
         );
 }
 

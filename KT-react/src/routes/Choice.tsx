@@ -28,6 +28,7 @@ const Tab = styled.span<{ isActive: boolean }>`
   font-weight: 400;
   padding: 7px 0px;
   border-radius: 10px;
+  border: 2px solid black;
   background-color: ${(props) =>
     props.isActive ? props.theme.accentColor : props.theme.spanColor};
   a {

@@ -26,7 +26,7 @@ const HeadOl = styled.ol`
     list-style-type: disc;
     flex-direction: row;
     justify-content: center;
-    position: relative;
+    
     max-width: 1000px;
     z-index: 2;
     width: 100%;
@@ -227,7 +227,7 @@ function Menu() {
                                     키오스크 실전연습
                                 </NavTitle>
                             </StyledLink>
-                            <StyledLink to="/Menu/explain">
+                            <StyledLink to="/Menu/explain2">
                                 <NavTitle>
                                     키오스크 설명서
                                 </NavTitle>
@@ -235,6 +235,16 @@ function Menu() {
                             <StyledLink to="/Menu/game">
                                 <NavTitle>
                                     뇌활력 게임
+                                </NavTitle>
+                            </StyledLink>
+                            <StyledLink to="/Menu/test">
+                                <NavTitle>
+                                    치매 테스트
+                                </NavTitle>
+                            </StyledLink>
+                            <StyledLink to="/Menu/explain">
+                                <NavTitle>
+                                    미완성
                                 </NavTitle>
                             </StyledLink>
                                 <StyledLink to="/Menu/home"><List>식당</List></StyledLink>
