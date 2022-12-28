@@ -7,6 +7,8 @@ import Ramen from "../image/Ramen.jpg";
 import { useMatch, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import Cafe from "./Cafe";
+import Takeout from "../image/Takeout.jpg";
+import Mug from "../image/Mug.png"
 
 const Container = styled(motion.div)`
     background: gray;
@@ -36,8 +38,8 @@ const Overlay = styled(motion.div)`
 
 const BigMovie = styled(motion.div)`
   position: absolute;
-  width: 70vw;
-  height: 90vh;
+  max-width: 60vw;
+  min-height: 100vh;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -45,6 +47,19 @@ const BigMovie = styled(motion.div)`
   border: 2px solid white;
 `;
 
+const TakeOut = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  max-width: 60vw;
+  min-height: 100vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: white;
+  border: 2px solid white;
+`;
 
 const Box = styled(motion.div)<{bgPhoto: string}>`
     background-image: url(${(props)=>props.bgPhoto});
@@ -225,6 +240,13 @@ function Explain2 () {
                 >
                   <Cafe/>
                 </BigMovie>
+                {/* <TakeOut
+                  style={{ top: scrollY.get() + 100 }}
+                  layoutId={modalMatch.params as any}>
+                    <img src={Takeout} alt="대체"  style={{height:"300px", width:"190px"}} />
+                    <img src={Mug} alt="대체"  style={{height:"250px", width:"190px"}}/>
+                </TakeOut> */}
+                
               </>
             ) : null}
           </AnimatePresence>

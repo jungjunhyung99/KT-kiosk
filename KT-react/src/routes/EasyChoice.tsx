@@ -19,20 +19,15 @@ const SliderItem = styled.div`
 `;
 
 const StyledSlider = styled(Slider)`
-    .slick-slide {
-        
-    }
-    
     .slick-list{
-        width: 350px;
+        width: 400px;
         margin: 0 auto;
-        overflow: hidden;
+        margin-left: 20px;
     }
 
     .slick-dots{
         bottom: -50px;   
-        margin: 0 auto;
-        //margin-top: 200px;
+        margin-top: 200px;
     }
     
     .slick-slide div{
@@ -84,6 +79,7 @@ function EasyChoice () {
         arrows: true,
         centerMode: true,
         centerPadding: '0px',
+        fade: true,
       };
 
     const items : IChoice[] = [

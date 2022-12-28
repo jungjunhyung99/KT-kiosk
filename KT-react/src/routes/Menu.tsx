@@ -25,8 +25,7 @@ const HeadOl = styled.ol`
     display: flex;
     list-style-type: disc;
     flex-direction: row;
-    justify-content: center;
-    
+    justify-content: center;    
     max-width: 1000px;
     z-index: 2;
     width: 100%;
@@ -55,7 +54,6 @@ const HeadLi = styled.li<{isActive: boolean}>`
 const BodyContainer = styled.div`
     display: flex;
     height: 3vh;
-    
 `;
 
 const NavBar = styled.nav`
@@ -83,7 +81,6 @@ const Body = styled.div`
     flex: 4;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    background-color: #eff3f7;
 `;
 
 const ContentContainer = styled.div`
@@ -222,7 +219,7 @@ function Menu() {
                 <NavWrapper>
                     <NavMenu>
                         <Olist>
-                            <StyledLink to="/Menu/home">
+                            <StyledLink to="/Menu/home/middle">
                                 <NavTitle>
                                     키오스크 실전연습
                                 </NavTitle>
@@ -267,7 +264,6 @@ function Menu() {
                 </NavWrapper>
             </NavBar>
         <Body>
-            <br/><br/>
             <Outlet/>
         </Body>
         </BodyContainer>

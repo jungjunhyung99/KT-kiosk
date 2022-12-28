@@ -68,8 +68,9 @@ const SliderItem = styled.div`
 
 const StyledSlider = styled(Slider)`
     .slick-list{
-        width: 250px;
+        width: 400px;
         margin: 0 auto;
+        margin-left: 20px;
     }
 
     .slick-dots{
@@ -83,6 +84,15 @@ const StyledSlider = styled(Slider)`
 
     .slick-track{
         overflow-x: hidden;
+    }
+
+    .slick-prev:before, .slick-next:before{ // 양옆 버튼
+    	font-family: 'slick';
+        font-size: 40px;
+        line-height: 1;
+        opacity: .7;
+        color:  #2BB7B3;
+        -webkit-font-smoothing: antialiased;
     }
 `;
 
@@ -135,6 +145,7 @@ function MiddleChoice () {
         slidesToScroll: 1,
         arrows: true,
         centerMode: true,
+        fade: true,
       };
 
     const items : IChoice[] = [

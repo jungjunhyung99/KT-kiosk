@@ -2,17 +2,28 @@ import {AnimatePresence, motion} from "framer-motion";
 import styled from "styled-components";
 import useQuery from "react-query";
 import Americano from "../image/americano.png"
-import CGV from "../image/CGV.jpg";
-import Ramen from "../image/Ramen.jpg";
+import Espresso from "../image/Espresso.jpg";
+import SweetPo from "../image/SweetPo.jpg";
+import Latte from "../image/Latte.jpg";
+import IceTea from "../image/IceTea.jpg";
 import { useMatch, useNavigate, useParams } from "react-router-dom";
 import { useLayoutEffect, useState } from "react";
 import { useEffect } from "react";
 
 const Container = styled(motion.div)`
     width:100%;
+    height: 100%;
     display:flex;
     flex-direction: column;
+    justify-content: center;
     margin: 50px;
+`;
+
+const MenuContainer = styled(motion.div)`
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    align-items: center;
 `;
 
 const OrderSlider = styled(motion.div)`
@@ -24,9 +35,6 @@ const Payment = styled.div`
     width: 230px;
     height: 150px;
 `;
-
-const Quantity = styled.h4`
-    `;
 
 const Info = styled(motion.div)`
   padding: 10px;
@@ -44,11 +52,12 @@ const Info = styled(motion.div)`
 const Box = styled(motion.div)<{bgPhoto: string}>`
     background-image: url(${(props)=>props.bgPhoto});
     background-size: cover;
-    height: 200px;
-    width: 200px;
-    font-size: 66px;
+    height: 160px;
+    width: 160px;
+    font-size: 30px;
     cursor: pointer;
     background-position: center center;
+    margin: 0 auto;
     border: 2px solid;
 `;
 
@@ -65,11 +74,9 @@ const SmallBox = styled(motion.div)<{bgPhoto: string}>`
 
 const Row = styled(motion.div)`
   display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(3,1fr); 
-  width: 60%;
-  margin-bottom: 30px;
+  grid-template-columns: repeat(2,0.33fr);
+  grid-template-rows: repeat(3,0,5fr);
+  margin-bottom: 5vh;
 `;
 
 const Order = styled(motion.div)`
@@ -138,15 +145,15 @@ const rowVariants = {
     },
   };
 
-const image = [CGV, Americano, Ramen, Ramen];
+const image = [Americano, SweetPo, Espresso, Latte,IceTea];
 
 const kioskObj = [
     {
         id: "0", 
         sub:"CGV 요약본입니다.",
         img: image[0],
-        name: "CGV",
-        cost: 3000,
+        name: "아메리카노",
+        cost: 3500,
         selected: false,
         quantity: 1,
     },
@@ -154,7 +161,7 @@ const kioskObj = [
         id: "1", 
         sub:"Cafe 요약본입니다.",
         img: image[1],
-        name: "Cafe",
+        name: "고구마라떼",
         cost: 4000,
         selected: false,
         quantity: 1,
@@ -163,8 +170,8 @@ const kioskObj = [
         id: "2", 
         sub:"식당 예약본입니다.",
         img: image[2],
-        name: "식당",
-        cost: 2000,
+        name: "에스프레소",
+        cost: 3000,
         selected: false,
         quantity: 1,
     },
@@ -173,39 +180,22 @@ const kioskObj = [
         id: "3", 
         sub:"식당2 예약본입니다.",
         img: image[3],
-        name: "식당2",
-        cost: 1000,
+        name: "카페라떼",
+        cost: 4000,
         selected: false,
         quantity: 1,
     },
-    
+
     {
         id: "4", 
         sub:"식당2 예약본입니다.",
-        img: image[1],
-        name: "식당3",
-        cost: 6000,
-        selected: false,
-        quantity: 1,
-    },
-    {
-        id: "5", 
-        sub:"식당2 예약본입니다.",
-        img: image[2],
-        name: "식당",
+        img: image[4],
+        name: "아이스티",
         cost: 3000,
         selected: false,
         quantity: 1,
     },
-    {
-        id: "6", 
-        sub:"식당2 예약본입니다.",
-        img: image[2],
-        name: "식당",
-        cost: 7000,
-        selected: false,
-        quantity: 1,
-    },
+    
 ];
 
 interface Ikiosk {
@@ -218,15 +208,14 @@ interface Ikiosk {
     quantity: number;
 }
 
-const Overlay = styled(motion.div)`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-`;
-
+// const Overlay = styled(motion.div)`
+//   position: fixed;
+//   top: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   opacity: 0;
+// `;
 
 const offset = 6;
 
@@ -257,6 +246,8 @@ function Cafe () {
             if(boxCopy[i].id === objId){
                 boxCopy[i].quantity++;
                 setChoice([...boxCopy]);
+                const costCopy = cost;
+                setCost(costCopy + kioskObj[Number(objId)].cost);
                 return ;
             }
         }
@@ -278,6 +269,7 @@ function Cafe () {
             <Row
             >
                 {kioskObj.map((obj) => 
+                <MenuContainer>
                 <Box 
                 bgPhoto={obj.img} 
                 key={obj.id}
@@ -289,6 +281,11 @@ function Cafe () {
                     <h4>{obj.sub}</h4>
                 </Info> 
                 </Box>
+                <div>
+                    <div style={{fontSize:"23px", fontWeight:"bold"}}>{obj.name}</div>
+                    <span>{obj.cost}원</span>
+                </div>
+                </MenuContainer>
                 )}
             </Row>
             <OrderSlider
@@ -301,14 +298,16 @@ function Cafe () {
             >    
                 <Order key="order" layoutId="row">
                     {choice.slice(offset * index, offset * index + offset).map((choice) => 
+                    <MenuContainer>
                     <SmallBox
                     bgPhoto={choice.img} 
                     key={choice.id}
                     variants={smboxVariant} initial animate="exit"
                     transition={{type:"tween"}}
-                >
-                    <Quantity>{choice.quantity}</Quantity>                
-                    </SmallBox>)}
+                >          
+                    </SmallBox>
+                    <div style={{margin: "0 auto", fontSize: "25px", fontWeight:"bold"}}>{choice.quantity}</div>    
+                    </MenuContainer>)}
                 </Order>
                 <button onClick={() => increaseIndex(choice)}>next</button>
             </OrderSlider>

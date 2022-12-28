@@ -4,12 +4,24 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Americano from "../image/americano.png";
-
+import { Link } from "react-router-dom";
+import CGV from "../image/CGV.jpg";
+import Ramen from "../image/Ramen.jpg";
 
 interface IChoice{
     name: string;
     url: string;
 }
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    &:focus, &hover, &:visited, &:link, &active{
+        text-decoration: none;
+    }
+`;
+
 
 const SliderItem = styled.div`
   width: 100%;
@@ -21,8 +33,16 @@ const SliderItem = styled.div`
 
 const StyledSlider = styled(Slider)`
     .slick-list{
-        width: 250px;
+        width: 400px;
         margin: 0 auto;
+        margin-left: 20px;
+    }
+
+    .slick-slide img {
+        object-fit: cover;
+        height: 300px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .slick-dots{
@@ -37,44 +57,49 @@ const StyledSlider = styled(Slider)`
     .slick-track{
         overflow-x: hidden;
     }
+
+    .slick-prev:before, .slick-next:before{ // 양옆 버튼
+    	font-family: 'slick';
+        font-size: 40px;
+        line-height: 1;
+        opacity: .7;
+        color:  #2BB7B3;
+        -webkit-font-smoothing: antialiased;
+    }
 `;
 
 const SlideWrapper = styled.section`
     position: relative;
 `;
 
-const ImageContainer = styled.div`
-  margin: 0 16px;  
-`;
-
-const Image = styled.div`
-    max-width: 100%;
-    max-height: 100%;
-`;
-
-const imgUrl = styled.image`
-    width: 300px;
-    height: 300px;    
+const Img = styled.img`
+    width: 400px;
+    height: 100px;
 `;
 
 function HardChoice () {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 3500,
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
         centerMode: true,
+        centerPadding: "60px",
+        fade: true,
+        autoplay: true,
+        autoSpeed: 5000,
+        pauseOnHover: true,
       };
 
     const items : IChoice[] = [
-        { name: "대체", url: 'http://placehold.it/1200x400' },
-        { name: "대체", url: imgUrl },
-        { name: "대체", url: imgUrl },
-        { name: "대체", url: imgUrl },
-        { name: "대체", url: imgUrl },
-        { name: "대체", url: imgUrl },
+        { name: "대체", url: Americano },
+        { name: "대체", url: Ramen },
+        { name: "대체", url: CGV },
+        { name: "대체", url: Americano },
+        { name: "대체", url: Ramen },
+        { name: "대체", url: CGV },
       ];
     
 
@@ -84,11 +109,12 @@ function HardChoice () {
             >
                 {items.map((item,index) => (
                     <SliderItem key={index}>
-                        <img src={Americano} alt={item.name}/>
+                        <StyledLink to={"/Menu/explain/:objId"}>
+                            <Img src={item.url} alt={item.name}/>
+                        </StyledLink>
                     </SliderItem>
                 ))} 
             </StyledSlider>
-
          </section>
         </div>
     );
