@@ -88,7 +88,7 @@ function Hamburger() {
                 <Item>
                     <img src="/img/D버거.png" width={190} height={140}/>
                     <h3>D버거</h3>
-                    4000원~
+                    4,000원~
                 </Item>
                 </Button>
             </Box>
