@@ -1,0 +1,62 @@
+.one {
+    position:relative;
+    left: 250px;
+    text-decoration: none;
+    color:darkgray !important;
+}
+
+.set {
+    position: relative;
+    left: 650px;
+    text-decoration: none;
+    color:darkgray !important;
+}
+
+.beverage {
+    position:relative;
+    left: 1050px;
+    text-decoration: none;
+    color:darkgray !important;
+}
+
+.first{
+    position:relative;
+    left: 250px;
+    top:10px;
+}
+
+.second {
+    position:relative;
+    left: 900px;
+    top:-605px;
+}
+
+.third {
+    position: relative;
+    left: 250px;
+    top:-900px;
+}
+
+.fourth {
+    position: relative;
+    left: 900px;
+    top:-1520px;
+}
+
+.cancel {
+    position: relative;
+    left: -10px;
+    top:-1850px;
+    width:750px;
+    height:50px;
+    background-color:darkslategrey !important;
+}
+
+.order {
+    position: relative;
+    left: 740px;
+    top:-1900px;
+    width:750px;
+    height:50px;
+    background-color:red !important;
+}

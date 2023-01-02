@@ -1,0 +1,10 @@
+[
+    {
+    "id": "integer",
+    "store": "string",
+    "level": "string",
+    "basket": "-----json",
+    "start": "date time",
+    "end": "date time"
+}
+]

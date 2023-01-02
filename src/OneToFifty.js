@@ -53,7 +53,6 @@ function OneToFifty(){
     );
 }
 
-
 const shuffleArray=array=>{
     for(let i=array.length-1;i>0;i--){
         let j=Math.floor(Math.random()*(i+1));
@@ -62,18 +61,22 @@ const shuffleArray=array=>{
     return array;
 }
 const Container = styled.div`
-    width:600px;
-    height:800px;
+    width:1450px;
+    height:700px;
     border:1px solid black;
     display: flex;
     justify-content:center;
     align-items:center;
+    position:inherit;
 `;
 
 const StartButton=styled.button`
     margin-top:30px;
     width:100px;
     height:50px;
+    position:relative;
+    left:-180px;
+    top:180px;
 `;
 
 export default OneToFifty;

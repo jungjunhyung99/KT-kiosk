@@ -1,0 +1,30 @@
+.square {
+    position:absolute;
+    top: 73px;
+    left: 450px;
+    border: 1px solid black;
+}
+
+.first {
+    position:relative;
+    left: 500px;
+    top: 140px;
+}
+
+.second {
+    position:relative;
+    left: 500px;
+    top: 160px;
+}
+
+.Third {
+    position:relative;
+    left: 500px;
+    top: 180px;
+}
+
+.Fourth {
+    position:relative;
+    left: 500px;
+    top: 200px;
+}
