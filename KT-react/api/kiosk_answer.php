@@ -3,7 +3,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
-include 'DbConnect.php';
+include 'DBConnect.php';
 $objDb = new DbConnect();
 $conn = $objDb->connect();
 
