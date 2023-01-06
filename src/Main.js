@@ -5,6 +5,7 @@ import Practice from './Practice';
 import Button from '@mui/material/Button';
 import Item from './Item';
 import Hamburger from './Hamburger';
+import Icecream from './Icecream';
 
 function Main() {
     const navigate = useNavigate();
@@ -28,6 +29,10 @@ function Main() {
         navigate('/Hamburger');
     }
 
+    const onClickIcecream = () => {
+        navigate('/Icecream');
+    }
+
     return (
         <>
             <Button variant="contained" className="explain" onClick={onClickExplain}>키오스크 설명서</Button><br />
@@ -37,7 +42,8 @@ function Main() {
             <Button variant="contained" className="game" onClick={onClickGame}>게임</Button><br />
             <div>게임을 통해 뇌 노화를 늦출 수 있다.</div><br />
             <Button variant="contained" className="pay" onClick={onClickPay}>결제하기</Button><br /><br />
-            <Button variant="contained" className="Hamburger" onClick={onClickHamburger}>햄버거 키오스크</Button><br />
+            <Button variant="contained" className="Hamburger" onClick={onClickHamburger}>햄버거 키오스크</Button><br /><br />
+            <Button variant="contained" className="Icecream" onClick={onClickIcecream}>아이스크림 키오스크</Button><br />
         </>
     )
 }
