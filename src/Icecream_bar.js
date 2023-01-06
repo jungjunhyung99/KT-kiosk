@@ -93,9 +93,9 @@ function Icecream_cone() {
                 }}>
                 <Button>
                 <Item>
-                    <img src="/img/요맘때.png" width={190} height={140}/>
-                    <h3>요맘때</h3>
-                    1,500원
+                    <img src="/img/누가바.png" width={190} height={140}/>
+                    <h3>누가바</h3>
+                    1,000원
                 </Item>
                 </Button>
             </Box>
@@ -107,9 +107,9 @@ function Icecream_cone() {
                 }}>
                 <Button>
                 <Item>    
-                    <img src="/img/월드콘.png" width={190} height={140}/>
-                    <h3>월드콘</h3>
-                    1,500원
+                    <img src="/img/바밤바.png" width={190} height={140}/>
+                    <h3>바밤바</h3>
+                    1,000원
                 </Item>
                 </Button>
             </Box>
@@ -121,9 +121,9 @@ function Icecream_cone() {
                 }}>
                 <Button>
                 <Item>
-                    <img src="/img/부라보.png" width={190} height={140}/>
-                    <h3>부라보</h3>
-                    1,200원
+                    <img src="/img/망고바.png" width={190} height={140}/>
+                    <h3>망고바</h3>
+                    1,400원
                 </Item>
                 </Button>
             </Box>
@@ -135,8 +135,8 @@ function Icecream_cone() {
                 }}>  
                 <Button>
                 <Item>
-                    <img src="/img/구구콘.png" width={190} height={140}/>
-                    <h3>구구콘</h3>
+                    <img src="/img/와일드바디.png" width={190} height={140}/>
+                    <h3>와일드바디</h3>
                     1,600원
                 </Item>
                 </Button>
@@ -149,9 +149,9 @@ function Icecream_cone() {
                 }}>  
                 <Button>
                 <Item>
-                    <img src="/img/슈팅스타.png" width={190} height={140}/>
-                    <h3>슈팅스타</h3>
-                    2,000원
+                    <img src="/img/인절미바.png" width={190} height={140}/>
+                    <h3>인절미바</h3>
+                    1,000원
                 </Item>
                 </Button>
             </Box>
@@ -163,9 +163,9 @@ function Icecream_cone() {
                 }}>  
                 <Button>
                 <Item>
-                    <img src="/img/메타.png" width={190} height={140}/>
-                    <h3>메타</h3>
-                    1,800원
+                    <img src="/img/메가톤.png" width={190} height={140}/>
+                    <h3>메가톤</h3>
+                    1,500원
                 </Item>
                 </Button>
             </Box>
@@ -177,9 +177,9 @@ function Icecream_cone() {
                 }}>  
                 <Button>
                 <Item>
-                    <img src="/img/슈퍼콘.png" width={190} height={140}/>
-                    <h3>슈퍼콘</h3>
-                    1,500원
+                    <img src="/img/쌍쌍바.png" width={190} height={140}/>
+                    <h3>쌍쌍바</h3>
+                    1,300원
                 </Item>
                 </Button>
             </Box>
