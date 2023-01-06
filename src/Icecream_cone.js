@@ -1,12 +1,12 @@
 import React, { useState} from 'react';
-import './Icecream.css';
+import './Icecream_cone.css';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Button from "@mui/material/Button";
 import Box from '@mui/material/Box';
 
-function Icecream() { 
+function Icecream_cone() { 
     const navigate = useNavigate();
 
     const onClickIcecream_name = () => {
@@ -194,4 +194,4 @@ function Icecream() {
     )
 }
 
-export default Icecream;
+export default Icecream_cone;

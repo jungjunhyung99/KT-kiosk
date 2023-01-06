@@ -1,12 +1,12 @@
 import React, { useState} from 'react';
-import './Icecream.css';
+import './Icecream_cone.css';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Button from "@mui/material/Button";
 import Box from '@mui/material/Box';
 
-function Icecream() { 
+function Icecream_cone() { 
     const navigate = useNavigate();
 
     const onClickIcecream_name = () => {
@@ -79,9 +79,9 @@ function Icecream() {
                 }}>  
                 <Button>
                 <Item>
-                    <img src="/img/돼지콘.png" width={190} height={140}/>
-                    <h3>돼지콘</h3>
-                    1,300원
+                    <img src="/img/돼지바.png" width={190} height={140}/>
+                    <h3>돼지바</h3>
+                    500원
                 </Item>
                 </Button>
             </Box>
@@ -194,4 +194,4 @@ function Icecream() {
     )
 }
 
-export default Icecream;
+export default Icecream_cone;
