@@ -1,22 +1,15 @@
 import {AnimatePresence, motion} from "framer-motion";
 import styled from "styled-components";
-import useQuery from "react-query";
-import Americano from "../image/americano.png"
-import Espresso from "../image/Espresso.jpg";
-import SweetPo from "../image/SweetPo.jpg";
-import Latte from "../image/Latte.jpg";
-import IceTea from "../image/IceTea.jpg";
 import { useMatch, useNavigate, useParams } from "react-router-dom";
 import { useLayoutEffect, useState } from "react";
 import { useEffect } from "react";
+import { kioskObj } from "../kisok";
+import { kioskObj2 } from "../kisok";
+import { color } from "@mui/system";
 
 const Container = styled(motion.div)`
-    width:100%;
-    height: 100%;
     display:flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 50px;
 `;
 
 const MenuContainer = styled(motion.div)`
@@ -36,15 +29,20 @@ const Payment = styled.div`
     height: 150px;
 `;
 
+const Head = styled.div`
+  display: flex;
+  flex-direction  : column;
+  background-color: #212020;
+  margin-bottom: 20px;
+`;
+
 const Info = styled(motion.div)`
   padding: 10px;
   opacity: 0;
   position: absolute;
   background-color: "#2F2F2F";
-  width: 100%;
   bottom: 0;
   h4 {
-    text-align: center;
     font-size: 18px;
   }
 `;
@@ -52,8 +50,8 @@ const Info = styled(motion.div)`
 const Box = styled(motion.div)<{bgPhoto: string}>`
     background-image: url(${(props)=>props.bgPhoto});
     background-size: cover;
-    height: 160px;
-    width: 160px;
+    height: 60%;
+    width: 60%;
     font-size: 30px;
     cursor: pointer;
     background-position: center center;
@@ -74,21 +72,54 @@ const SmallBox = styled(motion.div)<{bgPhoto: string}>`
 
 const Row = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(2,0.33fr);
-  grid-template-rows: repeat(3,0,5fr);
-  margin-bottom: 5vh;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3,1fr);
+  margin: 0 40px;
+  height: 70vh;
 `;
 
 const Order = styled(motion.div)`
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(6, 1fr);
-  width: 60%;
+  grid-template-columns: repeat(4, 1fr);
+  
+`;
+
+const Ul =styled.ul`
+  display: flex;
+  list-style: none;
+  width: 90%;
+  margin: 0 auto;
+  padding-inline-start: 0px;
+`;
+
+const Li = styled.li`
+  border: 3px solid white;
+  width: 25%;
+  margin: 5px;  
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
 `;
 
 const Selection = styled(motion.div)`
     height: 40vh;
     background-color: black;
+`;
+
+const Button = styled.button`
+    border-radius: 40px;
+    height: 2rem;
+    font-size: 25px;
+    margin: 0px 10px;
+    cursor: pointer;
+`;
+
+const QuantityButton = styled(Button)`
+    height: 1.5rem;
+    font-size: 20px;
+    border-radius: 100px;
 `;
 
 const boxVariant = {
@@ -145,59 +176,6 @@ const rowVariants = {
     },
   };
 
-const image = [Americano, SweetPo, Espresso, Latte,IceTea];
-
-const kioskObj = [
-    {
-        id: "0", 
-        sub:"CGV 요약본입니다.",
-        img: image[0],
-        name: "아메리카노",
-        cost: 3500,
-        selected: false,
-        quantity: 1,
-    },
-    {
-        id: "1", 
-        sub:"Cafe 요약본입니다.",
-        img: image[1],
-        name: "고구마라떼",
-        cost: 4000,
-        selected: false,
-        quantity: 1,
-    },
-    {
-        id: "2", 
-        sub:"식당 예약본입니다.",
-        img: image[2],
-        name: "에스프레소",
-        cost: 3000,
-        selected: false,
-        quantity: 1,
-    },
-    
-    {
-        id: "3", 
-        sub:"식당2 예약본입니다.",
-        img: image[3],
-        name: "카페라떼",
-        cost: 4000,
-        selected: false,
-        quantity: 1,
-    },
-
-    {
-        id: "4", 
-        sub:"식당2 예약본입니다.",
-        img: image[4],
-        name: "아이스티",
-        cost: 3000,
-        selected: false,
-        quantity: 1,
-    },
-    
-];
-
 interface Ikiosk {
     id: string;
     sub: string;
@@ -217,9 +195,10 @@ interface Ikiosk {
 //   opacity: 0;
 // `;
 
-const offset = 6;
+const offset = 4;
 
 function Cafe () {
+    const [menu, setKiosk] = useState<Ikiosk[]>(kioskObj);
     const navigate = useNavigate();
     const modalMatch = useMatch("/Menu/explain/:objId");
     const selectionMatch = useMatch("/Menu/explain/:objId/selection");
@@ -227,59 +206,111 @@ function Cafe () {
     const [leaving, setLeaving] = useState(false);
     const [cost, setCost] = useState(0);
     const [choice, setChoice] = useState<Ikiosk[]>([]);
+    const [focus,setFocus] = useState(0);
     const toggleLeaving = () => setLeaving((prev) => !prev);
-
+    const onBackClick = () => navigate(-1);
     const increaseIndex = (array:Ikiosk[]) => {
-        if (kioskObj){
+        if (array){
             if(leaving) return;
-            console.log(index)
-            toggleLeaving();
+            //toggleLeaving();
             const totalKiosk = array.length - 1;
-            const maxIndex = Math.floor(totalKiosk / offset) - 1;
+            const maxIndex = Math.floor(totalKiosk / offset);
             setIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
+            setFocus(maxIndex);
         }
     };
 
-    const onBoxClicked = (objId : string) => {
+    const onListClicked = (num:Number) => {
+        {num == 1 ? setKiosk(kioskObj) : setKiosk(kioskObj2) }
+    };
+
+    const onBoxClicked = (objId : string, array:Ikiosk) => {
         const boxCopy = choice;
         for(let i = 0; i < choice.length; i++){
             if(boxCopy[i].id === objId){
                 boxCopy[i].quantity++;
                 setChoice([...boxCopy]);
                 const costCopy = cost;
-                setCost(costCopy + kioskObj[Number(objId)].cost);
+                setCost(costCopy + array.cost);
                 return ;
             }
         }
         //navigate(`/Menu/explain/${objId}/selection`);
         const costCopy = cost;
-        setChoice([...boxCopy,kioskObj[Number(objId)]]);
-        console.log(choice);
-        setCost(costCopy + kioskObj[Number(objId)].cost);
+        setChoice([...boxCopy,array]);
+        setCost(costCopy + array.cost);
+    };
+
+    const onPlusClicked = (objId : string, array:Ikiosk) => {
+        const boxCopy = choice;
+        for(let i = 0; i < choice.length; i++){
+            if(boxCopy[i].id === objId){
+                boxCopy[i].quantity++;
+                setChoice([...boxCopy]);
+                const costCopy = cost;
+                setCost(costCopy + array.cost);
+                return ;
+            }
+        }
+    };
+
+    const onMinusClicked = (objId : string, array:Ikiosk) => {
+        const boxCopy = choice;
+        if(array.quantity === 1){
+            return;
+        }
+        for(let i = 0; i < choice.length; i++){
+            if(boxCopy[i].id === objId){
+                boxCopy[i].quantity--;
+                setChoice([...boxCopy]);
+                const costCopy = cost;
+                setCost(costCopy - array.cost);
+                return ;
+            }
+        }
     };
     
 
     useEffect(() => {
         
-    },[choice])
+    },)
 
     return (
         <AnimatePresence initial={false} onExitComplete={toggleLeaving}>    
             <Container>
+                <Head>
+                    <div style={{color:"white", display: "flex" }}>
+                        <div style={{flex:1, display:"flex", justifyContent:"center"}}><button onClick={onBackClick}>Home</button></div>
+                        <div style={{flex:2}}><h2 style={{}}>KT CAFE</h2></div>
+                        <div style={{flex:1}}><h6>version:1.0</h6></div>
+                    </div>
+                    <div>
+                    <Ul>
+                        <Li onClick={() => onListClicked(1)}>
+                         COFFEE   
+                        </Li>
+                        <Li onClick={() => onListClicked(2)}>
+                         DESSERT
+                        </Li>
+                        <Li>
+                            ADE/TEA
+                        </Li>
+                        <Li onClick={() => onListClicked(3)}>
+                            OTHER
+                        </Li>
+                    </Ul>
+                    </div>
+                </Head>
             <Row
             >
-                {kioskObj.map((obj) => 
+                {menu.map((obj) => 
                 <MenuContainer>
                 <Box 
                 bgPhoto={obj.img} 
                 key={obj.id}
                 variants={boxVariant} initial whileHover="hover" 
                 transition={{type:"tween"}}
-                onClick={() => onBoxClicked(obj.id)}>
-                    
-                <Info variants={infoVariants}>
-                    <h4>{obj.sub}</h4>
-                </Info> 
+                onClick={() => onBoxClicked(obj.id, obj)}>
                 </Box>
                 <div>
                     <div style={{fontSize:"23px", fontWeight:"bold"}}>{obj.name}</div>
@@ -288,6 +319,9 @@ function Cafe () {
                 </MenuContainer>
                 )}
             </Row>
+            <div style={{display:"flex", backgroundColor:"#d3d7d6"}}>
+                    <div style={{display:"flex",alignItems:"center"}}>
+            <Button onClick={() => increaseIndex(choice)}>{'<'}</Button>
             <OrderSlider
             variants={rowVariants}
             initial="hidden"
@@ -295,7 +329,7 @@ function Cafe () {
             exit="exit"
             transition={{type: "tween", duration: 1}}
             key="row"
-            >    
+            >
                 <Order key="order" layoutId="row">
                     {choice.slice(offset * index, offset * index + offset).map((choice) => 
                     <MenuContainer>
@@ -306,12 +340,24 @@ function Cafe () {
                     transition={{type:"tween"}}
                 >          
                     </SmallBox>
-                    <div style={{margin: "0 auto", fontSize: "25px", fontWeight:"bold"}}>{choice.quantity}</div>    
+                    <div style={{display:"flex", alignItems:"center"}}>
+                    <QuantityButton onClick={() => onMinusClicked(choice.id,choice)}>-</QuantityButton>
+                    <div style={{margin: "0 auto", fontSize: "25px", fontWeight:"bold"}}>{choice.quantity}</div>
+                    <QuantityButton onClick={() => onPlusClicked(choice.id,choice)}>+</QuantityButton>
+                    </div>    
                     </MenuContainer>)}
                 </Order>
-                <button onClick={() => increaseIndex(choice)}>next</button>
             </OrderSlider>
-            <h1>가격: {cost}</h1>
+            <Button onClick={() => increaseIndex(choice)}>{'>'}</Button>
+            </div>
+            <div style={{display:"flex", fontSize:"20px", alignItems:"center"}}>
+            <div style={{backgroundColor:"white", height:"100%",alignItems:"center"}}><h4>{cost}원</h4></div>
+            
+            <div style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center"}}>
+                <h4>결제하기</h4>
+            </div>
+            </div>
+            </div>
             </Container>
         </AnimatePresence>
     );

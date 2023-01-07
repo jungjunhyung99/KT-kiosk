@@ -1,6 +1,5 @@
 import {AnimatePresence, motion, useScroll, useViewportScroll} from "framer-motion";
 import styled from "styled-components";
-import useQuery from "react-query";
 import Americano from "../image/americano.png"
 import CGV from "../image/CGV.jpg";
 import Ramen from "../image/Ramen.jpg";
@@ -38,27 +37,14 @@ const Overlay = styled(motion.div)`
 
 const BigMovie = styled(motion.div)`
   position: absolute;
-  max-width: 60vw;
-  min-height: 100vh;
+  width: 50vw;
+  max-height: 95vh;
   left: 0;
   right: 0;
   margin: 0 auto;
   background-color: white;
   border: 2px solid white;
-`;
-
-const TakeOut = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  max-width: 60vw;
-  min-height: 100vh;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  background-color: white;
-  border: 2px solid white;
+  overflow: hidden;
 `;
 
 const Box = styled(motion.div)<{bgPhoto: string}>`
@@ -69,6 +55,7 @@ const Box = styled(motion.div)<{bgPhoto: string}>`
     cursor: pointer;
     background-position: center center;
     border: 2px solid;
+    background-color: black;
 `;
 
 const Row = styled(motion.div)`
@@ -240,13 +227,6 @@ function Explain2 () {
                 >
                   <Cafe/>
                 </BigMovie>
-                {/* <TakeOut
-                  style={{ top: scrollY.get() + 100 }}
-                  layoutId={modalMatch.params as any}>
-                    <img src={Takeout} alt="대체"  style={{height:"300px", width:"190px"}} />
-                    <img src={Mug} alt="대체"  style={{height:"250px", width:"190px"}}/>
-                </TakeOut> */}
-                
               </>
             ) : null}
           </AnimatePresence>

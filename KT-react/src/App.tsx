@@ -16,7 +16,7 @@ import Game from './routes/Game';
 import Explain2 from './routes/Explain2';
 import Cafe from './routes/Cafe';
 import Sample from './routes/Sample';
-
+import TakeOut from './routes/TakeOut';
 
 
 
