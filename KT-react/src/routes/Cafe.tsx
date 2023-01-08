@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { kioskObj } from "../kisok";
 import { kioskObj2 } from "../kisok";
 import { color } from "@mui/system";
+import React from "react";
 
 const Container = styled(motion.div)`
     display:flex;
@@ -21,6 +22,7 @@ const MenuContainer = styled(motion.div)`
 
 const OrderSlider = styled(motion.div)`
   display: flex; 
+  width: 27vw;
 `;
 
 const Payment = styled.div`
@@ -273,7 +275,7 @@ function Cafe () {
 
     useEffect(() => {
         
-    },)
+    },[])
 
     return (
         <AnimatePresence initial={false} onExitComplete={toggleLeaving}>    
@@ -321,40 +323,43 @@ function Cafe () {
             </Row>
             <div style={{display:"flex", backgroundColor:"#d3d7d6"}}>
                     <div style={{display:"flex",alignItems:"center"}}>
-            <Button onClick={() => increaseIndex(choice)}>{'<'}</Button>
-            <OrderSlider
-            variants={rowVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            transition={{type: "tween", duration: 1}}
-            key="row"
-            >
-                <Order key="order" layoutId="row">
-                    {choice.slice(offset * index, offset * index + offset).map((choice) => 
-                    <MenuContainer>
-                    <SmallBox
-                    bgPhoto={choice.img} 
-                    key={choice.id}
-                    variants={smboxVariant} initial animate="exit"
-                    transition={{type:"tween"}}
-                >          
-                    </SmallBox>
-                    <div style={{display:"flex", alignItems:"center"}}>
-                    <QuantityButton onClick={() => onMinusClicked(choice.id,choice)}>-</QuantityButton>
-                    <div style={{margin: "0 auto", fontSize: "25px", fontWeight:"bold"}}>{choice.quantity}</div>
-                    <QuantityButton onClick={() => onPlusClicked(choice.id,choice)}>+</QuantityButton>
-                    </div>    
-                    </MenuContainer>)}
-                </Order>
-            </OrderSlider>
-            <Button onClick={() => increaseIndex(choice)}>{'>'}</Button>
-            </div>
+                        <Button onClick={() => increaseIndex(choice)}>{'<'}</Button>
+                            <OrderSlider
+                            variants={rowVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            transition={{type: "tween", duration: 1}}
+                            key="row"
+                            >
+                                <Order key="order" layoutId="row">
+                                    {choice.slice(offset * index, offset * index + offset).map((choice) => 
+                                    <MenuContainer>
+                                    <SmallBox
+                                    bgPhoto={choice.img} 
+                                    key={choice.id}
+                                    variants={smboxVariant} initial animate="exit"
+                                    transition={{type:"tween"}}
+                                >          
+                                    </SmallBox>
+                                    <div style={{display:"flex", alignItems:"center"}}>
+                                    <QuantityButton onClick={() => onMinusClicked(choice.id,choice)}>-</QuantityButton>
+                                    <div style={{margin: "0 auto", fontSize: "25px", fontWeight:"bold"}}>{choice.quantity}</div>
+                                    <QuantityButton onClick={() => onPlusClicked(choice.id,choice)}>+</QuantityButton>
+                                    </div>    
+                                    </MenuContainer>)}
+                                </Order>
+                            </OrderSlider>
+                        <Button onClick={() => increaseIndex(choice)}>{'>'}</Button>
+                        </div>
             <div style={{display:"flex", fontSize:"20px", alignItems:"center"}}>
-            <div style={{backgroundColor:"white", height:"100%",alignItems:"center"}}><h4>{cost}원</h4></div>
+            <div style={{backgroundColor:"white", height:"100%",alignItems:"center", width: "5.5vw"}}><h4>{cost}원</h4></div>
             
-            <div style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center"}}>
+            <div style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "5.5vw", border: "1px solid white", cursor:"pointer"}}>
                 <h4>결제하기</h4>
+            </div>
+            <div style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "6vw", border: "1px solid white", cursor:"pointer"}}>
+                <h4>쿠폰사용</h4>
             </div>
             </div>
             </div>

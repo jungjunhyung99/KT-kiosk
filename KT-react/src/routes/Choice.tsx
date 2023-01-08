@@ -23,11 +23,11 @@ const Tabs = styled.div`
 
 const Tab = styled.span<{ isActive: boolean }>`
   text-align: center;
-  text-transform: uppercase;
   font-size: 20px;
   font-weight: 400;
   padding: 7px 0px;
   border-radius: 10px;
+  width: 10vw;
   border: 2px solid black;
   background-color: ${(props) =>
     props.isActive ? props.theme.accentColor : props.theme.spanColor};

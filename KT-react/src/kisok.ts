@@ -1,4 +1,3 @@
-import useQuery from "react-query";
 import Americano from "./image/americano.png"
 import Espresso from "./image/Espresso.jpg";
 import SweetPo from "./image/SweetPo.jpg";

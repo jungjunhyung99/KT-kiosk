@@ -7,7 +7,7 @@ import ApexChart from "react-apexcharts";
 import Chart from "./Chart";
 
 const Container = styled.div`
-    
+    margin-bottom: 7vh;
 `;
 
 const Header = styled.header`
@@ -57,7 +57,7 @@ const BodyContainer = styled.div`
 `;
 
 const NavBar = styled.nav`
-  flex: 1;
+  flex: 2;
   height: calc(100vh-100px);
   top: 100px;
   position: sticky;
@@ -74,11 +74,12 @@ const NavBar = styled.nav`
 
 const Body = styled.div`
     padding-top: 50px;
+    padding-right: 10vw;
     display: flex;
     justify-content: center;
     flex-direction: row;
     text-align: center;
-    flex: 4;
+    flex: 5;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
@@ -122,7 +123,7 @@ const NavMenu = styled.div`
 `;
 
 const NavTitle = styled.h3`
-    font-size: 1.9rem;
+    font-size: 2rem;
 `;
 
 
@@ -237,11 +238,6 @@ function Menu() {
                             <StyledLink to="/Menu/test">
                                 <NavTitle>
                                     치매 테스트
-                                </NavTitle>
-                            </StyledLink>
-                            <StyledLink to="/Menu/explain">
-                                <NavTitle>
-                                    미완성
                                 </NavTitle>
                             </StyledLink>
                                 <StyledLink to="/Menu/home"><List>식당</List></StyledLink>

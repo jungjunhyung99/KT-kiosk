@@ -17,6 +17,7 @@ import Explain2 from './routes/Explain2';
 import Cafe from './routes/Cafe';
 import Sample from './routes/Sample';
 import TakeOut from './routes/TakeOut';
+import Game2 from './routes/Game2';
 
 
 
@@ -101,7 +102,7 @@ function App() {
             <Route path="/Menu/explain" element={<Explain2/>}>
               <Route path="/Menu/explain/:objId" element={<Menu/>}/>
             </Route>
-            <Route path="/Menu/game" element={<Game/>}/>
+            <Route path="/Menu/game" element={<Game2/>}/>
             <Route path="/Menu/test" element={<Sample/>}/>
             <Route path="/Menu/chart" element={<Chart/>}/>
               <Route path="/Menu/home" element={<Choice/>}>

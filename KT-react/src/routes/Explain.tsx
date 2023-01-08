@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import '../Explain.css';
+import '../css/Explain.css';
 
 function Explain() {
     const Item = styled(Paper)(({ theme }) => ({
