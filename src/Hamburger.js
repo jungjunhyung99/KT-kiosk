@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import './Hamburger.css';
+import './Hamburger.css?after';
 import Button from "@mui/material/Button";
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
