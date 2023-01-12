@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import './Hamburger.css';
+import './Hamburger_single.css';
 import Button from "@mui/material/Button";
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
@@ -42,9 +42,9 @@ function Hamburger_set() {
                     width: 300,
                     height: 600,
                 }}>  
-                <Button>
+                <Button className="a">
                 <Item>
-                    <img src="/img/A세트.png" width={190} height={140}/>
+                    <Item><img src="/img/A세트.png" width={180} height={140}/></Item>
                     <h3>A세트</h3>
                     7,600원~
                 </Item>
@@ -56,9 +56,9 @@ function Hamburger_set() {
                     width: 300,
                     height: 600,
                 }}>
-                <Button>
+                <Button className="b">
                 <Item>
-                    <img src="/img/B세트.png" width={190} height={140}/>
+                    <Item><img src="/img/B세트.png" width={170} height={140}/></Item>
                     <h3>B세트</h3>
                     6,500원~
                 </Item>
@@ -70,9 +70,9 @@ function Hamburger_set() {
                     width: 300,
                     height: 600,
                 }}>
-                <Button>
+                <Button className="c">
                 <Item>    
-                    <img src="/img/C세트.png" width={190} height={140}/>
+                    <Item><img src="/img/C세트.png" width={190} height={140}/></Item>
                     <h3>C세트</h3>
                     10,900원~
                 </Item>
@@ -84,9 +84,9 @@ function Hamburger_set() {
                     width: 300,
                     height: 600,
                 }}>
-                <Button>
+                <Button className="d">
                 <Item>
-                    <img src="/img/D세트.png" width={190} height={140}/>
+                    <Item><img src="/img/D세트.png" width={180} height={140}/></Item>
                     <h3>D세트</h3>
                     6,500원~
                 </Item>
@@ -96,6 +96,10 @@ function Hamburger_set() {
            
          <Button className="cancel" variant="contained">취소</Button>
          <Button className="order" variant="contained">주문하기</Button>
+
+         <body>
+            <hr className="line" color="green"></hr>
+         </body>
         </>
     )
 }

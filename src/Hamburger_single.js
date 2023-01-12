@@ -1,12 +1,12 @@
 import React, { useState} from 'react';
-import './Hamburger.css';
+import './Hamburger_single.css';
 import Button from "@mui/material/Button";
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
-function Hamburger_single() {
+function Hamburger_set() {
     const navigate = useNavigate();
 
     const onClickHamburger_single = () => {
@@ -42,9 +42,9 @@ function Hamburger_single() {
                     width: 300,
                     height: 600,
                 }}>  
-                <Button>
+                <Button className="a">
                 <Item>
-                    <img src="/img/A버거.png" width={190} height={140}/>
+                    <Item><img src="/img/A버거.png" width={180} height={140}/></Item>
                     <h3>A버거</h3>
                     5,400원~
                 </Item>
@@ -56,11 +56,11 @@ function Hamburger_single() {
                     width: 300,
                     height: 600,
                 }}>
-                <Button>
+                <Button className="b">
                 <Item>
-                    <img src="/img/B버거.png" width={190} height={140}/>
+                    <Item><img src="/img/B버거.png" width={170} height={140}/></Item>
                     <h3>B버거</h3>
-                    4,500원~
+                    4,900원~
                 </Item>
                 </Button>
             </Box>
@@ -70,9 +70,9 @@ function Hamburger_single() {
                     width: 300,
                     height: 600,
                 }}>
-                <Button>
+                <Button className="c">
                 <Item>    
-                    <img src="/img/C버거.png" width={190} height={140}/>
+                    <Item><img src="/img/C버거.png" width={190} height={140}/></Item>
                     <h3>C버거</h3>
                     8,900원~
                 </Item>
@@ -84,9 +84,9 @@ function Hamburger_single() {
                     width: 300,
                     height: 600,
                 }}>
-                <Button>
+                <Button className="d">
                 <Item>
-                    <img src="/img/D버거.png" width={190} height={140}/>
+                    <Item><img src="/img/D버거.png" width={180} height={140}/></Item>
                     <h3>D버거</h3>
                     4,000원~
                 </Item>
@@ -96,8 +96,12 @@ function Hamburger_single() {
            
          <Button className="cancel" variant="contained">취소</Button>
          <Button className="order" variant="contained">주문하기</Button>
+
+         <body>
+            <hr className="line" color="green"></hr>
+         </body>
         </>
     )
 }
 
-export default Hamburger_single;
+export default Hamburger_set;

@@ -27,7 +27,7 @@
 
 .second {
     position:relative;
-    left: 900px;
+    left: 700px;
     top:-605px;
 }
 
@@ -39,7 +39,7 @@
 
 .fourth {
     position: relative;
-    left: 900px;
+    left: 700px;
     top:-1520px;
 }
 
@@ -54,9 +54,36 @@
 
 .order {
     position: relative;
-    left: 740px;
-    top:-1900px;
+    left: -10px;
+    top:-1850px;
     width:750px;
     height:50px;
     background-color:red !important;
+}
+
+.a {
+    position:relative;
+    left:-70px;
+}
+
+.b {
+    position:relative;
+    left: -200px;
+}
+
+.c {
+    position: relative;
+    left: 550px;
+    top:-320px;
+}
+
+.d {
+    position: relative;
+    top: -315px;
+    left: 400px;
+}
+
+.line {
+    position: relative;
+    top: -2190px;
 }

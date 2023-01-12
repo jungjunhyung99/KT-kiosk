@@ -9,6 +9,7 @@ import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 
 function Icecream() { 
+
     const navigate = useNavigate();
 
     const onClickIcecream_name = () => {
@@ -206,8 +207,8 @@ function Icecream() {
                 
          <Button className="cancel" variant="contained">취소</Button>
          <Button className="order" variant="contained">주문하기</Button>
+         
          <div>
-           <Button onClick={handleOpen}>장바구니</Button>
            <Modal
            open={open}
            onClose={handleClose}
@@ -224,6 +225,7 @@ function Icecream() {
           </Box>
         </Modal>
       </div>
+
         </>
     )
 }

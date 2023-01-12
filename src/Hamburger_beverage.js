@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
-function Hamburger_beverage() {
+function Hamburger_set() {
     const navigate = useNavigate();
 
     const onClickHamburger_single = () => {
@@ -42,9 +42,9 @@ function Hamburger_beverage() {
                     width: 300,
                     height: 600,
                 }}>  
-                <Button>
+                <Button className="a">
                 <Item>
-                    <img src="/img/A음료.png" width={190} height={140}/>
+                    <Item><img src="/img/A음료.png" width={170} height={140}/></Item>
                     <h3>A음료</h3>
                     2,700원~
                 </Item>
@@ -56,9 +56,9 @@ function Hamburger_beverage() {
                     width: 300,
                     height: 600,
                 }}>
-                <Button>
+                <Button className="b">
                 <Item>
-                    <img src="/img/B음료.png" width={190} height={140}/>
+                    <Item><img src="/img/B음료.png" width={130} height={140}/></Item>
                     <h3>B음료</h3>
                     2,500원~
                 </Item>
@@ -70,9 +70,9 @@ function Hamburger_beverage() {
                     width: 300,
                     height: 600,
                 }}>
-                <Button>
+                <Button className="c">
                 <Item>    
-                    <img src="/img/C음료.png" width={190} height={140}/>
+                    <Item><img src="/img/C음료.png" width={110} height={140}/></Item>
                     <h3>C음료</h3>
                     2,300원~
                 </Item>
@@ -84,9 +84,9 @@ function Hamburger_beverage() {
                     width: 300,
                     height: 600,
                 }}>
-                <Button>
+                <Button className="d">
                 <Item>
-                    <img src="/img/D음료.png" width={190} height={140}/>
+                    <Item><img src="/img/D음료.png" width={110} height={140}/></Item>
                     <h3>D음료</h3>
                     2,500원~
                 </Item>
@@ -96,8 +96,12 @@ function Hamburger_beverage() {
            
          <Button className="cancel" variant="contained">취소</Button>
          <Button className="order" variant="contained">주문하기</Button>
+
+         <body>
+            <hr className="line" color="green"></hr>
+         </body>
         </>
     )
 }
 
-export default Hamburger_beverage;
+export default Hamburger_set;
