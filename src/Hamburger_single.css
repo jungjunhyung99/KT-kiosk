@@ -135,3 +135,10 @@
     width: 20px;
     top:360px;
 }
+
+.care {
+    position: absolute;
+    top: -50px;
+    left: 320px;
+    font-size: 25px;
+}

@@ -35,7 +35,6 @@ function Hamburger_single() {
     const [minus_count2, setMinusCount2] = useState(0);
     const [minus_count3, setMinusCount3] = useState(0);
     const [minus_count4, setMinusCount4] = useState(0);
-    const [total_price, setTotal] = useState(0);
 
     // onIcrease가 btn_first_click (증가)
     const btn_first_click = () => {
@@ -87,9 +86,7 @@ function Hamburger_single() {
     }
 
     const Minus_Count = () => {    
-        // a < 0 이면 Minus_Count를 안 한다
-        if ( setMinusCount(minus_count - 1) < 0 )
-        return 0;
+        setMinusCount(minus_count - 1);
     }
 
     const Minus_Count2 = () => {
@@ -137,6 +134,7 @@ function Hamburger_single() {
             <hr></hr>
 
             <Box className="Box1" display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
+                <div className="care">주의 : 수량이 0보다 크도록 선택하세요. 아니면 주문에 실패합니다.</div>
                 <Box className="first" gridColumn="span 8"
                     sx={{
                         width: 300,
@@ -210,13 +208,13 @@ function Hamburger_single() {
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     <div>A버거 : 5,400원 * {count+(minus_count)}개 = "{5400*(count+(minus_count))}"원</div>
-                    <div>B버거 : 4,900원 * {count2+(minus_count2)}개 = "{4900*(count+(minus_count2))}"원</div>
-                    <div>C버거 : 8,900원 * {count3+(minus_count3)}개 = "{8900*(count+(minus_count3))}"원</div>
-                    <div>D버거 : 4,000원 * {count4+(minus_count4)}개 = "{4000*(count+(minus_count4))}"원</div> <br />
+                    <div>B버거 : 4,900원 * {count2+(minus_count2)}개 = "{4900*(count2+(minus_count2))}"원</div>
+                    <div>C버거 : 8,900원 * {count3+(minus_count3)}개 = "{8900*(count3+(minus_count3))}"원</div>
+                    <div>D버거 : 4,000원 * {count4+(minus_count4)}개 = "{4000*(count4+(minus_count4))}"원</div> <br />
                     <div>총 금액 : {(5400*(count+(minus_count))
-                      +(4900*(count+(minus_count2)))
-                      +(8900*(count+(minus_count3)))
-                      +(4000*(count+(minus_count4))))}원</div>
+                      +(4900*(count2+(minus_count2)))
+                      +(8900*(count3+(minus_count3)))
+                      +(4000*(count4+(minus_count4))))}원</div>
                 </Typography>
                 </Box>
             </Modal>
