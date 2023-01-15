@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import './Hamburger_single.css?after';
+import './Hamburger_single.css';
 import Button from "@mui/material/Button";
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
@@ -128,101 +128,90 @@ function Hamburger_single() {
 
     return (
         <>
-            <Button className="one" onClick={onClickHamburger_single}>단품</Button>
-            <Button className="set" onClick={onClickHamburger_set}>세트</Button>
-            <Button className="beverage" onClick={onClickHamburger_beverage}>음료</Button>
+            <Box className= "one_set_beverage">
+                <Button className="one" onClick={onClickHamburger_single}>단품</Button>
+                <Button className="set" onClick={onClickHamburger_set}>세트</Button>
+                <Button className="beverage" onClick={onClickHamburger_beverage}>음료</Button>
+            </Box>
             <hr></hr>
-
-            <Box className="Box1" display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
-                <div className="care">주의 : 수량이 0보다 크도록 선택하세요. 아니면 주문에 실패합니다.</div>
-                <Box className="first" gridColumn="span 8"
-                    sx={{
-                        width: 300,
-                        height: 600,
-                    }}>  
-                    <Button onClick={() => {btn_first_click(); Count()}}>
+            <div className="care">주의 : 수량이 0보다 크도록 선택하세요. 아니면 주문에 실패합니다.</div>
+            <Box className="First">
+                <Button className="first" onClick={() => {btn_first_click(); Count()}}>
                     <Item>
                         <img src="/img/A버거.png" width={190} height={140}/>
                         <h3>A버거</h3>
                         <div className="first_price">5,400원</div>
                     </Item>
-                    </Button>
-                </Box>
-
-                <Box className="second" gridColumn="span 8"
-                    sx={{
-                        width: 300,
-                        height: 600,
-                    }}>
-                    <Button onClick={() => {btn_second_click(); Count2()}}>
+                </Button>    
+            </Box>
+            <Box className="Second">
+                <Button className="second" onClick={() => {btn_second_click(); Count2()}}>
                     <Item>
                         <img src="/img/B버거.png" width={190} height={140}/>
                         <h3>B버거</h3>
                         4,900원
                     </Item>
-                    </Button>
-                </Box>
-
-                <Box className="third" gridColumn="span 8"
-                    sx={{
-                        width: 300,
-                        height: 600,
-                    }}>
-                    <Button onClick={() => {btn_third_click(); Count3()}}>
+                </Button>
+            </Box>
+            <Box className="Third">
+                <Button className="third" onClick={() => {btn_third_click(); Count3()}}>
                     <Item>    
                         <img src="/img/C버거.png" width={190} height={140}/>
                         <h3>C버거</h3>
                         8,900원
                     </Item>
-                    </Button>
-                </Box>
-
-                <Box className="fourth" gridColumn="span 8"
-                    sx={{
-                        width: 300,
-                        height: 600,
-                    }}>
-                    <Button onClick={() => {btn_fourth_click(); Count4()}}>
+                </Button>
+            </Box>
+            <Box className="Fourth">
+                   <Button className="fourth" onClick={() => {btn_fourth_click(); Count4()}}>
                     <Item>
                         <img src="/img/D버거.png" width={190} height={140}/>
                         <h3>D버거</h3>
                         4,000원
                     </Item>
-                    </Button>
-                </Box>
+                </Button>
+            </Box>
+            <Box className="minus">
+                <Button className="first_minus" variant="contained" color="success" onClick={() => {btn_first_minus_click(); Minus_Count();}}>-</Button>
+            </Box>
+            <Box className="minus2"> 
+                <Button className="second_minus" variant="contained" color="success" onClick={() => {btn_second_minus_click(); Minus_Count2();}}>-</Button>
+            </Box>   
+            <Box className="minus3">
+                <Button className="third_minus" variant="contained" color="success" onClick={() => {btn_third_minus_click(); Minus_Count3();}}>-</Button>
+            </Box>
+            <Box className="minus4">
+                <Button className="fourth_minus" variant="contained" color="success" onClick={() => {btn_fourth_minus_click(); Minus_Count4();}}>-</Button>
+            </Box>
+            <Box className="cnt">
                 <div className="first_cnt">{number}</div>
                 <div className="second_cnt">{number2}</div>
                 <div className="third_cnt">{number3}</div>
                 <div className="fourth_cnt">{number4}</div>
-         </Box>
- 
-         <Button className="order" variant="contained" onClick={handleOpen}>주문하기</Button>
-            <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description">
-                <Box sx={style}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                    내역
-                </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    <div>A버거 : 5,400원 * {count+(minus_count)}개 = "{5400*(count+(minus_count))}"원</div>
-                    <div>B버거 : 4,900원 * {count2+(minus_count2)}개 = "{4900*(count2+(minus_count2))}"원</div>
-                    <div>C버거 : 8,900원 * {count3+(minus_count3)}개 = "{8900*(count3+(minus_count3))}"원</div>
-                    <div>D버거 : 4,000원 * {count4+(minus_count4)}개 = "{4000*(count4+(minus_count4))}"원</div> <br />
-                    <div>총 금액 : {(5400*(count+(minus_count))
-                      +(4900*(count2+(minus_count2)))
-                      +(8900*(count3+(minus_count3)))
-                      +(4000*(count4+(minus_count4))))}원</div>
-                </Typography>
-                </Box>
-            </Modal>
+             </Box>
 
-             <Button className="first_minus" variant="contained" color="success" onClick={() => {btn_first_minus_click(); Minus_Count();}}>-</Button>
-             <Button className="second_minus" variant="contained" color="success" onClick={() => {btn_second_minus_click(); Minus_Count2();}}>-</Button>
-             <Button className="third_minus" variant="contained" color="success" onClick={() => {btn_third_minus_click(); Minus_Count3();}}>-</Button>
-             <Button className="fourth_minus" variant="contained" color="success" onClick={() => {btn_fourth_minus_click(); Minus_Count4();}}>-</Button>
+            <Button className="order" variant="contained" onClick={handleOpen}>주문하기</Button>
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description">
+                        <Box sx={style}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                            내역
+                        </Typography>
+                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                            <div>A버거 : 5,400원 * {count+(minus_count)}개 = "{5400*(count+(minus_count))}"원</div>
+                            <div>B버거 : 4,900원 * {count2+(minus_count2)}개 = "{4900*(count2+(minus_count2))}"원</div>
+                            <div>C버거 : 8,900원 * {count3+(minus_count3)}개 = "{8900*(count3+(minus_count3))}"원</div>
+                            <div>D버거 : 4,000원 * {count4+(minus_count4)}개 = "{4000*(count4+(minus_count4))}"원</div> <br />
+                            <div>총 금액 : {(5400*(count+(minus_count))
+                            +(4900*(count2+(minus_count2)))
+                            +(8900*(count3+(minus_count3)))
+                            +(4000*(count4+(minus_count4))))}원</div>
+                        </Typography>
+                        </Box>
+                </Modal>
         </>
     )
 }

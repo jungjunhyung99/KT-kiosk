@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import './Icecream_cone.css';
+import './Icecream_cone.css?after';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
@@ -8,10 +8,6 @@ import Box from '@mui/material/Box';
 
 function Icecream_cone() { 
     const navigate = useNavigate();
-
-    const onClickIcecream_name = () => {
-        navigate('/Icecream_name');
-    }
 
     const onClickIcecream_cone = () => {
         navigate('/Icecream_cone');
@@ -39,17 +35,17 @@ function Icecream_cone() {
 
     return (
         <>
-             <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
-            <Box className="title" gridColumn="span 8"
-                sx={{
-                    left: -7,
-                    width: 1480,
-                    height: 50,
-                    top:-10,
-                }}>  
-                <Button className="name" onClick={onClickIcecream_name}>Icecream</Button>
+            <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
+                <Box className="title" gridColumn="span 8"
+                    sx={{
+                        left: -7,
+                        width: 1480,
+                        height: 50,
+                        top:-10,
+                    }}>  
+                    <div className="name">Icecream</div>
                 </Box>
-                </Box>
+            </Box>
 
             <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
             <Box className="menu" gridColumn="span 8"
