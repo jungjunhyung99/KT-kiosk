@@ -17,12 +17,6 @@
     display: flex;
     background-color:burlywood;
     justify-content: space-between;
-<<<<<<< HEAD
-    width: 1457px;
-=======
-    width: 1506px;
->>>>>>> 577f5f9f6b5846396b142489d0d0719d2b8d2e75
-    height: 50px;
 }
 
 .kind {
@@ -63,20 +57,10 @@
 
 .first {
     display: flex;
-<<<<<<< HEAD
-    margin-top: -650px;
-=======
-    margin-top: -450px;
->>>>>>> 577f5f9f6b5846396b142489d0d0719d2b8d2e75
 }
 
 .second{
     display: flex;
-<<<<<<< HEAD
-    margin-top: 550px;
-    margin-left: -850px;
-=======
->>>>>>> 577f5f9f6b5846396b142489d0d0719d2b8d2e75
 }
 
 .third{
@@ -89,13 +73,6 @@
 
 .fifth {
     display: flex;
-<<<<<<< HEAD
-    margin-top: 50px;
-    margin-left: -530px;
-=======
-    margin-top: 250px;
-    margin-left: -752px;
->>>>>>> 577f5f9f6b5846396b142489d0d0719d2b8d2e75
 }
 
 .sixth {
