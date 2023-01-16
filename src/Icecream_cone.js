@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import './Icecream_cone.css?after';
+import './Icecream_cone.css';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
@@ -35,44 +35,19 @@ function Icecream_cone() {
 
     return (
         <>
-            <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
-                <Box className="title" gridColumn="span 8"
-                    sx={{
-                        left: -7,
-                        width: 1480,
-                        height: 50,
-                        top:-10,
-                    }}>  
-                    <div className="name">Icecream</div>
-                </Box>
+            <Box className="title">
+                <div className="name">Icecream</div>
             </Box>
 
-            <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
-            <Box className="menu" gridColumn="span 8"
-                sx={{
-                    left: -7,
-                    width: 1480,
-                    height: 50,
-                    top:-10,
-                }}>  
-                <Button>
-                    <Button className="cone" onClick={onClickIcecream_cone}>콘</Button>
-                    <div class="v-line1"></div>
-                    <Button className="bar" onClick={onClickIcecream_bar}>바</Button>
-                    <div class="v-line2"></div>
-                    <Button className="cup" onClick={onClickIcecream_cup}>컵</Button>
-                    <div class="v-line3"></div>
-                    <Button className="pencil" onClick={onClickIcecream_pencil}>펜슬</Button>
-                 </Button>
-            </Box>
+            <Box className="menu">
+                <Button className="cone" onClick={onClickIcecream_cone}>콘</Button>
+                <Button className="bar" onClick={onClickIcecream_bar}>바</Button>
+                <Button className="cup" onClick={onClickIcecream_cup}>컵</Button>
+                <Button className="pencil" onClick={onClickIcecream_pencil}>펜슬</Button>
             </Box>
 
             <Box className="kind" display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
-            <Box className="first" gridColumn="span 8"
-                sx={{
-                    width: 100,
-                    height: 500,
-                }}>  
+            <Box className="first">
                 <Button>
                 <Item>
                     <img src="/img/돼지콘.png" width={190} height={140}/>
@@ -82,11 +57,7 @@ function Icecream_cone() {
                 </Button>
             </Box>
 
-            <Box className="second" gridColumn="span 8"
-                sx={{
-                    width: 300,
-                    height: 600,
-                }}>
+            <Box className="second">
                 <Button>
                 <Item>
                     <img src="/img/요맘때.png" width={190} height={140}/>
@@ -96,11 +67,7 @@ function Icecream_cone() {
                 </Button>
             </Box>
 
-            <Box className="third" gridColumn="span 8"
-                sx={{
-                    width: 300,
-                    height: 600,
-                }}>
+            <Box className="third">
                 <Button>
                 <Item>    
                     <img src="/img/월드콘.png" width={190} height={140}/>
@@ -110,11 +77,7 @@ function Icecream_cone() {
                 </Button>
             </Box>
 
-            <Box className="fourth" gridColumn="span 8"
-                sx={{
-                    width: 300,
-                    height: 600,
-                }}>
+            <Box className="fourth">
                 <Button>
                 <Item>
                     <img src="/img/부라보.png" width={190} height={140}/>
@@ -124,11 +87,7 @@ function Icecream_cone() {
                 </Button>
             </Box>
 
-            <Box className="fifth" gridColumn="span 8"
-                sx={{
-                    width: 1500,
-                    height: 500,
-                }}>  
+            <Box className="fifth">
                 <Button>
                 <Item>
                     <img src="/img/구구콘.png" width={190} height={140}/>
@@ -138,11 +97,7 @@ function Icecream_cone() {
                 </Button>
             </Box>
 
-            <Box className="sixth" gridColumn="span 8"
-                sx={{
-                    width: 1500,
-                    height: 500,
-                }}>  
+            <Box className="sixth">
                 <Button>
                 <Item>
                     <img src="/img/슈팅스타.png" width={190} height={140}/>
@@ -152,11 +107,7 @@ function Icecream_cone() {
                 </Button>
             </Box>
 
-            <Box className="seventh" gridColumn="span 8"
-                sx={{
-                    width: 1500,
-                    height: 500,
-                }}>  
+            <Box className="seventh">
                 <Button>
                 <Item>
                     <img src="/img/메타.png" width={190} height={140}/>
@@ -166,11 +117,7 @@ function Icecream_cone() {
                 </Button>
             </Box>
 
-            <Box className="eightth" gridColumn="span 8"
-                sx={{
-                    width: 1500,
-                    height: 500,
-                }}>  
+            <Box className="eightth">
                 <Button>
                 <Item>
                     <img src="/img/슈퍼콘.png" width={190} height={140}/>
@@ -182,7 +129,6 @@ function Icecream_cone() {
 
          </Box>
                 
-         <Button className="cancel" variant="contained">취소</Button>
          <Button className="order" variant="contained">주문하기</Button>
          
            
