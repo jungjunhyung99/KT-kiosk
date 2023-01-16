@@ -2,6 +2,7 @@
     display: flex;
     background-color:brown;
     height: 50px;
+    margin-top: -10px;
 }
 
 .name{
@@ -17,13 +18,14 @@
     display: flex;
     background-color:burlywood;
     justify-content: space-between;
+    height: 50px;
 }
 
 .kind {
     display: flex;
     background-color:antiquewhite;
     height: 600px;
-    width: 1506px;
+    width: 1457px;
 }
 
 .cone{
@@ -53,36 +55,65 @@
 
 .order {
     display: flex;
+    width:1460px;
+    height:50px;
+    background-color:red !important;
+    font-size:30px;
+    margin-top: 300px;
 }
 
-.first {
+.First {
     display: flex;
+    height: 250px;
+    margin-top: -40px;
+    margin-left: -30px;
 }
 
-.second{
+.Second{
     display: flex;
+    height: 250px;
+    margin-top: 570px;
+    margin-left: -820px;
 }
 
-.third{
+.Third{
     display: flex;
+    height: 250px;
+    margin-top: 730px;
+    margin-left: 1000px;
 }  
 
-.fourth{
+.Fourth{
     display: flex;
+    height: 250px;
+    margin-top: 1340px;
+    margin-left: -800px;
 }
 
-.fifth {
+.Fifth {
     display: flex;
+    height: 250px;
+    margin-left: -70px;
+    margin-top: 320px;
 }
 
-.sixth {
+.Sixth {
     display: flex;
+    height: 250px;
+    margin-left: 82px;
+    margin-top: 320px;
 }
 
-.seventh {
+.Seventh {
     display: flex;
+    height: 250px;
+    margin-left: 100px;
+    margin-top: 320px;
 }
 
-.eightth {
+.Eightth {
     display: flex;
+    height: 250px;
+    margin-left: 100px;
+    margin-top: 320px;
 }

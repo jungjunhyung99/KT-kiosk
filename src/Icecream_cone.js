@@ -46,88 +46,87 @@ function Icecream_cone() {
                 <Button className="pencil" onClick={onClickIcecream_pencil}>펜슬</Button>
             </Box>
 
-            <Box className="kind" display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
-            <Box className="first">
-                <Button>
-                <Item>
-                    <img src="/img/돼지콘.png" width={190} height={140}/>
-                    <h3>돼지콘</h3>
-                    1,300원
-                </Item>
-                </Button>
-            </Box>
+            <Box className="kind">
+                <Box className="First">
+                    <Button className="first">
+                        <Item>
+                            <img src="/img/돼지콘.png" width={190} height={140}/>
+                            <h3>돼지콘</h3>
+                            1,300원
+                        </Item>
+                    </Button>
+                </Box>
 
-            <Box className="second">
-                <Button>
-                <Item>
-                    <img src="/img/요맘때.png" width={190} height={140}/>
-                    <h3>요맘때</h3>
-                    1,500원
-                </Item>
-                </Button>
-            </Box>
+                <Box className="Second">
+                    <Button className="second">
+                        <Item>
+                            <img src="/img/요맘때.png" width={190} height={140}/>
+                            <h3>요맘때</h3>
+                            1,500원
+                        </Item>
+                    </Button>
+                </Box>
 
-            <Box className="third">
-                <Button>
-                <Item>    
-                    <img src="/img/월드콘.png" width={190} height={140}/>
-                    <h3>월드콘</h3>
-                    1,500원
-                </Item>
-                </Button>
-            </Box>
+                <Box className="Third">
+                    <Button className="third">
+                        <Item>    
+                            <img src="/img/월드콘.png" width={190} height={140}/>
+                            <h3>월드콘</h3>
+                            1,500원
+                        </Item>
+                    </Button>
+                </Box>
 
-            <Box className="fourth">
-                <Button>
-                <Item>
-                    <img src="/img/부라보.png" width={190} height={140}/>
-                    <h3>부라보</h3>
-                    1,200원
-                </Item>
-                </Button>
-            </Box>
+                <Box className="Fourth">
+                    <Button className="fourth">
+                        <Item>
+                            <img src="/img/부라보.png" width={190} height={140}/>
+                            <h3>부라보</h3>
+                            1,200원
+                        </Item>
+                    </Button>
+                </Box>
 
-            <Box className="fifth">
-                <Button>
-                <Item>
-                    <img src="/img/구구콘.png" width={190} height={140}/>
-                    <h3>구구콘</h3>
-                    1,600원
-                </Item>
-                </Button>
-            </Box>
+                <Box className="Fifth">
+                    <Button className="fifth">
+                        <Item>
+                            <img src="/img/구구콘.png" width={190} height={140}/>
+                            <h3>구구콘</h3>
+                            1,600원
+                        </Item>
+                    </Button>
+                </Box>
 
-            <Box className="sixth">
-                <Button>
-                <Item>
-                    <img src="/img/슈팅스타.png" width={190} height={140}/>
-                    <h3>슈팅스타</h3>
-                    2,000원
-                </Item>
-                </Button>
-            </Box>
+                <Box className="Sixth">
+                    <Button className="sixth">
+                        <Item>
+                            <img src="/img/슈팅스타.png" width={190} height={140}/>
+                            <h3>슈팅스타</h3>
+                            2,000원
+                        </Item>
+                    </Button>
+                </Box>
 
-            <Box className="seventh">
-                <Button>
-                <Item>
-                    <img src="/img/메타.png" width={190} height={140}/>
-                    <h3>메타</h3>
-                    1,800원
-                </Item>
-                </Button>
-            </Box>
+                <Box className="Seventh">
+                    <Button className="seventh">
+                        <Item>
+                            <img src="/img/메타.png" width={190} height={140}/>
+                            <h3>메타</h3>
+                            1,800원
+                        </Item>
+                    </Button>
+                </Box>
 
-            <Box className="eightth">
-                <Button>
-                <Item>
-                    <img src="/img/슈퍼콘.png" width={190} height={140}/>
-                    <h3>슈퍼콘</h3>
-                    1,500원
-                </Item>
-                </Button>
+                <Box className="Eightth">
+                    <Button className="eightth">
+                        <Item>
+                            <img src="/img/슈퍼콘.png" width={190} height={140}/>
+                            <h3>슈퍼콘</h3>
+                            1,500원
+                        </Item>
+                    </Button>
+                </Box>
             </Box>
-
-         </Box>
                 
          <Button className="order" variant="contained">주문하기</Button>
         </>

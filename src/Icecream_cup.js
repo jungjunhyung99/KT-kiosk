@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper';
 import Button from "@mui/material/Button";
 import Box from '@mui/material/Box';
 
-function Icecream_cone() { 
+function Icecream_cup() { 
     const navigate = useNavigate();
 
     const onClickIcecream_name = () => {
@@ -194,4 +194,4 @@ function Icecream_cone() {
     )
 }
 
-export default Icecream_cone;
+export default Icecream_cup;
