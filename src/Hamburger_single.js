@@ -124,7 +124,7 @@ function Hamburger_single() {
         padding: theme.spacing(1),
         textAlign: 'center',
         color: theme.palette.text.secondary,
-              }));   
+              }));  
 
     return (
         <>
@@ -181,6 +181,18 @@ function Hamburger_single() {
                 <Button className="third_minus" variant="contained" color="success" onClick={() => {btn_third_minus_click(); Minus_Count3();}}>-</Button>
             </Box>
             <Box className="minus4">
+                <Button className="fourth_minus" variant="contained" color="success" onClick={() => {btn_fourth_minus_click(); Minus_Count4();}}>-</Button>
+            </Box>
+            <Box className="minus5">
+                <Button className="first_minus" variant="contained" color="success" onClick={() => {btn_first_minus_click(); Minus_Count();}}>-</Button>
+            </Box>
+            <Box className="minus6"> 
+                <Button className="second_minus" variant="contained" color="success" onClick={() => {btn_second_minus_click(); Minus_Count2();}}>-</Button>
+            </Box>   
+            <Box className="minus7">
+                <Button className="third_minus" variant="contained" color="success" onClick={() => {btn_third_minus_click(); Minus_Count3();}}>-</Button>
+            </Box>
+            <Box className="minus8">
                 <Button className="fourth_minus" variant="contained" color="success" onClick={() => {btn_fourth_minus_click(); Minus_Count4();}}>-</Button>
             </Box>
             <Box className="cnt">
