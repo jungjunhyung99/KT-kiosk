@@ -8,7 +8,7 @@ import Paper from '@mui/material/Paper';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 
-function Hamburger_single() {
+function Hamburger_beverage() {
     const navigate = useNavigate();
 
     const onClickHamburger_single = () => {
@@ -216,4 +216,4 @@ function Hamburger_single() {
     )
 }
 
-export default Hamburger_single;
+export default Hamburger_beverage;

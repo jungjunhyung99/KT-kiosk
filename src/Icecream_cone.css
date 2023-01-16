@@ -1,280 +1,95 @@
+.title {
+    display: flex;
+    background-color:brown;
+    height: 50px;
+}
+
 .name{
-    position:relative;
-    left: 700px;
+    display: flex;
     color: white !important;
     font-style:italic;
-    font-size:20px;
-    top: 3px;
+    font-size:25px;
+    margin-left: 700px;
+    margin-top: 5px;
+}
+
+.menu{
+    display: flex;
+    background-color:burlywood;
+    justify-content: space-between;
+    width: 1457px;
+    height: 50px;
+}
+
+.kind {
+    display: flex;
+    background-color:antiquewhite;
+    height: 600px;
+    width: 1506px;
 }
 
 .cone{
-    position:relative;
-    left: 140px;
+    display: flex;
     text-decoration: none;
     color:black !important;
 }
 
-.bar{
-    position:relative;
-    left: 470px;
+.bar{   
+    display: flex;
     text-decoration: none;
     color:black !important;
 }   
 
 .cup{
-    position:relative;
-    left: 770px;
+    display: flex;
     text-decoration: none;
     color:black !important;
 }
 
 .pencil{
-    position:relative;
-    left: 1080px;
+    display: flex;
     text-decoration: none;
     color:black !important;
-}
-
-.v-line1{
-    position: absolute;
-    border-left: thick solid #000;
-    height:100%;
-    border-width:1px;
-    left: 140%;
-}
-
-.v-line2{
-    position: absolute;
-    border-left: thick solid #000;
-    height:100%;
-    border-width:1px;
-    left: 275%;
-}
-
-.v-line3{
-    position: absolute;
-    border-left: thick solid #000;
-    height:100%;
-    border-width:1px;
-    left: 410%;
-}
-
-.title {
-    position:relative;
-    background-color:brown;
-}
-
-.menu{
-    position:relative;
-    background-color:burlywood;
-}
-
-.kind {
-    position: relative;
-    background-color:antiquewhite;
-    top: -10px;
-    height: 600px;
-    width: 1480px;
-    left: -5px;
-}
-
-.cancel {
-    position: relative;
-    left: -10px;
-    top: -20px;
-    width:750px;
-    height:50px;
-    background-color:darkslategrey !important;
+    margin-left: 200px;
 }
 
 .order {
-    position:relative;
-    top:-70px;
+    display: flex;
 }
 
 .first {
-    position: relative;
-    left:150px;
+    display: flex;
+    margin-top: -650px;
 }
 
 .second{
-    position: relative;
-    left:470px;
-    top:-500px;
+    display: flex;
+    margin-top: 550px;
+    margin-left: -850px;
 }
 
 .third{
-    position: relative;
-    left:810px;
-    top: -1116px;
+    display: flex;
 }  
 
 .fourth{
-    position: relative;
-    top:-1730px;
-    left: 1120px;
+    display: flex;
 }
 
 .fifth {
-    position: relative;
-    top:-2060px;
-    left: 150px;
+    display: flex;
+    margin-top: 50px;
+    margin-left: -530px;
 }
 
 .sixth {
-    position: relative;
-    top: -2575px;
-    left: 470px;
+    display: flex;
 }
 
 .seventh {
-    position: relative;
-    top: -3093px;
-    left: 815px;
+    display: flex;
 }
 
 .eightth {
-    position: relative;
-    top: -3609px;
-    left: 1125px;
-}
-.name{
-    position:relative;
-    left: 700px;
-    color: white !important;
-    font-style:italic;
-    font-size:20px;
-    top: 3px;
-}
-
-.cone{
-    position:relative;
-    left: 140px;
-    text-decoration: none;
-    color:black !important;
-}
-
-.bar{
-    position:relative;
-    left: 470px;
-    text-decoration: none;
-    color:black !important;
-}   
-
-.cup{
-    position:relative;
-    left: 770px;
-    text-decoration: none;
-    color:black !important;
-}
-
-.pencil{
-    position:relative;
-    left: 1080px;
-    text-decoration: none;
-    color:black !important;
-}
-
-.v-line1{
-    position: absolute;
-    border-left: thick solid #000;
-    height:100%;
-    border-width:1px;
-    left: 140%;
-}
-
-.v-line2{
-    position: absolute;
-    border-left: thick solid #000;
-    height:100%;
-    border-width:1px;
-    left: 275%;
-}
-
-.v-line3{
-    position: absolute;
-    border-left: thick solid #000;
-    height:100%;
-    border-width:1px;
-    left: 410%;
-}
-
-.title {
-    position:relative;
-    background-color:brown;
-}
-
-.menu{
-    position:relative;
-    background-color:burlywood;
-}
-
-.kind {
-    position: relative;
-    background-color:antiquewhite;
-    top: -10px;
-    height: 600px;
-    width: 1480px;
-    left: -5px;
-}
-
-.cancel {
-    position: relative;
-    left: -10px;
-    top: -20px;
-    width:750px;
-    height:50px;
-    background-color:darkslategrey !important;
-}
-
-.order {
-    position:relative;
-    top:-70px;
-}
-
-.first {
-    position: relative;
-    left:150px;
-}
-
-.second{
-    position: relative;
-    left:470px;
-    top:-500px;
-}
-
-.third{
-    position: relative;
-    left:810px;
-    top: -1116px;
-}  
-
-.fourth{
-    position: relative;
-    top:-1730px;
-    left: 1120px;
-}
-
-.fifth {
-    position: relative;
-    top:-2060px;
-    left: 150px;
-}
-
-.sixth {
-    position: relative;
-    top: -2575px;
-    left: 470px;
-}
-
-.seventh {
-    position: relative;
-    top: -3093px;
-    left: 815px;
-}
-
-.eightth {
-    position: relative;
-    top: -3609px;
-    left: 1125px;
+    display: flex;
 }
