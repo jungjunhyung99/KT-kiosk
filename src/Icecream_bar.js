@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 
-function Icecream_cone() { 
+function Icecream_bar() { 
     const navigate = useNavigate();
 
     const onClickIcecream_cone = () => {
@@ -233,4 +233,4 @@ function Icecream_cone() {
     )
 }
 
-export default Icecream_cone;
+export default Icecream_bar;

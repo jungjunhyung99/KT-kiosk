@@ -197,7 +197,7 @@ function Icecream_cone() {
             </Box>
             <Box className="minus4">
                 <Button variant="contained" color="success" onClick={() => {btn_fourth_minus_click(); Minus_Count4();}}>-</Button>
-           `</Box>
+            </Box>
             <Box className="cnt">
                 <div className="first_cnt">{number}</div>
                 <div className="second_cnt">{number2}</div>

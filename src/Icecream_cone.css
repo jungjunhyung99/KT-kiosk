@@ -2,7 +2,6 @@
     display: flex;
     background-color:brown;
     height: 50px;
-    margin-top: -10px;
 }
 
 .name{
@@ -18,13 +17,14 @@
     display: flex;
     background-color:burlywood;
     justify-content: space-between;
+    width: 1506px;
     height: 50px;
 }
 
 .kind {
     display: flex;
     background-color:antiquewhite;
-    height: 650px;
+    height: 600px;
     width: 1506px;
 }
 
@@ -53,145 +53,24 @@
     margin-left: 200px;
 }
 
-.Care {
-    display:flex;
-    background-color: antiquewhite;
-    height: 20px;
-}
-
-.care {
+.order {
     display: flex;
-    margin-left: 350px;
-    font-size: 25px;
-    color: black;
-    font-weight: bold;
-    margin-top:25px;
 }
 
 .First {
     display: flex;
+    margin-top: -0px;
     height: 250px;
-    margin-top: -10px;
-    margin-left: -30px;
 }
 
 .Second{
     display: flex;
-    height: 250px;
-    margin-top: 600px;
-    margin-left: -820px;
 }
 
 .Third{
     display: flex;
-    height: 250px;
-    margin-top: 760px;
-    margin-left: 1000px;
 }  
 
 .Fourth{
     display: flex;
-    height: 250px;
-    margin-top: 1380px;
-    margin-left: -800px;
-}
-
-.Fifth {
-    display: flex;
-    height: 250px;
-    margin-left: -70px;
-    margin-top: 320px;
-}
-
-.Sixth {
-    display: flex;
-    height: 250px;
-    margin-left: 82px;
-    margin-top: 320px;
-}
-
-.Seventh {
-    display: flex;
-    height: 250px;
-    margin-left: 100px;
-    margin-top: 320px;
-}
-
-.Eightth {
-    display: flex;
-    height: 250px;
-    margin-left: 100px;
-    margin-top: 320px;
-}
-
-.minus {
-    display: flex;    
-    margin-left:320px;
-    margin-top:-340px;
-}
-
-.minus2{
-    display: flex;
-    margin-left:625px;
-    margin-top:-37px;
-}
-
-.minus3{
-    display: flex;
-    margin-left:945px;
-    margin-top:-37px;
-}
-
-.minus4{
-    display: flex;
-    margin-left:1270px;
-    margin-top:-30px;
-}
-
-.cnt {
-    display: flex;
-    height: 250px;
-    margin-top: 30px;
-}
-
-.first_cnt{
-    display: flex;
-    font-size:100px;
-    color:black;
-    margin-left: 230px;
-}
-
-.second_cnt {
-    display: flex;
-    font-size:100px;
-    color:black;
-    margin-left: 280px;
-}
-
-.third_cnt {
-    display: flex;
-    font-size:100px;
-    color:black;
-    margin-left: 270px;
-}
-
-.fourth_cnt {
-    display: flex;
-    font-size:100px;
-    color:black;
-    margin-left: 260px;
-}
-
-.Order {
-    display: flex;
-    margin-top:-30px;
-}
-
-.order {
-    display: flex;
-    width:1510px;
-    height:50px;
-    background-color:red !important;
-    font-size:30px;
-    margin-top: 70px;
 }
