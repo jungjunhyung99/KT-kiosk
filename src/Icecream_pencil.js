@@ -218,10 +218,10 @@ function Icecream_pencil() {
                             내역
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            <div>빠삐코 : 1,500원 * {count+(minus_count)}개 = "{1500*(count+(minus_count))}"원</div>
-                            <div>뽕따 : 1,000원 * {count2+(minus_count2)}개 = "{1000*(count2+(minus_count2))}"원</div>
-                            <div>빠삐코 딸기 : 1,500원 * {count3+(minus_count3)}개 = "{1500*(count3+(minus_count3))}"원</div>
-                            <div>주물러 : 1,000원 * {count4+(minus_count4)}개 = "{1000*(count4+(minus_count4))}"원</div> <nt />
+                            <div>빠삐코 : 1,500원 * {count+(minus_count)}개 = {1500*(count+(minus_count))}원</div>
+                            <div>뽕따 : 1,000원 * {count2+(minus_count2)}개 = {1000*(count2+(minus_count2))}원</div>
+                            <div>빠삐코 딸기 : 1,500원 * {count3+(minus_count3)}개 = {1500*(count3+(minus_count3))}원</div>
+                            <div>주물러 : 1,000원 * {count4+(minus_count4)}개 = {1000*(count4+(minus_count4))}원</div> <nt />
                             <div>총 금액 : {(1500*(count+(minus_count))
                             +(1000*(count2+(minus_count2)))
                             +(1500*(count3+(minus_count3)))

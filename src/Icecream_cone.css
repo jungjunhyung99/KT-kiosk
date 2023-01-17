@@ -53,24 +53,72 @@
     margin-left: 200px;
 }
 
+.Order{
+    display: flex;
+    margin-top:-50px;
+}
+
 .order {
     display: flex;
+    width:1508px;
+    height:50px;
+    background-color:red !important;
+    font-size:30px;
+    margin-top: 70px;
 }
 
 .First {
     display: flex;
-    margin-top: -0px;
+    margin-top: -40px;
     height: 250px;
 }
 
 .Second{
     display: flex;
+    height: 250px;
+    margin-top: 570px;
+    margin-left: -830px;
 }
 
 .Third{
     display: flex;
+    height: 250px;
+    margin-top: 730px;
+    margin-left: 970px;
 }  
 
 .Fourth{
     display: flex;
+    height: 250px;
+    margin-top: 1345px;
+    margin-left:-800px;
+}
+
+.Care {
+    display: flex;
+    background-color: antiquewhite;
+}
+
+.minus {
+    display: flex;    
+    margin-left:350px;
+    margin-top:-320px;
+}
+
+.minus2{
+    display: flex;
+    margin-left:642px;
+    margin-top: -37px;
+}
+
+.minus3{
+    display: flex;
+    margin-left:935px;
+    margin-top: -37px;
+}
+
+.minus4{
+    display: flex;
+    margin-left:1258px;
+    margin-top: -37px;
 }

@@ -124,7 +124,7 @@ function Hamburger_single() {
         padding: theme.spacing(1),
         textAlign: 'center',
         color: theme.palette.text.secondary,
-              }));  
+              }));   
 
     return (
         <>
@@ -183,18 +183,6 @@ function Hamburger_single() {
             <Box className="minus4">
                 <Button className="fourth_minus" variant="contained" color="success" onClick={() => {btn_fourth_minus_click(); Minus_Count4();}}>-</Button>
             </Box>
-            <Box className="minus5">
-                <Button className="first_minus" variant="contained" color="success" onClick={() => {btn_first_minus_click(); Minus_Count();}}>-</Button>
-            </Box>
-            <Box className="minus6"> 
-                <Button className="second_minus" variant="contained" color="success" onClick={() => {btn_second_minus_click(); Minus_Count2();}}>-</Button>
-            </Box>   
-            <Box className="minus7">
-                <Button className="third_minus" variant="contained" color="success" onClick={() => {btn_third_minus_click(); Minus_Count3();}}>-</Button>
-            </Box>
-            <Box className="minus8">
-                <Button className="fourth_minus" variant="contained" color="success" onClick={() => {btn_fourth_minus_click(); Minus_Count4();}}>-</Button>
-            </Box>
             <Box className="cnt">
                 <div className="first_cnt">{number}</div>
                 <div className="second_cnt">{number2}</div>
@@ -213,10 +201,10 @@ function Hamburger_single() {
                             내역
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            <div>A버거 : 5,400원 * {count+(minus_count)}개 = "{5400*(count+(minus_count))}"원</div>
-                            <div>B버거 : 4,900원 * {count2+(minus_count2)}개 = "{4900*(count2+(minus_count2))}"원</div>
-                            <div>C버거 : 8,900원 * {count3+(minus_count3)}개 = "{8900*(count3+(minus_count3))}"원</div>
-                            <div>D버거 : 4,000원 * {count4+(minus_count4)}개 = "{4000*(count4+(minus_count4))}"원</div> <br />
+                            <div>A버거 : 5,400원 * {count+(minus_count)}개 = {5400*(count+(minus_count))}원</div>
+                            <div>B버거 : 4,900원 * {count2+(minus_count2)}개 = {4900*(count2+(minus_count2))}원</div>
+                            <div>C버거 : 8,900원 * {count3+(minus_count3)}개 = {8900*(count3+(minus_count3))}원</div>
+                            <div>D버거 : 4,000원 * {count4+(minus_count4)}개 = {4000*(count4+(minus_count4))}원</div> <br />
                             <div>총 금액 : {(5400*(count+(minus_count))
                             +(4900*(count2+(minus_count2)))
                             +(8900*(count3+(minus_count3)))

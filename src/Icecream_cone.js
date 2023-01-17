@@ -218,10 +218,10 @@ function Icecream_cone() {
                             내역
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            <div>돼지콘 : 1,300원 * {count+(minus_count)}개 = "{1300*(count+(minus_count))}"원</div>
-                            <div>요맘때 : 1,500원 * {count2+(minus_count2)}개 = "{1500*(count2+(minus_count2))}"원</div>
-                            <div>월드콘 : 1,500원 * {count3+(minus_count3)}개 = "{1500*(count3+(minus_count3))}"원</div>
-                            <div>부라보 : 1,200원 * {count4+(minus_count4)}개 = "{1200*(count4+(minus_count4))}"원</div> <nt />
+                            <div>돼지콘 : 1,300원 * {count+(minus_count)}개 = {1300*(count+(minus_count))}원</div>
+                            <div>요맘때 : 1,500원 * {count2+(minus_count2)}개 = {1500*(count2+(minus_count2))}원</div>
+                            <div>월드콘 : 1,500원 * {count3+(minus_count3)}개 = {1500*(count3+(minus_count3))}원</div>
+                            <div>부라보 : 1,200원 * {count4+(minus_count4)}개 = {1200*(count4+(minus_count4))}원</div> <nt />
                             <div>총 금액 : {(1300*(count+(minus_count))
                             +(1500*(count2+(minus_count2)))
                             +(1500*(count3+(minus_count3)))

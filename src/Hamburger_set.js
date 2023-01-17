@@ -201,10 +201,10 @@ function Hamburger_set() {
                             내역
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            <div>A세트 : 7,000원 * {count+(minus_count)}개 = "{7000*(count+(minus_count))}"원</div>
-                            <div>B세트 : 6,500원 * {count2+(minus_count2)}개 = "{6500*(count2+(minus_count2))}"원</div>
-                            <div>C세트 : 10,900원 * {count3+(minus_count3)}개 = "{10900*(count3+(minus_count3))}"원</div>
-                            <div>D세트 : 6,500원 * {count4+(minus_count4)}개 = "{6500*(count4+(minus_count4))}"원</div> <br />
+                            <div>A세트 : 7,000원 * {count+(minus_count)}개 = {7000*(count+(minus_count))}원</div>
+                            <div>B세트 : 6,500원 * {count2+(minus_count2)}개 = {6500*(count2+(minus_count2))}원</div>
+                            <div>C세트 : 10,900원 * {count3+(minus_count3)}개 = {10900*(count3+(minus_count3))}원</div>
+                            <div>D세트 : 6,500원 * {count4+(minus_count4)}개 = {6500*(count4+(minus_count4))}원</div> <br />
                             <div>총 금액 : {(5400*(count+(minus_count))
                             +(4900*(count2+(minus_count2)))
                             +(8900*(count3+(minus_count3)))

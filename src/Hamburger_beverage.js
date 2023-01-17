@@ -201,10 +201,10 @@ function Hamburger_beverage() {
                             내역
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            <div>A음료 : 2,700원 * {count+(minus_count)}개 = "{5400*(count+(minus_count))}"원</div>
-                            <div>B음료 : 2,500원 * {count2+(minus_count2)}개 = "{4900*(count2+(minus_count2))}"원</div>
-                            <div>C음료 : 2,300원 * {count3+(minus_count3)}개 = "{8900*(count3+(minus_count3))}"원</div>
-                            <div>D음료 : 2,500원 * {count4+(minus_count4)}개 = "{4000*(count4+(minus_count4))}"원</div> <br />
+                            <div>A음료 : 2,700원 * {count+(minus_count)}개 = {5400*(count+(minus_count))}원</div>
+                            <div>B음료 : 2,500원 * {count2+(minus_count2)}개 = {4900*(count2+(minus_count2))}원</div>
+                            <div>C음료 : 2,300원 * {count3+(minus_count3)}개 = {8900*(count3+(minus_count3))}원</div>
+                            <div>D음료 : 2,500원 * {count4+(minus_count4)}개 = {4000*(count4+(minus_count4))}원</div> <br />
                             <div>총 금액 : {(5400*(count+(minus_count))
                             +(4900*(count2+(minus_count2)))
                             +(8900*(count3+(minus_count3)))

@@ -218,10 +218,10 @@ function Icecream_cup() {
                             내역
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            <div>상하목장 : 1,500원 * {count+(minus_count)}개 = "{1500*(count+(minus_count))}"원</div>
-                            <div>투게더 : 2,800원 * {count2+(minus_count2)}개 = "{2800*(count2+(minus_count2))}"원</div>
-                            <div>쿠앤크 : 3,000원 * {count3+(minus_count3)}개 = "{3000*(count3+(minus_count3))}"원</div>
-                            <div>끌레도르 : 1,400원 * {count4+(minus_count4)}개 = "{1400*(count4+(minus_count4))}"원</div> <nt />
+                            <div>상하목장 : 1,500원 * {count+(minus_count)}개 = {1500*(count+(minus_count))}원</div>
+                            <div>투게더 : 2,800원 * {count2+(minus_count2)}개 = {2800*(count2+(minus_count2))}원</div>
+                            <div>쿠앤크 : 3,000원 * {count3+(minus_count3)}개 = {3000*(count3+(minus_count3))}원</div>
+                            <div>끌레도르 : 1,400원 * {count4+(minus_count4)}개 = {1400*(count4+(minus_count4))}원</div> <nt />
                             <div>총 금액 : {(1500*(count+(minus_count))
                             +(2800*(count2+(minus_count2)))
                             +(3000*(count3+(minus_count3)))

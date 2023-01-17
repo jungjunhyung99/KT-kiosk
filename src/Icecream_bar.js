@@ -218,10 +218,10 @@ function Icecream_bar() {
                             내역
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            <div>돼지바 : 500원 * {count+(minus_count)}개 = "{500*(count+(minus_count))}"원</div>
-                            <div>누가바 : 1,000원 * {count2+(minus_count2)}개 = "{1000*(count2+(minus_count2))}"원</div>
-                            <div>바밤바 : 1,000원 * {count3+(minus_count3)}개 = "{1000*(count3+(minus_count3))}"원</div>
-                            <div>망고바 : 1,400원 * {count4+(minus_count4)}개 = "{1400*(count4+(minus_count4))}"원</div> <nt />
+                            <div>돼지바 : 500원 * {count+(minus_count)}개 = {500*(count+(minus_count))}원</div>
+                            <div>누가바 : 1,000원 * {count2+(minus_count2)}개 = {1000*(count2+(minus_count2))}원</div>
+                            <div>바밤바 : 1,000원 * {count3+(minus_count3)}개 = {1000*(count3+(minus_count3))}원</div>
+                            <div>망고바 : 1,400원 * {count4+(minus_count4)}개 = {1400*(count4+(minus_count4))}원</div> <nt />
                             <div>총 금액 : {(500*(count+(minus_count))
                             +(1000*(count2+(minus_count2)))
                             +(1000*(count3+(minus_count3)))
