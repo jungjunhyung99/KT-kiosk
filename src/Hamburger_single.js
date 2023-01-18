@@ -139,31 +139,47 @@ function Hamburger_single() {
             <Box className="box">
                 <Grid className="grid" container spacing={3}>
                     <Grid item xs={3}>
-                        <Item onClick={() => {btn_first_click(); Count()}}>
-                            <img src="/img/A버거.png" width={190} height={140}/>
-                            <h3>A버거</h3>
-                            <div className="first_price">5,400원</div>
+                        <Item>
+                            <Button onClick={() => {btn_first_click(); Count()}}>
+                                <Item>
+                                    <img src="/img/A버거.png" width={190} height={140}/>
+                                    <h3>A버거</h3>
+                                    <div className="first_price">5,400원</div>
+                                </Item>
+                            </Button>
                         </Item>
                     </Grid>
                     <Grid item xs={3}>
-                        <Item onClick={() => {btn_second_click(); Count2()}}>
-                            <img src="/img/B버거.png" width={190} height={140}/>
-                            <h3>B버거</h3>
-                            4,900원
+                        <Item>
+                            <Button onClick={() => {btn_second_click(); Count2()}}>
+                                <Item>
+                                    <img src="/img/B버거.png" width={190} height={140}/>
+                                    <h3>B버거</h3>
+                                    4,900원
+                                </Item>
+                            </Button>
                         </Item>
                     </Grid>
                     <Grid item xs={3}>
-                        <Item onClick={() => {btn_third_click(); Count3()}}>
-                            <img src="/img/C버거.png" width={190} height={140}/>
-                            <h3>C버거</h3>
-                                8,900원
+                        <Item>
+                            <Button onClick={() => {btn_third_click(); Count3()}}>
+                                <Item>
+                                    <img src="/img/C버거.png" width={190} height={140}/>
+                                    <h3>C버거</h3>
+                                    8,900원
+                                </Item>
+                            </Button>
                         </Item>
                     </Grid>
                     <Grid item xs={3}>
-                        <Item onClick={() => {btn_fourth_click(); Count4()}}>
-                            <img src="/img/D버거.png" width={190} height={140}/>
-                            <h3>D버거</h3>
-                            4,000원
+                        <Item>
+                            <Button onClick={() => {btn_fourth_click(); Count4()}}>
+                                <Item>
+                                    <img src="/img/D버거.png" width={190} height={140}/>
+                                    <h3>D버거</h3>
+                                    4,000원
+                                </Item>
+                            </Button>
                         </Item>
                     </Grid>
                 </Grid>
@@ -208,7 +224,7 @@ function Hamburger_single() {
                     </Grid>
                 </Grid>
             </Box>
-            <Button className="order" variant="contained" onClick={handleOpen}>주문하기</Button>
+            <Button className="order" variant="contained" onClick={handleOpen} sx={{width:1520}}>주문하기</Button>
                 <Modal
                     open={open}
                     onClose={handleClose}

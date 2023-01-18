@@ -139,31 +139,47 @@ function Hamburger_beverage() {
             <Box className="box">
                 <Grid className="grid" container spacing={3}>
                     <Grid item xs={3}>
-                        <Item onClick={() => {btn_first_click(); Count()}}>
-                            <img src="/img/A음료.png" width={190} height={140}/>
-                            <h3>A음료</h3>
-                            <div className="first_price">2,700원</div>
+                        <Item>
+                            <Button onClick={() => {btn_first_click(); Count()}}>
+                                <Item>
+                                    <img src="/img/A음료.png" width={190} height={140}/>
+                                    <h3>A음료</h3>
+                                    <div className="first_price">2,700원</div>
+                                </Item>
+                            </Button>
                         </Item>
                     </Grid>
                     <Grid item xs={3}>
-                        <Item onClick={() => {btn_second_click(); Count2()}}>
-                            <img src="/img/B음료.png" width={190} height={140}/>
-                            <h3>B음료</h3>
-                            2,500원
+                        <Item>
+                            <Button onClick={() => {btn_second_click(); Count2()}}>
+                                <Item>
+                                    <img src="/img/B음료.png" width={190} height={140}/>
+                                    <h3>B음료</h3>
+                                    2,500원
+                                </Item>
+                            </Button>
                         </Item>
                     </Grid>
                     <Grid item xs={3}>
-                        <Item onClick={() => {btn_third_click(); Count3()}}>
-                            <img src="/img/C음료.png" width={190} height={140}/>
-                            <h3>C음료</h3>
-                                2,300원
+                        <Item>
+                            <Button onClick={() => {btn_third_click(); Count3()}}>
+                                <Item>
+                                    <img src="/img/C음료.png" width={190} height={140}/>
+                                    <h3>C음료</h3>
+                                    2,300원
+                                </Item>
+                            </Button>
                         </Item>
                     </Grid>
                     <Grid item xs={3}>
-                        <Item onClick={() => {btn_fourth_click(); Count4()}}>
-                            <img src="/img/D음료.png" width={190} height={140}/>
-                            <h3>D음료</h3>
-                            2,500원
+                        <Item>
+                            <Button onClick={() => {btn_fourth_click(); Count4()}}>
+                                <Item>
+                                    <img src="/img/D음료.png" width={190} height={140}/>
+                                    <h3>D음료</h3>
+                                    2,500원
+                                </Item> 
+                            </Button>
                         </Item>
                     </Grid>
                 </Grid>

@@ -139,31 +139,47 @@ function Hamburger_set() {
             <Box className="box">
                 <Grid className="grid" container spacing={3}>
                     <Grid item xs={3}>
-                        <Item onClick={() => {btn_first_click(); Count()}}>
-                            <img src="/img/A세트.png" width={190} height={140}/>
-                            <h3>A세트</h3>
-                            <div className="first_price">7,000원</div>
+                        <Item>
+                            <Button onClick={() => {btn_first_click(); Count()}}>
+                                <Item>
+                                    <img src="/img/A세트.png" width={190} height={140}/>
+                                    <h3>A세트</h3>
+                                    <div className="first_price">7,000원</div>
+                                </Item>
+                            </Button>
                         </Item>
                     </Grid>
                     <Grid item xs={3}>
-                        <Item onClick={() => {btn_second_click(); Count2()}}>
-                            <img src="/img/B세트.png" width={190} height={140}/>
-                            <h3>B세트</h3>
-                            6,500원
+                        <Item>
+                            <Button onClick={() => {btn_second_click(); Count2()}}>
+                                <Item>
+                                    <img src="/img/B세트.png" width={190} height={140}/>
+                                    <h3>B세트</h3>
+                                    6,500원
+                                </Item>
+                            </Button>
                         </Item>
                     </Grid>
                     <Grid item xs={3}>
-                        <Item onClick={() => {btn_third_click(); Count3()}}>
-                            <img src="/img/C세트.png" width={190} height={140}/>
-                            <h3>C세트</h3>
-                                10,900원
+                        <Item>
+                            <Button onClick={() => {btn_third_click(); Count3()}}>
+                                <Item>
+                                    <img src="/img/C세트.png" width={190} height={140}/>
+                                    <h3>C세트</h3>
+                                    10,900원
+                                </Item>
+                            </Button>
                         </Item>
                     </Grid>
                     <Grid item xs={3}>
-                        <Item onClick={() => {btn_fourth_click(); Count4()}}>
-                            <img src="/img/D세트.png" width={190} height={140}/>
-                            <h3>D세트</h3>
-                            6,500원
+                        <Item>
+                        <Button onClick={() => {btn_fourth_click(); Count4()}}>
+                            <Item>
+                                <img src="/img/D세트.png" width={190} height={140}/>
+                                <h3>D세트</h3>
+                                6,500원
+                            </Item>
+                        </Button>
                         </Item>
                     </Grid>
                 </Grid>
