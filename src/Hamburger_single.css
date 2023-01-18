@@ -22,31 +22,9 @@
     margin-left: 100px;
 }
 
-.First{
+.line {
     display: flex;
-    margin-left:0px;
-    height: 400px;
-    margin-top: -120px;
-}
-
-.Second {
-    display: flex;
-    margin-left: -600px;
-    margin-top:210px;
-    height: 400px;
-}
-
-.Third {
-    display: flex;
-    margin-left: auto;
-    margin-top: 220px;
-    height: 400px;
-}
-
-.Fourth {
-    display: flex;
-    height: 400px;
-    margin-top: 215px;
+    margin-top:10px;
 }
 
 .order {
@@ -56,47 +34,6 @@
     background-color:red !important;
     font-size:30px;
     margin-top: 300px;
-}
-
-.minus {
-    display: flex;    
-    margin-left:300px;
-    margin-top:-1810px;
-}
-
-.minus2{
-    display: flex;
-    margin-left:630px;
-    margin-top:-35px;
-}
-
-.minus3{
-    display: flex;
-    margin-left:960px;
-    margin-top:-35px;
-}
-
-.minus4{
-    display: flex;
-    margin-left:1270px;
-    margin-top:-35px;
-}
-
-.first_minus{
-    display: flex;
-    border-top: 100px;
-}
-
-.second_minus{
-    display: flex;
-}
-
-.third_minus {
-    display: flex;
-}
-
-.fourth_minus{
-    display: flex;
 }
 
 .cnt {
@@ -140,4 +77,32 @@
     color: black;
     font-weight: bold;
     margin-top:20px;
+}
+
+.box {
+    display: flex;
+    margin-top: 20px;
+}
+
+.box2 {
+    display:flex;
+    margin-top: 5px;
+    margin-left: 300px;
+}
+
+.box_2 {
+    display: flex;
+    margin-left: 1070px;
+    margin-top: -35px;
+}
+
+.box3 {
+    display: flex;
+    margin-left: -70px;
+}
+
+.box_3 {
+    display: flex;
+    margin-top: -134px;
+    margin-left: 600px;
 }

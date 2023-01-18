@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import './Icecream_cone.css';
+import './Icecream_cone.css?after';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
