@@ -18,6 +18,8 @@ import Cafe from './routes/Cafe';
 import Sample from './routes/Sample';
 import TakeOut from './routes/TakeOut';
 import Game2 from './routes/Game2';
+import TopMenu from './routes/TopMenu';
+import Hamburger_single from './routes/Hamburger_single';
 
 
 
@@ -97,19 +99,23 @@ function App() {
           <Route path="/" element={<Home/>}>
           </Route>
           <Route path="/Menu" element={<Menu/>}>
-            <Route path="/Menu/Cafe" element={<Cafe/>}/>
             <Route path="/Menu/explain2" element={<Explain/>}/>
             <Route path="/Menu/explain" element={<Explain2/>}>
-              <Route path="/Menu/explain/:objId" element={<Menu/>}/>
             </Route>
-            <Route path="/Menu/game" element={<Game2/>}/>
+            <Route path="/Menu/gamechoice" element={<Game/>}>
+            </Route>
+              <Route path="/Menu/gamechoice/game" element={<Game2/>}/>
             <Route path="/Menu/test" element={<Sample/>}/>
-            <Route path="/Menu/chart" element={<Chart/>}/>
+            <Route path="/Menu/chart" element={<Hamburger_single/>}/>
               <Route path="/Menu/home" element={<Choice/>}>
               <Route path="/Menu/home/easy" element={<EasyChoice/>}/>
               <Route path="/Menu/home/middle" element={<MiddleChoice/>}/>
-              <Route path="/Menu/home/hard" element={<HardChoice/>}/>
+              <Route path="/Menu/home/hard" element={<HardChoice/>}>  
+              <Route path="/Menu/home/hard/:objId" element={<Menu/>}/>
+              </Route>
+              <Route path="/Menu/home/hard/cafe" element={<Explain2/>}/>
           </Route>
+          <Route path="/Menu/intro" element={<TopMenu/>}/>
           </Route>
         </Routes>
         </Router>

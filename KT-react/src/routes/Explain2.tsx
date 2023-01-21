@@ -4,7 +4,7 @@ import Americano from "../image/americano.png"
 import CGV from "../image/CGV.jpg";
 import Ramen from "../image/Ramen.jpg";
 import { useMatch, useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cafe from "./Cafe";
 import Takeout from "../image/Takeout.jpg";
 import Mug from "../image/Mug.png"
@@ -28,8 +28,9 @@ const Info = styled(motion.div)`
 
 const Overlay = styled(motion.div)`
   position: fixed;
+  left: 0;
   top: 0;
-  width: 130%; // 수정 필요
+  width: 100vw; // 수정 필요
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
@@ -161,33 +162,47 @@ interface Ikiosk {
     name: string;
 }
 
-const offset = 3;
+const offset = 4;
 
 function Explain2 () {
     const navigate = useNavigate();
-    const modalMatch = useMatch("/Menu/explain/:objId");
+    const modalMatch = useMatch("/Menu/home/hard/cafe");
     const [index, setIndex] = useState(0);
     const [leaving, setLeaving] = useState(false);
-    const {scrollY} = useScroll();
     const increaseIndex = () => {
         if (kioskObj){
             if(leaving) return;
             toggleLeaving();
             const totalKiosk = kioskObj.length - 1;
             const maxIndex = Math.floor(totalKiosk / offset) - 1;
-            setIndex((prev) => (prev === maxIndex ? 0 : prev +1));
+            setIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
         }
     };
-
     const toggleLeaving = () => setLeaving((prev) => !prev);
     const onOverlayClick = () => navigate(-1);
     const onBoxClicked = (objId : string) => {
      navigate(`/Menu/explain/${objId}`);
     };
-
+    
+    const useScroll = () => {
+      const [state, setState] = useState({
+        x: 0, // x와 y의 초기값을 0으로 지정
+        y: 450,
+      });
+      const onScroll = () => {
+        setState({ x: window.scrollX, y: window.scrollY });
+      };
+      useEffect(() => {
+        window.addEventListener("scroll", onScroll); // scorll할 때 onScroll 이벤트 핸들러 지정
+        return () => window.removeEventListener("scroll", onScroll); // clean up
+      }, []);
+      return state;
+    };
+    const {y} = useScroll();
+    
     return (
           <>
-            <AnimatePresence initial={false} onExitComplete={toggleLeaving}>    
+            {/* <AnimatePresence initial={false} onExitComplete={toggleLeaving}>    
             <button onClick={increaseIndex}></button>
             <Row
             variants={rowVariants}
@@ -212,23 +227,23 @@ function Explain2 () {
                 </Box>
                 )}
             </Row>
-        </AnimatePresence>
+        </AnimatePresence> */}
         <AnimatePresence>
             {modalMatch ? (
               <>
                 <Overlay
                   onClick={onOverlayClick}
-                  exit= {{opacity: 0}}
+                  exit={{opacity: 0}}
                   animate={{opacity:1}}
                 />
                 <BigMovie
-                  style={{ top: scrollY.get() + 100 }}
+                  style={{ top: y + 10 }}
                   layoutId={modalMatch.params as any}
                 >
                   <Cafe/>
                 </BigMovie>
               </>
-            ) : null}
+            ) : <BigMovie>gdfs</BigMovie>}
           </AnimatePresence>
           </>
         );

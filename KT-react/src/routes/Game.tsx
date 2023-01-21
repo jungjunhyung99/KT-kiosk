@@ -1,6 +1,7 @@
 import { yellow } from "@mui/material/colors";
 import { padding } from "@mui/system";
 import React, { useEffect, useLayoutEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { probState } from "../atom";
@@ -88,6 +89,7 @@ function Game() {
     return(
         <Container>
             <h1>글자색 맞추기 게임</h1>
+            <Link to="/Menu/gamechoice/game">dfa</Link>
 
             {/* <Timer flag={flag}/> */}
 

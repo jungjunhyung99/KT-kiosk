@@ -5,7 +5,6 @@ import { useLayoutEffect, useState } from "react";
 import { useEffect } from "react";
 import { kioskObj } from "../kisok";
 import { kioskObj2 } from "../kisok";
-import { color } from "@mui/system";
 import React from "react";
 
 const Container = styled(motion.div)`
@@ -188,6 +187,22 @@ interface Ikiosk {
     quantity: number;
 }
 
+interface ICondiment{
+    name: string;
+    quantity: number;
+    option: object;
+}
+
+interface IItem{
+    item: ICondiment;
+};
+
+interface IPay {
+    store: string;
+    level: string;
+    basket: ICondiment[];
+};
+
 // const Overlay = styled(motion.div)`
 //   position: fixed;
 //   top: 0;
@@ -200,15 +215,17 @@ interface Ikiosk {
 const offset = 4;
 
 function Cafe () {
-    const [menu, setKiosk] = useState<Ikiosk[]>(kioskObj);
     const navigate = useNavigate();
     const modalMatch = useMatch("/Menu/explain/:objId");
     const selectionMatch = useMatch("/Menu/explain/:objId/selection");
+    const [menu, setKiosk] = useState<Ikiosk[]>(kioskObj);
     const [index, setIndex] = useState(0);
     const [leaving, setLeaving] = useState(false);
     const [cost, setCost] = useState(0);
     const [choice, setChoice] = useState<Ikiosk[]>([]);
     const [focus,setFocus] = useState(0);
+    const [send, setSend] = useState<IPay>();
+    const [condiment,setCondiment] = useState<ICondiment[]>([]);
     const toggleLeaving = () => setLeaving((prev) => !prev);
     const onBackClick = () => navigate(-1);
     const increaseIndex = (array:Ikiosk[]) => {
@@ -272,6 +289,32 @@ function Cafe () {
         }
     };
     
+    const onPayClicked = (obj: Ikiosk[]) => {
+        let item2 = [];
+        for(let i = 0; i < obj.length; i++){
+            const item = {
+                name: obj[i].name,
+                quantity: obj[i].quantity,
+                option: [obj[i].cost],
+            };
+            item2.push(item);
+        }
+    setSend({
+        store: "cafe",
+        level: "easy",
+        basket:[
+            ...item2
+        ]
+    });
+    
+    fetch("http://minho2618.dothome.co.kr/test1/api/kiosk_answer.php",{
+        method: "POST",
+        body: JSON.stringify(
+          send  
+        ),
+    }).then((response) => response.json()).then((result) => console.log(result));
+
+    }
 
     useEffect(() => {
         
@@ -336,7 +379,7 @@ function Cafe () {
                                     {choice.slice(offset * index, offset * index + offset).map((choice) => 
                                     <MenuContainer>
                                     <SmallBox
-                                    bgPhoto={choice.img} 
+                                    bgPhoto={choice.img}
                                     key={choice.id}
                                     variants={smboxVariant} initial animate="exit"
                                     transition={{type:"tween"}}
@@ -346,7 +389,7 @@ function Cafe () {
                                     <QuantityButton onClick={() => onMinusClicked(choice.id,choice)}>-</QuantityButton>
                                     <div style={{margin: "0 auto", fontSize: "25px", fontWeight:"bold"}}>{choice.quantity}</div>
                                     <QuantityButton onClick={() => onPlusClicked(choice.id,choice)}>+</QuantityButton>
-                                    </div>    
+                                    </div>
                                     </MenuContainer>)}
                                 </Order>
                             </OrderSlider>
@@ -355,7 +398,7 @@ function Cafe () {
             <div style={{display:"flex", fontSize:"20px", alignItems:"center"}}>
             <div style={{backgroundColor:"white", height:"100%",alignItems:"center", width: "5.5vw"}}><h4>{cost}원</h4></div>
             
-            <div style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "5.5vw", border: "1px solid white", cursor:"pointer"}}>
+            <div onClick={() => onPayClicked(choice)} style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "5.5vw", border: "1px solid white", cursor:"pointer"}}>
                 <h4>결제하기</h4>
             </div>
             <div style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "6vw", border: "1px solid white", cursor:"pointer"}}>

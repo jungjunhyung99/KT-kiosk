@@ -18,11 +18,12 @@ export const kioskObj = [
         id: "0", 
         sub:"CGV 요약본입니다.",
         img: image[0],
-        name: "아메리카노",
+        name: "Americano",
         cost: 3500,
         selected: false,
         quantity: 1,
     },
+
     {
         id: "1", 
         sub:"Cafe 요약본입니다.",
@@ -32,6 +33,7 @@ export const kioskObj = [
         selected: false,
         quantity: 1,
     },
+    
     {
         id: "2", 
         sub:"식당 예약본입니다.",

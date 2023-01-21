@@ -1,0 +1,112 @@
+.one_set_beverage {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    margin-left:8%;
+}
+
+.one {
+    text-decoration: none;
+    color:darkgray !important;
+}
+
+.set {
+    text-decoration: none;
+    color:darkgray !important;
+}
+
+.beverage {
+    text-decoration: none;
+    color:darkgray !important;
+}
+
+.line {
+    display: flex;
+    margin-top:10%;
+}
+
+.order {
+    display: flex;
+    background-color:red !important;
+    font-size:30%;
+}
+
+.cnt {
+    display: flex;
+    height: 250vh;
+    margin-top: 30%
+}
+
+.first_cnt{
+    display: flex;
+    font-size:100%;
+    color:black;
+    margin-left: 220%;
+    margin-top: -50%;
+}
+
+.second_cnt {
+    display: flex;
+    font-size:100%;
+    color:black;
+    margin-left: 300%;
+    margin-top: -50%;
+}
+
+.third_cnt {
+    display: flex;
+    font-size:100%;
+    color:black;
+    margin-left: 160%;
+    margin-top: 50%;
+}
+
+.fourth_cnt {
+    display: flex;
+    font-size:100%;
+    color:black;
+    margin-left: 160%;
+    margin-top: 50%;
+}
+
+.care {
+    display: flex;
+    margin-left: 350%;
+    font-size: 25%;
+    color: black;
+    font-weight: bold;
+    margin-top:20%;
+}
+
+.box {
+    display: flex;
+    margin-top: 2%;
+}
+
+.box2 {
+    display:flex;
+    margin-top: 0.5%;
+    margin-left: 19.5%;
+}
+
+.box_2 {
+    display: flex;
+    margin-left: 70.4%;
+    margin-top: -2.5%;
+}
+
+.box3 {
+    display: flex;
+    margin-left: -5%;
+    margin-top: 13%;
+    height: 179vh;
+    width: 100vw;
+}
+
+.box_3 {
+    display: flex;
+    margin-left: 40%;
+    margin-top: -107%;
+    height: 30vh;
+    width: 100vw;
+}
