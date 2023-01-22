@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import './Icecream_cone.css';
+import './Icecream_cone.css?after';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
@@ -187,17 +187,17 @@ function Icecream_cone() {
                 </Box>
             </Box>
             <Box className="minus">
-                <Button className="first_minus" variant="contained" color="success" onClick={() => {btn_first_minus_click(); Minus_Count();}}>-</Button>
+                <Button variant="contained" color="success" onClick={() => {btn_first_minus_click(); Minus_Count();}}>-</Button>
             </Box>
             <Box className="minus2"> 
-                <Button className="second_minus" variant="contained" color="success" onClick={() => {btn_second_minus_click(); Minus_Count2();}}>-</Button>
+                <Button variant="contained" color="success" onClick={() => {btn_second_minus_click(); Minus_Count2();}}>-</Button>
             </Box>   
             <Box className="minus3">
-                <Button className="third_minus" variant="contained" color="success" onClick={() => {btn_third_minus_click(); Minus_Count3();}}>-</Button>
+                <Button variant="contained" color="success" onClick={() => {btn_third_minus_click(); Minus_Count3();}}>-</Button>
             </Box>
             <Box className="minus4">
-                <Button className="fourth_minus" variant="contained" color="success" onClick={() => {btn_fourth_minus_click(); Minus_Count4();}}>-</Button>
-           `</Box>
+                <Button variant="contained" color="success" onClick={() => {btn_fourth_minus_click(); Minus_Count4();}}>-</Button>
+            </Box>
             <Box className="cnt">
                 <div className="first_cnt">{number}</div>
                 <div className="second_cnt">{number2}</div>
@@ -205,7 +205,9 @@ function Icecream_cone() {
                 <div className="fourth_cnt">{number4}</div>
             </Box>
 
+            <Box className="Order">
             <Button className="order" variant="contained" onClick={handleOpen}>주문하기</Button>
+            </Box>
             <Modal
                     open={open}
                     onClose={handleClose}
@@ -216,10 +218,10 @@ function Icecream_cone() {
                             내역
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            <div>돼지콘 : 1,300원 * {count+(minus_count)}개 = "{1300*(count+(minus_count))}"원</div>
-                            <div>요맘때 : 1,500원 * {count2+(minus_count2)}개 = "{1500*(count2+(minus_count2))}"원</div>
-                            <div>월드콘 : 1,500원 * {count3+(minus_count3)}개 = "{1500*(count3+(minus_count3))}"원</div>
-                            <div>부라보 : 1,200원 * {count4+(minus_count4)}개 = "{1200*(count4+(minus_count4))}"원</div> <nt />
+                            <div>돼지콘 : 1,300원 * {count+(minus_count)}개 = {1300*(count+(minus_count))}원</div>
+                            <div>요맘때 : 1,500원 * {count2+(minus_count2)}개 = {1500*(count2+(minus_count2))}원</div>
+                            <div>월드콘 : 1,500원 * {count3+(minus_count3)}개 = {1500*(count3+(minus_count3))}원</div>
+                            <div>부라보 : 1,200원 * {count4+(minus_count4)}개 = {1200*(count4+(minus_count4))}원</div> <nt />
                             <div>총 금액 : {(1300*(count+(minus_count))
                             +(1500*(count2+(minus_count2)))
                             +(1500*(count3+(minus_count3)))

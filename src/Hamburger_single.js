@@ -205,7 +205,8 @@ function Hamburger_single() {
                 </Grid>
             </Box>
             <Box className="box3">
-                <Grid container spacing={-40}>                    <Grid item xs = {3}>
+                <Grid container spacing={-40}>                    
+                <Grid item xs = {3}>
                         <div className="first_cnt">{number}</div>
                     </Grid>
                     <Grid item xs = {3}>

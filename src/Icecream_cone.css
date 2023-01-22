@@ -1,8 +1,12 @@
 .title {
     display: flex;
     background-color:brown;
+<<<<<<< HEAD
     height: 10vh;
     margin-top: -1.5vh;
+=======
+    height: 50px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
 .name{
@@ -18,14 +22,24 @@
     display: flex;
     background-color:burlywood;
     justify-content: space-between;
+<<<<<<< HEAD
     height: 150%;
+=======
+    width: 1506px;
+    height: 50px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
 .kind {
     display: flex;
     background-color:antiquewhite;
+<<<<<<< HEAD
     height: 80vh;
     width: 97.8vw;
+=======
+    height: 600px;
+    width: 1506px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
 .cone{
@@ -52,68 +66,126 @@
     color:black !important;
 }
 
+<<<<<<< HEAD
 .Care {
     display:flex;
     background-color: antiquewhite;
+=======
+.Order{
+    display: flex;
+    margin-top:-50px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
-.care {
+.order {
     display: flex;
+<<<<<<< HEAD
     margin-left: 25%;
     font-size: 150%;
     color: black;
     font-weight: bold;
     margin-top:2%;
+=======
+    width:1508px;
+    height:50px;
+    background-color:red !important;
+    font-size:30px;
+    margin-top: 70px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
 .First {
     display: flex;
+<<<<<<< HEAD
     height: 50%;
     margin-top: -5%;
     margin-left: -5%;
+=======
+    margin-top: -40px;
+    height: 250px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
 .Second{
     display: flex;
+<<<<<<< HEAD
     height: 50%;
     margin-top: 41%;
     margin-left: -63%;
+=======
+    height: 250px;
+    margin-top: 570px;
+    margin-left: -830px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
 .Third{
     display: flex;
+<<<<<<< HEAD
     height: 50%;
     margin-top: 53%;
     margin-left: 73%;
+=======
+    height: 250px;
+    margin-top: 730px;
+    margin-left: 970px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }  
 
 .Fourth{
     display: flex;
+<<<<<<< HEAD
     height: 50%;
     margin-top: 99.5%;
     margin-left: -60%;
+=======
+    height: 250px;
+    margin-top: 1345px;
+    margin-left:-800px;
+}
+
+.Care {
+    display: flex;
+    background-color: antiquewhite;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
 .minus {
     display: flex;    
+<<<<<<< HEAD
     margin-left:21.3%;
     margin-top:-21.4%;
+=======
+    margin-left:350px;
+    margin-top:-320px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
 .minus2{
     display: flex;
+<<<<<<< HEAD
     margin-left: 43.3%;
     margin-top: -2.8%;
+=======
+    margin-left:642px;
+    margin-top: -37px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
 .minus3{
     display: flex;
+<<<<<<< HEAD
     margin-left: 65.2%;
     margin-top: -2.8%;
+=======
+    margin-left:935px;
+    margin-top: -37px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
 .minus4{
     display: flex;
+<<<<<<< HEAD
     margin-left: 89.9%;
     margin-top: -2.8%;
 }
@@ -157,4 +229,8 @@
     background-color:red !important;
     font-size:30%;
     margin-top: -1000%;
+=======
+    margin-left:1258px;
+    margin-top: -37px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }

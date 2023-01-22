@@ -144,7 +144,11 @@ function Hamburger_beverage() {
                                 <Item>
                                     <img src="/img/A음료.png" width={190} height={140}/>
                                     <h3>A음료</h3>
+<<<<<<< HEAD
                                     2,700원
+=======
+                                    <div className="first_price">2,700원</div>
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
                                 </Item>
                             </Button>
                         </Item>
@@ -178,7 +182,11 @@ function Hamburger_beverage() {
                                     <img src="/img/D음료.png" width={190} height={140}/>
                                     <h3>D음료</h3>
                                     2,500원
+<<<<<<< HEAD
                                 </Item>
+=======
+                                </Item> 
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
                             </Button>
                         </Item>
                     </Grid>
@@ -224,7 +232,11 @@ function Hamburger_beverage() {
                     </Grid>
                 </Grid>
             </Box>
+<<<<<<< HEAD
             <Button className="order" variant="contained" onClick={handleOpen} sx={{width:1520}}>주문하기</Button>
+=======
+            <Button className="order" variant="contained" onClick={handleOpen}>주문하기</Button>
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
                 <Modal
                     open={open}
                     onClose={handleClose}
@@ -235,10 +247,17 @@ function Hamburger_beverage() {
                             내역
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+<<<<<<< HEAD
                             <div>A음료 : 2,700원 * {count+(minus_count)}개 = {2700*(count+(minus_count))}원</div>
                             <div>B음료 : 2,500원 * {count2+(minus_count2)}개 = {2500*(count2+(minus_count2))}원</div>
                             <div>C음료 : 2,300원 * {count3+(minus_count3)}개 = {2300*(count3+(minus_count3))}원</div>
                             <div>D음료 : 2,500원 * {count4+(minus_count4)}개 = {2500*(count4+(minus_count4))}원</div> <br />
+=======
+                            <div>A버거 : 2,700원 * {count+(minus_count)}개 = {2700*(count+(minus_count))}원</div>
+                            <div>B버거 : 2,500원 * {count2+(minus_count2)}개 = {2500*(count2+(minus_count2))}원</div>
+                            <div>C버거 : 2,300원 * {count3+(minus_count3)}개 = {2300*(count3+(minus_count3))}원</div>
+                            <div>D버거 : 2,500원 * {count4+(minus_count4)}개 = {2500*(count4+(minus_count4))}원</div> <br />
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
                             <div>총 금액 : {(2700*(count+(minus_count))
                             +(2500*(count2+(minus_count2)))
                             +(2300*(count3+(minus_count3)))
@@ -246,7 +265,11 @@ function Hamburger_beverage() {
                         </Typography>
                         </Box>
                 </Modal>
+<<<<<<< HEAD
         </div>
+=======
+            </>
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
     )
 }
 

@@ -144,7 +144,11 @@ function Hamburger_set() {
                                 <Item>
                                     <img src="/img/A세트.png" width={190} height={140}/>
                                     <h3>A세트</h3>
+<<<<<<< HEAD
                                     7,000원
+=======
+                                    <div className="first_price">7,000원</div>
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
                                 </Item>
                             </Button>
                         </Item>
@@ -173,6 +177,7 @@ function Hamburger_set() {
                     </Grid>
                     <Grid item xs={3}>
                         <Item>
+<<<<<<< HEAD
                             <Button onClick={() => {btn_fourth_click(); Count4()}}>
                                 <Item>
                                     <img src="/img/D세트.png" width={190} height={140}/>
@@ -180,6 +185,15 @@ function Hamburger_set() {
                                     6,500원
                                 </Item>
                             </Button>
+=======
+                        <Button onClick={() => {btn_fourth_click(); Count4()}}>
+                            <Item>
+                                <img src="/img/D세트.png" width={190} height={140}/>
+                                <h3>D세트</h3>
+                                6,500원
+                            </Item>
+                        </Button>
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
                         </Item>
                     </Grid>
                 </Grid>
@@ -224,7 +238,11 @@ function Hamburger_set() {
                     </Grid>
                 </Grid>
             </Box>
+<<<<<<< HEAD
             <Button className="order" variant="contained" onClick={handleOpen} sx={{width:1520}}>주문하기</Button>
+=======
+            <Button className="order" variant="contained" onClick={handleOpen}>주문하기</Button>
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
                 <Modal
                     open={open}
                     onClose={handleClose}
@@ -235,18 +253,30 @@ function Hamburger_set() {
                             내역
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+<<<<<<< HEAD
                             <div>A세트 : 7,000원 * {count+(minus_count)}개 = {7000*(count+(minus_count))}원</div>
                             <div>B세트 : 6,500원 * {count2+(minus_count2)}개 = {6500*(count2+(minus_count2))}원</div>
                             <div>C세트 : 10,900원 * {count3+(minus_count3)}개 = {10900*(count3+(minus_count3))}원</div>
                             <div>D세트 : 6,500원 * {count4+(minus_count4)}개 = {6500*(count4+(minus_count4))}원</div> <br />
                             <div>총 금액 : {(7000*(count+(minus_count))
+=======
+                            <div>A버거 : 7,400원 * {count+(minus_count)}개 = {7400*(count+(minus_count))}원</div>
+                            <div>B버거 : 6,500원 * {count2+(minus_count2)}개 = {6500*(count2+(minus_count2))}원</div>
+                            <div>C버거 : 10,900원 * {count3+(minus_count3)}개 = {10900*(count3+(minus_count3))}원</div>
+                            <div>D버거 : 6,500원 * {count4+(minus_count4)}개 = {6500*(count4+(minus_count4))}원</div> <br />
+                            <div>총 금액 : {(7400*(count+(minus_count))
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
                             +(6500*(count2+(minus_count2)))
                             +(10900*(count3+(minus_count3)))
                             +(6500*(count4+(minus_count4))))}원</div>
                         </Typography>
                         </Box>
                 </Modal>
+<<<<<<< HEAD
         </div>
+=======
+            </>
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
     )
 }
 

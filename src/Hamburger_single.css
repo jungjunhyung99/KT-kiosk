@@ -22,12 +22,17 @@
 
 .line {
     display: flex;
+<<<<<<< HEAD
     margin-top:10%;
+=======
+    margin-top:10px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
 .order {
     display: flex;
     background-color:red !important;
+<<<<<<< HEAD
     font-size:30%;
 }
 
@@ -67,6 +72,9 @@
     color:black;
     margin-left: 160%;
     margin-top: 50%;
+=======
+    font-size:30px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }
 
 .care {
@@ -105,8 +113,47 @@
 
 .box_3 {
     display: flex;
+<<<<<<< HEAD
     margin-left: 40%;
     margin-top: -107%;
     height: 30vh;
     width: 100vw;
+=======
+    margin-left: 350px;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    margin-top:20px;
+}
+
+.box {
+    display: flex;
+    margin-top: 20px;
+}
+
+.box2 {
+    display:flex;
+    margin-top: 6px;
+    margin-left: 300px;
+}
+
+.box_2 {
+    display: flex;
+    margin-left: 1070px;
+    margin-top: -35px;
+}
+
+.box3 {
+    display: flex;
+    margin-left: -70px;
+    margin-top: 20px;
+    height: 180px;
+}
+
+.box_3 {
+    display: flex;
+    margin-top: -184px;
+    margin-left: 600px;
+    height: 180px;
+>>>>>>> 7fcefd654880e84618be813a66deb56c321799b8
 }

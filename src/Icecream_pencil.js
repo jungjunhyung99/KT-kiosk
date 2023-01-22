@@ -5,13 +5,11 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Button from "@mui/material/Button";
 import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Typography from '@mui/material/Typography';
 
 function Icecream_pencil() { 
     const navigate = useNavigate();
-
-    const onClickIcecream_name = () => {
-        navigate('/Icecream_name');
-    }
 
     const onClickIcecream_cone = () => {
         navigate('/Icecream_cone');
@@ -29,167 +27,208 @@ function Icecream_pencil() {
         navigate('/Icecream_pencil');
     }
 
+    const [number, setNumber] = useState(0);
+    const [number2, setNumber2] = useState(0);
+    const [number3, setNumber3] = useState(0);
+    const [number4, setNumber4] = useState(0);
+    const [count, setCount] = useState(0);
+    const [count2, setCount2] = useState(0);
+    const [count3, setCount3] = useState(0);
+    const [count4, setCount4] = useState(0);
+    const [minus_count, setMinusCount] = useState(0);
+    const [minus_count2, setMinusCount2] = useState(0);
+    const [minus_count3, setMinusCount3] = useState(0);
+    const [minus_count4, setMinusCount4] = useState(0);
+
+    // onIcrease가 btn_first_click (증가)
+    const btn_first_click = () => {
+        setNumber(number + 1);
+    }
+
+    const btn_second_click = () => {
+        setNumber2(number2 + 1);
+    }
+    
+    const btn_third_click = () => {
+        setNumber3(number3 + 1);
+    }
+
+    const btn_fourth_click = () => {
+        setNumber4(number4 + 1);
+    }
+
+    const btn_first_minus_click = () => {
+        setNumber(number - 1);
+    }
+
+    const btn_second_minus_click = () => {
+        setNumber2(number2 - 1);
+    }
+
+    const btn_third_minus_click = () => {
+        setNumber3(number3 - 1);
+    }
+
+    const btn_fourth_minus_click = () => {
+        setNumber4(number4 - 1);
+    }
+
+    const Count = () => {
+        setCount(count + 1);
+    }
+
+    const Count2 = () => {
+        setCount2(count2 + 1);
+    }
+
+    const Count3 = () => {
+        setCount3(count3 + 1);
+    }
+
+    const Count4 = () => {
+        setCount4(count4 + 1);
+    }
+
+    const Minus_Count = () => {    
+        setMinusCount(minus_count - 1);
+    }
+
+    const Minus_Count2 = () => {
+        setMinusCount2(minus_count2 - 1);
+    }
+
+    const Minus_Count3 = () => {
+        setMinusCount3(minus_count3 - 1);
+    }
+
+    const Minus_Count4 = () => {
+        setMinusCount4(minus_count4 - 1);
+    }
+
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+        height: '30%',
+    };
+
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         ...theme.typography.body2,
         padding: theme.spacing(1),
         textAlign: 'center',
         color: theme.palette.text.secondary,
-              }));  
-
+              }));   
+  
     return (
         <>
-             <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
-            <Box className="title" gridColumn="span 8"
-                sx={{
-                    left: -7,
-                    width: 1480,
-                    height: 50,
-                    top:-10,
-                }}>  
-                <Button className="name" onClick={onClickIcecream_name}>Icecream</Button>
+            <Box className="title">
+                <div className="name">Icecream</div>
+            </Box>
+
+            <Box className="menu">
+                <Button className="cone" onClick={onClickIcecream_cone}>콘</Button>
+                <Button className="bar" onClick={onClickIcecream_bar}>바</Button>
+                <Button className="cup" onClick={onClickIcecream_cup}>컵</Button>
+                <Button className="pencil" onClick={onClickIcecream_pencil}>펜슬</Button>
+            </Box>
+            <Box className="Care">
+            <div className="care">주의 : 수량이 0보다 크도록 선택하세요. 아니면 주문에 실패합니다.</div>
+            </Box>
+            <Box className="kind">
+                <Box className="First">
+                    <Button className="first" onClick={() => {btn_first_click(); Count()}}>
+                        <Item>
+                            <img src="/img/빠삐코.png" width={190} height={140}/>
+                            <h3>빠삐코</h3>
+                            1,500원
+                        </Item>
+                    </Button>
                 </Box>
+
+                <Box className="Second">
+                    <Button className="second" onClick={() => {btn_second_click(); Count2()}}>
+                        <Item>
+                            <img src="/img/뽕따.png" width={190} height={140}/>
+                            <h3>뽕따</h3>
+                            1,000원
+                        </Item>
+                    </Button>
                 </Box>
 
-            <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
-            <Box className="menu" gridColumn="span 8"
-                sx={{
-                    left: -7,
-                    width: 1480,
-                    height: 50,
-                    top:-10,
-                }}>  
-                <Button>
-                    <Button className="cone" onClick={onClickIcecream_cone}>콘</Button>
-                    <div class="v-line1"></div>
-                    <Button className="bar" onClick={onClickIcecream_bar}>바</Button>
-                    <div class="v-line2"></div>
-                    <Button className="cup" onClick={onClickIcecream_cup}>컵</Button>
-                    <div class="v-line3"></div>
-                    <Button className="pencil" onClick={onClickIcecream_pencil}>펜슬</Button>
-                 </Button>
+                <Box className="Third">
+                    <Button className="third" onClick={() => {btn_third_click(); Count3()}}>
+                        <Item>    
+                            <img src="/img/빠삐코 딸기.png" width={190} height={140}/>
+                            <h3>빠삐코 딸기</h3>
+                            1,500원
+                        </Item>
+                    </Button>
+                </Box>
+
+                <Box className="Fourth">
+                    <Button className="fourth" onClick={() => {btn_fourth_click(); Count4()}}>
+                        <Item>
+                            <img src="/img/주물러.png" width={190} height={140}/>
+                            <h3>주물러</h3>
+                            1,000원
+                        </Item>
+                    </Button>
+                </Box>
             </Box>
+            <Box className="minus">
+                <Button variant="contained" color="success" onClick={() => {btn_first_minus_click(); Minus_Count();}}>-</Button>
+            </Box>
+            <Box className="minus2"> 
+                <Button variant="contained" color="success" onClick={() => {btn_second_minus_click(); Minus_Count2();}}>-</Button>
+            </Box>   
+            <Box className="minus3">
+                <Button variant="contained" color="success" onClick={() => {btn_third_minus_click(); Minus_Count3();}}>-</Button>
+            </Box>
+            <Box className="minus4">
+                <Button variant="contained" color="success" onClick={() => {btn_fourth_minus_click(); Minus_Count4();}}>-</Button>
+           `</Box>
+            <Box className="cnt">
+                <div className="first_cnt">{number}</div>
+                <div className="second_cnt">{number2}</div>
+                <div className="third_cnt">{number3}</div>
+                <div className="fourth_cnt">{number4}</div>
             </Box>
 
-            <Box className="kind" display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
-            <Box className="first" gridColumn="span 8"
-                sx={{
-                    width: 100,
-                    height: 500,
-                }}>  
-                <Button>
-                <Item>
-                    <img src="/img/빠삐코.png" width={190} height={140}/>
-                    <h3>빠삐코</h3>
-                    1,500원
-                </Item>
-                </Button>
+            <Box className="Order">
+            <Button className="order" variant="contained" onClick={handleOpen}>주문하기</Button>
             </Box>
-
-            <Box className="second" gridColumn="span 8"
-                sx={{
-                    width: 300,
-                    height: 600,
-                }}>
-                <Button>
-                <Item>
-                    <img src="/img/뽕따.png" width={190} height={140}/>
-                    <h3>뽕따</h3>
-                    1,000원
-                </Item>
-                </Button>
-            </Box>
-
-            <Box className="third" gridColumn="span 8"
-                sx={{
-                    width: 300,
-                    height: 600,
-                }}>
-                <Button>
-                <Item>    
-                    <img src="/img/빠삐코 딸기.png" width={190} height={140}/>
-                    <h3>빠삐코 딸기</h3>
-                    1,500원
-                </Item>
-                </Button>
-            </Box>
-
-            <Box className="fourth" gridColumn="span 8"
-                sx={{
-                    width: 300,
-                    height: 600,
-                }}>
-                <Button>
-                <Item>
-                    <img src="/img/주물러.png" width={190} height={140}/>
-                    <h3>주물러</h3>
-                    1,000원
-                </Item>
-                </Button>
-            </Box>
-
-            <Box className="fifth" gridColumn="span 8"
-                sx={{
-                    width: 1500,
-                    height: 500,
-                }}>  
-                <Button>
-                <Item>
-                    <img src="/img/초키초키.png" width={190} height={140}/>
-                    <h3>초키초키</h3>
-                    1,600원
-                </Item>
-                </Button>
-            </Box>
-
-            <Box className="sixth" gridColumn="span 8"
-                sx={{
-                    width: 1500,
-                    height: 500,
-                }}>  
-                <Button>
-                <Item>
-                    <img src="/img/탱크보이.png" width={190} height={140}/>
-                    <h3>탱크보이</h3>
-                    2,000원
-                </Item>
-                </Button>
-            </Box>
-
-            <Box className="seventh" gridColumn="span 8"
-                sx={{
-                    width: 1500,
-                    height: 500,
-                }}>  
-                <Button>
-                <Item>
-                    <img src="/img/쮸쮸바.png" width={190} height={140}/>
-                    <h3>쮸쮸바</h3>
-                    2,000원
-                </Item>
-                </Button>
-            </Box>
-
-            <Box className="eightth" gridColumn="span 8"
-                sx={{
-                    width: 1500,
-                    height: 500,
-                }}>  
-                <Button>
-                <Item>
-                    <img src="/img/토마토마.png" width={190} height={140}/>
-                    <h3>토마토마</h3>
-                    1,500원
-                </Item>
-                </Button>
-            </Box>
-
-         </Box>
-                
-         <Button className="cancel" variant="contained">취소</Button>
-         <Button className="order" variant="contained">주문하기</Button>
-         
-           
+            <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description">
+                        <Box sx={style}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                            내역
+                        </Typography>
+                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                            <div>빠삐코 : 1,500원 * {count+(minus_count)}개 = {1500*(count+(minus_count))}원</div>
+                            <div>뽕따 : 1,000원 * {count2+(minus_count2)}개 = {1000*(count2+(minus_count2))}원</div>
+                            <div>빠삐코 딸기 : 1,500원 * {count3+(minus_count3)}개 = {1500*(count3+(minus_count3))}원</div>
+                            <div>주물러 : 1,000원 * {count4+(minus_count4)}개 = {1000*(count4+(minus_count4))}원</div> <nt />
+                            <div>총 금액 : {(1500*(count+(minus_count))
+                            +(1000*(count2+(minus_count2)))
+                            +(1500*(count3+(minus_count3)))
+                            +(1000*(count4+(minus_count4))))}원</div>
+                        </Typography>
+                        </Box>
+            </Modal>
         </>
     )
 }
