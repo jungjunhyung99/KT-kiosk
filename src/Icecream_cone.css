@@ -1,31 +1,31 @@
 .title {
     display: flex;
     background-color:brown;
-    height: 50px;
-    margin-top: -10px;
+    height: 10vh;
+    margin-top: -1.5vh;
 }
 
 .name{
     display: flex;
     color: white !important;
     font-style:italic;
-    font-size:25px;
-    margin-left: 700px;
-    margin-top: 5px;
+    font-size:200%;
+    margin-left: 45%;
+    margin-top: 1%;
 }
 
 .menu{
     display: flex;
     background-color:burlywood;
     justify-content: space-between;
-    height: 50px;
+    height: 150%;
 }
 
 .kind {
     display: flex;
     background-color:antiquewhite;
-    height: 700px;
-    width: 1457px;
+    height: 80vh;
+    width: 97.8vw;
 }
 
 .cone{
@@ -50,160 +50,111 @@
     display: flex;
     text-decoration: none;
     color:black !important;
-    margin-left: 200px;
 }
 
 .Care {
     display:flex;
     background-color: antiquewhite;
-    height: 20px;
 }
 
 .care {
     display: flex;
-    margin-left: 350px;
-    font-size: 25px;
+    margin-left: 25%;
+    font-size: 150%;
     color: black;
     font-weight: bold;
-    margin-top:25px;
+    margin-top:2%;
 }
 
 .First {
     display: flex;
-    height: 250px;
-    margin-top: -10px;
-    margin-left: -30px;
+    height: 50%;
+    margin-top: -5%;
+    margin-left: -5%;
 }
 
 .Second{
     display: flex;
-    height: 250px;
-    margin-top: 600px;
-    margin-left: -820px;
+    height: 50%;
+    margin-top: 41%;
+    margin-left: -63%;
 }
 
 .Third{
     display: flex;
-    height: 250px;
-    margin-top: 760px;
-    margin-left: 1000px;
+    height: 50%;
+    margin-top: 53%;
+    margin-left: 73%;
 }  
 
 .Fourth{
     display: flex;
-    height: 250px;
-    margin-top: 1380px;
-    margin-left: -800px;
-}
-
-.Fifth {
-    display: flex;
-    height: 250px;
-    margin-left: -70px;
-    margin-top: 320px;
-}
-
-.Sixth {
-    display: flex;
-    height: 250px;
-    margin-left: 82px;
-    margin-top: 320px;
-}
-
-.Seventh {
-    display: flex;
-    height: 250px;
-    margin-left: 100px;
-    margin-top: 320px;
-}
-
-.Eightth {
-    display: flex;
-    height: 250px;
-    margin-left: 100px;
-    margin-top: 320px;
+    height: 50%;
+    margin-top: 99.5%;
+    margin-left: -60%;
 }
 
 .minus {
     display: flex;    
-    margin-left:320px;
-    margin-top:-390px;
+    margin-left:21.3%;
+    margin-top:-21.4%;
 }
 
 .minus2{
     display: flex;
-    margin-left:625px;
-    margin-top:-37px;
+    margin-left: 43.3%;
+    margin-top: -2.8%;
 }
 
 .minus3{
     display: flex;
-    margin-left:945px;
-    margin-top:-37px;
+    margin-left: 65.2%;
+    margin-top: -2.8%;
 }
 
 .minus4{
     display: flex;
-    margin-left:1270px;
-    margin-top:-30px;
-}
-
-.first_minus{
-    display: flex;
-    margin-top:1000px;
-}
-
-.second_minus{
-    display: flex;
-}
-
-.third_minus {
-    display: flex;
-}
-
-.fourth_minus{
-    display: flex;
-}
-
-.cnt {
-    display: flex;
-    height: 250px;
-    margin-top: 30px;
+    margin-left: 89.9%;
+    margin-top: -2.8%;
 }
 
 .first_cnt{
     display: flex;
-    font-size:100px;
-    color:black;
-    margin-left: 230px;
+    font-size:600%;
+    color:black !important;
+    margin-left: 17%;
+    margin-top: -30%;
 }
 
 .second_cnt {
     display: flex;
-    font-size:100px;
-    color:black;
-    margin-left: 280px;
+    font-size:600%;
+    color:black !important;
+    margin-left: 18%;
+    margin-top: -30%;
 }
 
 .third_cnt {
     display: flex;
-    font-size:100px;
-    color:black;
-    margin-left: 270px;
+    font-size:600%;
+    color:black !important;
+    margin-left: 18%;
+    margin-top: -30%;
 }
 
 .fourth_cnt {
     display: flex;
-    font-size:100px;
-    color:black;
-    margin-left: 260px;
+    font-size:600%;
+    color:black !important;
+    margin-left: 18%;
+    margin-top: -30%;
 }
 
 .order {
     display: flex;
-    width:1460px;
-    height:50px;
+    width:98vw;
+    height:10vh;
     background-color:red !important;
-    font-size:30px;
-    margin-top: 70px;
+    font-size:30%;
+    margin-top: -1000%;
 }

@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import './Hamburger_single.css';
 import Button from "@mui/material/Button";
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
 
 function Hamburger_set() {
     const navigate = useNavigate();
@@ -127,7 +128,7 @@ function Hamburger_set() {
               }));   
 
     return (
-        <>
+        <div>
             <Box className= "one_set_beverage">
                 <Button className="one" onClick={onClickHamburger_single}>단품</Button>
                 <Button className="set" onClick={onClickHamburger_set}>세트</Button>
@@ -135,62 +136,95 @@ function Hamburger_set() {
             </Box>
             <hr></hr>
             <div className="care">주의 : 수량이 0보다 크도록 선택하세요. 아니면 주문에 실패합니다.</div>
-            <Box className="First">
-                <Button className="first" onClick={() => {btn_first_click(); Count()}}>
-                    <Item>
-                        <img src="/img/A세트.png" width={190} height={140}/>
-                        <h3>A세트</h3>
-                        <div className="first_price">7,000원</div>
-                    </Item>
-                </Button>    
+            <Box className="box">
+                <Grid className="grid" container spacing={3}>
+                    <Grid item xs={3}>
+                        <Item>
+                            <Button onClick={() => {btn_first_click(); Count()}}>
+                                <Item>
+                                    <img src="/img/A세트.png" width={190} height={140}/>
+                                    <h3>A세트</h3>
+                                    7,000원
+                                </Item>
+                            </Button>
+                        </Item>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Item>
+                            <Button onClick={() => {btn_second_click(); Count2()}}>
+                                <Item>
+                                    <img src="/img/B세트.png" width={190} height={140}/>
+                                    <h3>B세트</h3>
+                                    6,500원
+                                </Item>
+                            </Button>
+                        </Item>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Item>
+                            <Button onClick={() => {btn_third_click(); Count3()}}>
+                                <Item>
+                                    <img src="/img/C세트.png" width={190} height={140}/>
+                                    <h3>C세트</h3>
+                                    10,900원
+                                </Item>
+                            </Button>
+                        </Item>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Item>
+                            <Button onClick={() => {btn_fourth_click(); Count4()}}>
+                                <Item>
+                                    <img src="/img/D세트.png" width={190} height={140}/>
+                                    <h3>D세트</h3>
+                                    6,500원
+                                </Item>
+                            </Button>
+                        </Item>
+                    </Grid>
+                </Grid>
             </Box>
-            <Box className="Second">
-                <Button className="second" onClick={() => {btn_second_click(); Count2()}}>
-                    <Item>
-                        <img src="/img/B세트.png" width={190} height={140}/>
-                        <h3>B세트</h3>
-                        6,500원
-                    </Item>
-                </Button>
+            <Box className="box2">
+                <Grid container spacing={39}>
+                    <Grid item xs={3}>
+                        <Button variant="contained" color="success" onClick={() => {btn_first_minus_click(); Minus_Count();}}>-</Button>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Button variant="contained" color="success" onClick={() => {btn_second_minus_click(); Minus_Count2();}}>-</Button>
+                    </Grid>
+                </Grid>
             </Box>
-            <Box className="Third">
-                <Button className="third" onClick={() => {btn_third_click(); Count3()}}>
-                    <Item>    
-                        <img src="/img/C세트.png" width={190} height={140}/>
-                        <h3>C세트</h3>
-                        10,900원
-                    </Item>
-                </Button>
+            <Box className="box_2">
+                <Grid container spacing={48.5}>
+                    <Grid item xs={3}>
+                        <Button variant="contained" color="success" onClick={() => {btn_third_minus_click(); Minus_Count3();}}>-</Button>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Button variant="contained" color="success" onClick={() => {btn_fourth_minus_click(); Minus_Count4();}}>-</Button>
+                    </Grid>
+                </Grid>
             </Box>
-            <Box className="Fourth">
-                   <Button className="fourth" onClick={() => {btn_fourth_click(); Count4()}}>
-                    <Item>
-                        <img src="/img/D세트.png" width={190} height={140}/>
-                        <h3>D세트</h3>
-                        6,500원
-                    </Item>
-                </Button>
+            <Box className="box3">
+                <Grid container spacing={-45}>
+                    <Grid item xs = {3}>
+                        <div className="first_cnt">{number}</div>
+                    </Grid>
+                    <Grid item xs = {3}>
+                        <div className="second_cnt">{number2}</div>
+                    </Grid>
+                </Grid>
             </Box>
-            <Box className="minus">
-                <Button className="first_minus" variant="contained" color="success" onClick={() => {btn_first_minus_click(); Minus_Count();}}>-</Button>
+            <Box className="box_3">
+                <Grid container spacing={50}>
+                    <Grid item xs = {3}>
+                        <div className="third_cnt">{number3}</div>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <div className="fourth_cnt">{number4}</div>
+                    </Grid>
+                </Grid>
             </Box>
-            <Box className="minus2"> 
-                <Button className="second_minus" variant="contained" color="success" onClick={() => {btn_second_minus_click(); Minus_Count2();}}>-</Button>
-            </Box>   
-            <Box className="minus3">
-                <Button className="third_minus" variant="contained" color="success" onClick={() => {btn_third_minus_click(); Minus_Count3();}}>-</Button>
-            </Box>
-            <Box className="minus4">
-                <Button className="fourth_minus" variant="contained" color="success" onClick={() => {btn_fourth_minus_click(); Minus_Count4();}}>-</Button>
-            </Box>
-            <Box className="cnt">
-                <div className="first_cnt">{number}</div>
-                <div className="second_cnt">{number2}</div>
-                <div className="third_cnt">{number3}</div>
-                <div className="fourth_cnt">{number4}</div>
-             </Box>
-
-            <Button className="order" variant="contained" onClick={handleOpen}>주문하기</Button>
+            <Button className="order" variant="contained" onClick={handleOpen} sx={{width:1520}}>주문하기</Button>
                 <Modal
                     open={open}
                     onClose={handleClose}
@@ -201,18 +235,18 @@ function Hamburger_set() {
                             내역
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            <div>A세트 : 7,000원 * {count+(minus_count)}개 = "{7000*(count+(minus_count))}"원</div>
-                            <div>B세트 : 6,500원 * {count2+(minus_count2)}개 = "{6500*(count2+(minus_count2))}"원</div>
-                            <div>C세트 : 10,900원 * {count3+(minus_count3)}개 = "{10900*(count3+(minus_count3))}"원</div>
-                            <div>D세트 : 6,500원 * {count4+(minus_count4)}개 = "{6500*(count4+(minus_count4))}"원</div> <br />
-                            <div>총 금액 : {(5400*(count+(minus_count))
-                            +(4900*(count2+(minus_count2)))
-                            +(8900*(count3+(minus_count3)))
-                            +(4000*(count4+(minus_count4))))}원</div>
+                            <div>A세트 : 7,000원 * {count+(minus_count)}개 = {7000*(count+(minus_count))}원</div>
+                            <div>B세트 : 6,500원 * {count2+(minus_count2)}개 = {6500*(count2+(minus_count2))}원</div>
+                            <div>C세트 : 10,900원 * {count3+(minus_count3)}개 = {10900*(count3+(minus_count3))}원</div>
+                            <div>D세트 : 6,500원 * {count4+(minus_count4)}개 = {6500*(count4+(minus_count4))}원</div> <br />
+                            <div>총 금액 : {(7000*(count+(minus_count))
+                            +(6500*(count2+(minus_count2)))
+                            +(10900*(count3+(minus_count3)))
+                            +(6500*(count4+(minus_count4))))}원</div>
                         </Typography>
                         </Box>
                 </Modal>
-        </>
+        </div>
     )
 }
 

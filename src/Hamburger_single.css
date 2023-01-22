@@ -1,8 +1,8 @@
 .one_set_beverage {
     display: flex;
     justify-content: space-between;
-    width: 1260px;
-    margin-left:100px;
+    width: 80vw;
+    margin-left:8%;
 }
 
 .one {
@@ -13,131 +13,100 @@
 .set {
     text-decoration: none;
     color:darkgray !important;
-    margin-left: 40px;
 }
 
 .beverage {
     text-decoration: none;
     color:darkgray !important;
-    margin-left: 100px;
 }
 
-.First{
+.line {
     display: flex;
-    margin-left:0px;
-    height: 400px;
-    margin-top: -120px;
-}
-
-.Second {
-    display: flex;
-    margin-left: -600px;
-    margin-top:210px;
-    height: 400px;
-}
-
-.Third {
-    display: flex;
-    margin-left: auto;
-    margin-top: 220px;
-    height: 400px;
-}
-
-.Fourth {
-    display: flex;
-    height: 400px;
-    margin-top: 215px;
+    margin-top:10%;
 }
 
 .order {
     display: flex;
-    width:1460px;
-    height:50px;
     background-color:red !important;
-    font-size:30px;
-    margin-top: 300px;
-}
-
-.minus {
-    display: flex;    
-    margin-left:300px;
-    margin-top:-1810px;
-}
-
-.minus2{
-    display: flex;
-    margin-left:630px;
-    margin-top:-35px;
-}
-
-.minus3{
-    display: flex;
-    margin-left:960px;
-    margin-top:-35px;
-}
-
-.minus4{
-    display: flex;
-    margin-left:1270px;
-    margin-top:-35px;
-}
-
-.first_minus{
-    display: flex;
-    border-top: 100px;
-}
-
-.second_minus{
-    display: flex;
-}
-
-.third_minus {
-    display: flex;
-}
-
-.fourth_minus{
-    display: flex;
+    font-size:30%;
 }
 
 .cnt {
     display: flex;
-    height: 250px;
-    margin-top: 30px;
+    height: 250vh;
+    margin-top: 30%
 }
 
 .first_cnt{
     display: flex;
-    font-size:100px;
+    font-size:100%;
     color:black;
-    margin-left: 220px;
+    margin-left: 220%;
+    margin-top: -50%;
 }
 
 .second_cnt {
     display: flex;
-    font-size:100px;
+    font-size:100%;
     color:black;
-    margin-left: 300px;
+    margin-left: 300%;
+    margin-top: -50%;
 }
 
 .third_cnt {
     display: flex;
-    font-size:100px;
+    font-size:100%;
     color:black;
-    margin-left: 270px;
+    margin-left: 160%;
+    margin-top: 50%;
 }
 
 .fourth_cnt {
     display: flex;
-    font-size:100px;
+    font-size:100%;
     color:black;
-    margin-left: 260px;
+    margin-left: 160%;
+    margin-top: 50%;
 }
 
 .care {
     display: flex;
-    margin-left: 350px;
-    font-size: 25px;
+    margin-left: 350%;
+    font-size: 25%;
     color: black;
     font-weight: bold;
-    margin-top:20px;
+    margin-top:20%;
+}
+
+.box {
+    display: flex;
+    margin-top: 2%;
+}
+
+.box2 {
+    display:flex;
+    margin-top: 0.5%;
+    margin-left: 19.5%;
+}
+
+.box_2 {
+    display: flex;
+    margin-left: 70.4%;
+    margin-top: -2.5%;
+}
+
+.box3 {
+    display: flex;
+    margin-left: -5%;
+    margin-top: 13%;
+    height: 179vh;
+    width: 100vw;
+}
+
+.box_3 {
+    display: flex;
+    margin-left: 40%;
+    margin-top: -107%;
+    height: 30vh;
+    width: 100vw;
 }
