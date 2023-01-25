@@ -102,7 +102,7 @@ function HardChoice () {
         dots: true,
         infinite: true,
         speed: 1500,
-        slidesToShow: 1,
+        slidesToShow: 3,
         slidesToScroll: 1,
         arrows: true,
         centerMode: true,
