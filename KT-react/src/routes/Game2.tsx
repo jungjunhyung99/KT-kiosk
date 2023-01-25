@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import { useMatch, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import {balloon} from "../game";
-import Tiramisu from "../image/Tiramisu.png";
+import pang from "../image/pang.png";
+import X from "../image/X.png";
+import Timer from "./Timer";
 
 interface IBallon {
-    
+  img: string;
+  name: string;    
 }
 
 const MainContainer = styled.div`
@@ -50,6 +53,10 @@ const Box = styled(motion.div)<{bgPhoto: string}>`
     margin: 0 auto;
 `;
 
+const Countable = styled(motion.h1)`
+  
+`;
+
 const BigMovie = styled(motion.div)`
   position: absolute;
   width: 50vw;
@@ -72,13 +79,22 @@ const ballColor = {
     color: ["노란색","빨간색","초록색","파란색"],
 };
 
+const countVariable = {
+  hidden: {
+    scale: 0,
+  },
+  visible: {
+    scale: 1,
+  },
+  exit: {
+    scale: 0,
+  },
+};
 
 
 function Game2() {
 
   const randColor = () => {
-    
-
     if(selColor.length === 1) return;
     let colorIndex = Math.floor(Math.random()*ballColor.color.length);
     let colorIndex2 = Math.floor(Math.random()*ballColor.color.length);
@@ -91,14 +107,15 @@ function Game2() {
     const [selColor, setColor] = useState<string[]>([]);
     const [score, setScore] = useState(0);
     const [fontColor,setFontColor] = useState<string[]>(["green","red"]);    
-    
+    const [realBall, setBall] = useState<IBallon[]>(balloon);
+
     const changeFontColor = (colorIdx:string[]) => {
       if(selColor.length === 1) return;
       const color = ["yellow","red","green","blue"];
-      for(let i = 0; i < 2; i++){
       let index = Math.floor(Math.random()*color.length);
       let index2 = Math.floor(Math.random()*color.length-1);
       setFontColor([color[index],color[index2]]);
+      for(let i = 0; i < 2; i++){
       if(colorIdx[i] === "노란색" && index === 0){
         setFontColor([color.slice(1,4).at(index2) as string,...fontColor]);
       }
@@ -114,13 +131,14 @@ function Game2() {
     };
 
     useEffect(() => {
+      setBall(balloon);
       randColor();
       changeFontColor(selColor);
       suffle();
     },[selColor.length === 0]);
 
     const suffle = () => {
-      balloon.sort(() => Math.random() - 0.5);
+      realBall.sort(() => Math.random() - 0.5);
     };
 
     const suffleColor = () => {
@@ -144,20 +162,27 @@ function Game2() {
       };
     const {y} = useScroll();
 
-    const changing = (ballName: string) => {
+    const changing = (ballName: string, index:number) => {
       const arr = selColor;
+      let count = 0;
+      let ballCatch = JSON.parse(JSON.stringify(realBall));
       for(let i = 0 ; i < selColor.length; i++){
         if(arr[i] === ballName){
           arr.splice(i,1);
-          fontColor.splice(i,1);          
-          console.log(selColor);
+          fontColor.splice(i,1);
           setScore((prev) => prev+1);
+          ballCatch[index].img = pang;
+          setBall(ballCatch);
         }
         else{
-          if(i === 2){ // 주의 깊게 보기 
-          setScore((prev) => prev - 2);
+          count++;  
         }
-        }
+      }
+      if(count ===2){
+        ballCatch[index].img = X;
+        setBall(ballCatch);
+        setScore((prev) => prev - 2);
+        count = 0;
       }
     };
 
@@ -180,6 +205,16 @@ function Game2() {
                   layoutId={modalMatch.params as any}
                 >
                   <h1 style={{color:"white"}}>인지력 게임</h1>
+                  {/* <Countable
+                  variants={countVariable}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  transition={{type: "spring",duration: 4}}
+                  >
+                    3
+                  </Countable> */}
+                  {/* <Timer/> */}
                   <MainContainer>
                     <div style={{margin:"0 auto", display:"flex", flexDirection:"column"}}>
                       <h1 style={{margin: "0 auto",color:"white", fontSize:"90px", fontWeight:"800"}}>
@@ -194,7 +229,7 @@ function Game2() {
                       </h1>)}
                     </div>
                     <Row>
-                        {balloon.map((ball) => <Box onClick={() => changing(ball.name)} bgPhoto={init(ball.img)}></Box>)}
+                        {realBall.map((ball,index) => <Box onClick={() => changing(ball.name,index)} bgPhoto={init(ball.img)}></Box>)}
                     </Row>
                   </MainContainer>  
                 </BigMovie>

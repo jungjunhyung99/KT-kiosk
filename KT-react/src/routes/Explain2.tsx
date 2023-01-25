@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import Cafe from "./Cafe";
 import Takeout from "../image/Takeout.jpg";
 import Mug from "../image/Mug.png"
+import Payment from "./Payment";
 
 const Container = styled(motion.div)`
     background: gray;
@@ -39,6 +40,9 @@ const Overlay = styled(motion.div)`
 const BigMovie = styled(motion.div)`
   position: absolute;
   width: 50vw;
+  max-width: 50vw;
+  min-width: 50vw;
+  min-height: 95vh;
   max-height: 95vh;
   left: 0;
   right: 0;
@@ -166,7 +170,8 @@ const offset = 4;
 
 function Explain2 () {
     const navigate = useNavigate();
-    const modalMatch = useMatch("/Menu/home/hard/cafe");
+    const modalMatch = useMatch("/Menu/home/hard/cafe/*");
+    const paymentMatch2 = useMatch("/Menu/home/hard/cafe/payment");
     const [index, setIndex] = useState(0);
     const [leaving, setLeaving] = useState(false);
     const increaseIndex = () => {
@@ -179,7 +184,7 @@ function Explain2 () {
         }
     };
     const toggleLeaving = () => setLeaving((prev) => !prev);
-    const onOverlayClick = () => navigate(-1);
+    const onOverlayClick = () => navigate("/Menu/home/hard");
     const onBoxClicked = (objId : string) => {
      navigate(`/Menu/explain/${objId}`);
     };
@@ -240,10 +245,10 @@ function Explain2 () {
                   style={{ top: y + 10 }}
                   layoutId={modalMatch.params as any}
                 >
-                  <Cafe/>
+                  {paymentMatch2 ? <Payment/> : <Cafe/> } 
                 </BigMovie>
               </>
-            ) : <BigMovie>gdfs</BigMovie>}
+            ) : <BigMovie></BigMovie>}
           </AnimatePresence>
           </>
         );

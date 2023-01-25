@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { kioskObj } from "../kisok";
 import { kioskObj2 } from "../kisok";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Container = styled(motion.div)`
     display:flex;
@@ -177,6 +178,15 @@ const rowVariants = {
     },
   };
 
+  const StyledLink = styled(Link)`
+    text-decoration: none;
+    color:white;
+    font-weight: 800;
+    &:focus, &hover, &:visited, &:link, &active{
+        text-decoration: none;
+    }
+  `;
+
 interface Ikiosk {
     id: string;
     sub: string;
@@ -190,7 +200,6 @@ interface Ikiosk {
 interface ICondiment{
     name: string;
     quantity: number;
-    option: object;
 }
 
 interface IItem{
@@ -203,14 +212,6 @@ interface IPay {
     basket: ICondiment[];
 };
 
-// const Overlay = styled(motion.div)`
-//   position: fixed;
-//   top: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(0, 0, 0, 0.5);
-//   opacity: 0;
-// `;
 
 const offset = 4;
 
@@ -218,6 +219,7 @@ function Cafe () {
     const navigate = useNavigate();
     const modalMatch = useMatch("/Menu/explain/:objId");
     const selectionMatch = useMatch("/Menu/explain/:objId/selection");
+    const [iceModal,setIceModal] = useState(false);
     const [menu, setKiosk] = useState<Ikiosk[]>(kioskObj);
     const [index, setIndex] = useState(0);
     const [leaving, setLeaving] = useState(false);
@@ -295,13 +297,12 @@ function Cafe () {
             const item = {
                 name: obj[i].name,
                 quantity: obj[i].quantity,
-                option: [obj[i].cost],
             };
             item2.push(item);
         }
     setSend({
         store: "cafe",
-        level: "easy",
+        level: "middle",
         basket:[
             ...item2
         ]
@@ -364,7 +365,7 @@ function Cafe () {
                 </MenuContainer>
                 )}
             </Row>
-            <div style={{display:"flex", backgroundColor:"#d3d7d6"}}>
+            <div style={{display:"flex", backgroundColor:"#d3d7d6",height:"11.5vh"}}>
                     <div style={{display:"flex",alignItems:"center"}}>
                         <Button onClick={() => increaseIndex(choice)}>{'<'}</Button>
                             <OrderSlider
@@ -399,7 +400,7 @@ function Cafe () {
             <div style={{backgroundColor:"white", height:"100%",alignItems:"center", width: "5.5vw"}}><h4>{cost}원</h4></div>
             
             <div onClick={() => onPayClicked(choice)} style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "5.5vw", border: "1px solid white", cursor:"pointer"}}>
-                <h4>결제하기</h4>
+                <StyledLink to="/Menu/home/hard/cafe/payment"><h4>결제하기</h4></StyledLink>
             </div>
             <div style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "6vw", border: "1px solid white", cursor:"pointer"}}>
                 <h4>쿠폰사용</h4>

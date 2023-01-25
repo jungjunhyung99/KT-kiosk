@@ -18,10 +18,11 @@ export const kioskObj = [
         id: "0", 
         sub:"CGV 요약본입니다.",
         img: image[0],
-        name: "Americano",
+        name: "아메리카노",
         cost: 3500,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
 
     {
@@ -32,6 +33,7 @@ export const kioskObj = [
         cost: 4000,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
     
     {
@@ -42,6 +44,7 @@ export const kioskObj = [
         cost: 3000,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
     
     {
@@ -52,6 +55,7 @@ export const kioskObj = [
         cost: 4000,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
 
     {
@@ -62,6 +66,7 @@ export const kioskObj = [
         cost: 3000,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
     {
         id: "5", 
@@ -71,6 +76,7 @@ export const kioskObj = [
         cost: 3000,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
     {
         id: "6", 
@@ -80,6 +86,7 @@ export const kioskObj = [
         cost: 4500,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
 ];
 

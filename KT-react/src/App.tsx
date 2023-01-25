@@ -20,6 +20,8 @@ import TakeOut from './routes/TakeOut';
 import Game2 from './routes/Game2';
 import TopMenu from './routes/TopMenu';
 import Hamburger_single from './routes/Hamburger_single';
+import Movie from './routes/Movie';
+import Payment from './routes/Payment';
 
 
 
@@ -110,10 +112,14 @@ function App() {
               <Route path="/Menu/home" element={<Choice/>}>
               <Route path="/Menu/home/easy" element={<EasyChoice/>}/>
               <Route path="/Menu/home/middle" element={<MiddleChoice/>}/>
-              <Route path="/Menu/home/hard" element={<HardChoice/>}>  
+              <Route path="/Menu/home/hard" element={<HardChoice/>}>
               <Route path="/Menu/home/hard/:objId" element={<Menu/>}/>
               </Route>
-              <Route path="/Menu/home/hard/cafe" element={<Explain2/>}/>
+              <Route path="/Menu/home/hard/cafe" element={<Explain2/>}>
+              <Route path="/Menu/home/hard/cafe/payment" element={<Payment/>}/>
+              </Route>
+              <Route path="/Menu/home/hard/cgv" element={<Movie/>}/>
+
           </Route>
           <Route path="/Menu/intro" element={<TopMenu/>}/>
           </Route>
