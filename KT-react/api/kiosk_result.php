@@ -5,7 +5,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 // DbConnect 참조
-include 'DbConnect.php';
+include 'DBConnect.php';
 $objDb = new DbConnect();
 $conn = $objDb->connect();
 
