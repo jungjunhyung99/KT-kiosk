@@ -1,0 +1,271 @@
+.title {
+    display: flex;
+    background-color:brown;
+    height: 5vh;
+}
+
+.name{
+    display: flex;
+    color: white !important;
+    font-style:italic;
+    font-size:200%;
+    margin-left: 45%;
+}
+
+.menu{
+    display: flex;
+    background-color:burlywood;
+    justify-content: space-between;
+    width: 50vw;
+    height: 5vh;
+}
+
+.kind {
+    display: flex;
+    background-color:antiquewhite;
+    height: 80vh;
+    width: 50vw;
+}
+
+.Cone{
+    display: flex;
+    text-decoration: none;
+    color:black !important;
+}
+
+.cone {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    font-size: 180%;
+}
+
+.Bar{   
+    display: flex;
+    text-decoration: none;
+    color:black !important;
+}   
+
+.bar {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    font-size: 180%;
+}
+
+.Cup{
+    display: flex;
+    text-decoration: none;
+    color:black !important;
+}
+
+.cup {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    font-size: 180%;
+}
+
+.Pencil{
+    display: flex;
+    text-decoration: none;
+    color:black !important;
+    margin-left: 200px;
+}
+
+.pencil {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    font-size: 180%;
+}
+
+.Order{
+    display: flex;
+}
+
+.order {
+    display: flex;
+    width:50vw;
+    height:6vh;
+    background-color:red !important;
+}
+
+.order2{
+    display: flex;
+    font-size: 200%;
+}
+
+.First {
+    display: flex;
+    margin-top: 0%;
+    height: 30vh;
+}
+
+.Second{
+    display: flex;
+    margin-top: 0%;
+    margin-left: 2.5%;
+    height: 30vh;
+}
+
+.Third{
+    display: flex;
+    height: 30vh;
+    margin-top: 0%;
+    margin-left: 2.5%;
+}  
+
+.Fourth{
+    display: flex;
+    height: 30vh;
+    margin-top: 0%;
+    margin-left:2.5%;
+}
+
+.Care {
+    display: flex;
+    background-color: antiquewhite;
+}
+
+.care {
+    display: flex;
+    margin-left: 15%;
+    font-size: 150%;
+    font-weight: bold;
+    margin-top: 2.5%;
+}
+
+.minus {
+    display: flex;    
+    margin-left:15.7%;
+    margin-top:-51.5%;
+}
+
+.minus2{
+    display: flex;
+    margin-left:41.4%;
+    margin-top: -4%;
+}
+
+.minus3{
+    display: flex;
+    margin-left:67%;
+    margin-top: -3.7%;
+}
+
+.minus4{
+    display: flex;
+    margin-left:92.8%;
+    margin-top: -3.7%;
+}
+
+.first_name{
+    display: flex;
+    font-size: 150%;
+    margin-left: 35%;
+}
+
+.first_price {
+    display: flex;
+    font-size: 120%;
+    margin-left: 35%;
+}
+
+.second_name{
+    display: flex;
+    font-size: 150%;
+    margin-left: 35%;
+}
+
+.second_price {
+    display: flex;
+    font-size: 120%;
+    margin-left: 35%;
+}
+
+.third_name{
+    display: flex;
+    font-size: 150%;
+    margin-left: 35%;
+}
+
+.third_price {
+    display: flex;
+    font-size: 120%;
+    margin-left: 35%;
+}
+
+.fourth_name{
+    display: flex;
+    font-size: 150%;
+    margin-left: 35%;
+}
+
+.fourth_price {
+    display: flex;
+    font-size: 120%;
+    margin-left: 35%;
+}
+
+.cnt {
+    display: flex;
+    height: 20vh;
+}
+
+.first_cnt {
+    display: flex;
+    font-size: 600%;
+    margin-left: 10%;
+}
+
+.second_cnt {
+    display: flex;
+    font-size: 600%;
+    margin-left: 20%;
+    margin-top: 0%;
+}
+
+.third_cnt {
+    display: flex;
+    font-size: 600%;
+    margin-left: 20%;
+    margin-top: 0%;
+}
+
+.fourth_cnt {
+    display: flex;
+    font-size: 600%;
+    margin-left: 20%;
+    margin-top: 0%;
+}
+
+.naeyuk {
+    display:flex;
+    font-size: 150%;
+}
+
+.first_content{
+    display: flex;
+    font-size:120%;
+}
+
+.second_content{
+    display: flex;
+    font-size:120%;
+}
+
+.third_content{
+    display: flex;
+    font-size:120%;
+}
+
+.fourth_content{
+    display: flex;
+    font-size:120%;
+}
+
+.total {
+    display: flex;
+    font-size: 130%;
+}
