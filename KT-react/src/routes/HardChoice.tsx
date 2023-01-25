@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Americano from "../image/americano.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import CGV from "../image/CGV.jpg";
 import Ramen from "../image/Ramen.jpg";
 
@@ -25,7 +25,9 @@ const StyledLink = styled(Link)`
 
 const SliderItem = styled.div`
   width: 100%;
+  background-size: cover;
   img{
+    
     max-width: 100%;
     height: auto;
   }
@@ -33,7 +35,7 @@ const SliderItem = styled.div`
 
 const StyledSlider = styled(Slider)`
     .slick-list{
-        width: 400px;
+        width: 25vw;
         margin: 0 auto;
         margin-left: 20px;
     }
@@ -58,6 +60,14 @@ const StyledSlider = styled(Slider)`
         overflow-x: hidden;
     }
 
+    .slick-slide{
+        visibility: hidden;
+    }
+
+    .slick-slide.slick-active{
+        visibility: visible;
+    }
+
     .slick-prev:before, .slick-next:before{ // 양옆 버튼
     	font-family: 'slick';
         font-size: 40px;
@@ -69,49 +79,51 @@ const StyledSlider = styled(Slider)`
 `;
 
 const SlideWrapper = styled.section`
-    position: relative;
+    
 `;
 
 const Img = styled.img`
-    width: 400px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
 `;
 
+const items : IChoice[] = [
+    { name: "cafe", url: Americano },
+    { name: "ramen", url: Ramen },
+    { name: "cgv", url: CGV },
+    { name: "cafe", url: Americano},
+    { name: "ramen", url: Ramen},
+    { name: "cgv", url: CGV }
+    ];
+
 function HardChoice () {
+    const navigate = useNavigate();
     const settings = {
         dots: true,
         infinite: true,
-        speed: 3500,
-        slidesToShow: 1,
+        speed: 1500,
+        slidesToShow: 3,
         slidesToScroll: 1,
         arrows: true,
         centerMode: true,
+        fade:true,
         centerPadding: "60px",
-        fade: true,
         autoplay: true,
         autoSpeed: 5000,
         pauseOnHover: true,
       };
 
-    const items : IChoice[] = [
-        { name: "대체", url: Americano },
-        { name: "대체", url: Ramen },
-        { name: "대체", url: CGV },
-        { name: "대체", url: Americano },
-        { name: "대체", url: Ramen },
-        { name: "대체", url: CGV },
-      ];
-    
+      const handleClickProducts= (objId:string) => {
+        navigate(`/Menu/home/hard/${objId}`);
+      };
 
     return (<div>
         <section className="carousel">
             <StyledSlider {...settings}
             >
                 {items.map((item,index) => (
-                    <SliderItem key={index}>
-                        <StyledLink to={"/Menu/explain/:objId"}>
-                            <Img src={item.url} alt={item.name}/>
-                        </StyledLink>
+                   <SliderItem key={index}> 
+                        <Img onClick={() => {handleClickProducts(item.name)}} src={item.url}></Img>
                     </SliderItem>
                 ))} 
             </StyledSlider>

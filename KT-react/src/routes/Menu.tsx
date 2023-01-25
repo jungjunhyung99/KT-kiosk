@@ -5,9 +5,16 @@ import {Link,Outlet, Routes, Route, useMatch, useParams} from 'react-router-dom'
 import React, { useState } from 'react';
 import ApexChart from "react-apexcharts";
 import Chart from "./Chart";
+import basicIcon from "../image/basicIcon.png";
+import { useRef } from "react";
+import Dropdown from "./Dropdown";
+
+interface Iprops {
+    isActive: boolean;
+}
 
 const Container = styled.div`
-    
+    margin-bottom: 7vh;
 `;
 
 const Header = styled.header`
@@ -35,11 +42,14 @@ const HeadOl = styled.ol`
 `;
 
 const HeadLi = styled.li<{isActive: boolean}>`
+    width: 5vw;
+    height: 6vh;
     margin: -40px 10px;
     padding: 10px 30px;
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
     border-radius: 10px;
     border: none;
     font-size: 16px;
@@ -57,7 +67,9 @@ const BodyContainer = styled.div`
 `;
 
 const NavBar = styled.nav`
-  flex: 1;
+  display:flex;
+  justify-content: center;
+  flex: 2;
   height: calc(100vh-100px);
   top: 100px;
   position: sticky;
@@ -74,11 +86,12 @@ const NavBar = styled.nav`
 
 const Body = styled.div`
     padding-top: 50px;
+    padding-right: 10vw;
     display: flex;
     justify-content: center;
     flex-direction: row;
     text-align: center;
-    flex: 4;
+    flex: 5;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
@@ -122,7 +135,7 @@ const NavMenu = styled.div`
 `;
 
 const NavTitle = styled.h3`
-    font-size: 1.9rem;
+    font-size: 2rem;
 `;
 
 
@@ -134,6 +147,7 @@ const NavTitle = styled.h3`
  `;
 
 const Olist = styled.ol`
+    position: relative;
     font-size: 20px;
     font-weight: 700;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -142,16 +156,18 @@ const Olist = styled.ol`
     margin: 0.5rem;
     &:hover{
         li{
-            display: flex;        
+            display: block;        
         }
     }
 `;
 
-const NavList = styled.li`
-    display: none;
+const NavList = styled.li<{isActive: boolean}>`
+    display: ${(props)=> props.isActive ? 'block':'none'};
+    margin-top: 17px;
 `;
 
 const List = styled.li`
+    width: 10vw;
     padding: 5px;
     cursor: pointer;
     display: flex;
@@ -175,7 +191,22 @@ const StyledLink = styled(Link)`
 
 function Menu() {
     const contentMatch = useMatch("/Menu/*");
+    const contentMatch2 = useMatch("/Menu/intro");
     const notMatch = useMatch("/");
+    const baseMatch = useMatch("/Menu/intro");
+    const [display, setDisplay] = useState<boolean[]>([false,false,false]);
+    const outMouseDisplay = (index:number) => {
+        let newDisplay = [...display];
+        newDisplay[index] = false;
+        setDisplay(newDisplay);
+    }
+
+    const inMouseDisplay = (index:number) => {
+        let newDisplay = [...display];
+        newDisplay[index] = true;
+        setDisplay(newDisplay);
+    }
+
     return (<div>
         <Header>
             <Link to={"/"}>
@@ -183,40 +214,52 @@ function Menu() {
             </Link>
         <>
         <ListContainer>
-        <Olist>
+        {/* <Olist 
+        onMouseOver={() => inMouseDisplay(0)}
+        onMouseOut={() => outMouseDisplay(0)}
+        >
             IT 서포터즈 소개
-            <NavList>gg</NavList>
-            <NavList>zz</NavList>
+            <NavList isActive={display[0]}>gg</NavList>
         </Olist>
-        <Olist>
+        <Olist
+        onMouseOver={() => inMouseDisplay(0)}
+        onMouseOut={() => outMouseDisplay(0)}
+        >
             교육프로그램
-            <NavList>하하</NavList>
-            <NavList>후후</NavList>
+            <NavList isActive={display[1]}>하하</NavList>
+            <NavList isActive={display[1]}>후후</NavList>
         </Olist>
-        <Olist>
+        <Olist
+        onMouseOver={() => inMouseDisplay(0)}
+        onMouseOut={() => outMouseDisplay(0)}>
             소리찾기/사랑의 봉사단
-            <NavList>코코</NavList>
-            <NavList>키키</NavList>
-        </Olist>
+            <NavList isActive={display[2]}>코코</NavList>
+            <NavList isActive={display[2]}>키키</NavList>
+        </Olist> */}
+        <Dropdown></Dropdown>
         </ListContainer>
         <Olist>로그인</Olist>
-        
         </>
         </Header>
         <Container>
         <Middle_bg></Middle_bg>
         <HeadOl>
-            <HeadLi isActive={notMatch !== null}>디지털기초</HeadLi>
+            <StyledLink to="/Menu/intro">
+            <HeadLi isActive={baseMatch !== null}>디지털기초</HeadLi>
+            </StyledLink>
             <HeadLi isActive={notMatch !== null}>디지털생활</HeadLi>
             <HeadLi isActive={notMatch !== null}>디지털에듀</HeadLi>
             <HeadLi isActive={notMatch !== null}>디지털특화</HeadLi>
             <HeadLi isActive={notMatch !== null}>교육문의</HeadLi>
-            <HeadLi isActive={contentMatch !== null}>온라인교육</HeadLi>
+            <StyledLink to="/Menu/home/middle">
+                <HeadLi isActive={contentMatch !== null}>키오스크 체험</HeadLi>
+            </StyledLink>
         </HeadOl>
         </Container>
         <BodyContainer>
             <NavBar>
                 <NavWrapper>
+                {contentMatch2 ? <img src={basicIcon}/>: 
                     <NavMenu>
                         <Olist>
                             <StyledLink to="/Menu/home/middle">
@@ -229,7 +272,7 @@ function Menu() {
                                     키오스크 설명서
                                 </NavTitle>
                             </StyledLink>
-                            <StyledLink to="/Menu/game">
+                            <StyledLink to="/Menu/gamechoice">
                                 <NavTitle>
                                     뇌활력 게임
                                 </NavTitle>
@@ -239,17 +282,12 @@ function Menu() {
                                     치매 테스트
                                 </NavTitle>
                             </StyledLink>
-                            <StyledLink to="/Menu/explain">
-                                <NavTitle>
-                                    미완성
-                                </NavTitle>
-                            </StyledLink>
                                 <StyledLink to="/Menu/home"><List>식당</List></StyledLink>
                                 <StyledLink to="/Menu/chart"><List>구매시설</List></StyledLink>
                                 <StyledLink to="/Menu/"><List>교통시설</List></StyledLink>
                                 <StyledLink to="/Menu/"><List>극장</List></StyledLink>
                                 <StyledLink to="/Menu/chart"><List>은행</List></StyledLink>
-                                <StyledLink to="/Menu/Cafe"><List>카페</List></StyledLink>
+                                <StyledLink to="home/hard/cafe"><List>카페</List></StyledLink>
                                 <StyledLink to="/Menu/chart"><List>업무</List></StyledLink>
                                 <StyledLink to="/Menu/chart"><List>기타</List></StyledLink>
                                 </Olist>
@@ -258,9 +296,9 @@ function Menu() {
                                 <NavTitle>
                                 통계 보기
                                 </NavTitle>
-                            </Olist>
+                            </Olist> 
                         </StyledLink>
-                    </NavMenu>
+                    </NavMenu>}
                 </NavWrapper>
             </NavBar>
         <Body>
@@ -270,5 +308,4 @@ function Menu() {
         </div>
     );
 }
-
 export default Menu;

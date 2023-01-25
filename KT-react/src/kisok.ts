@@ -1,4 +1,3 @@
-import useQuery from "react-query";
 import Americano from "./image/americano.png"
 import Espresso from "./image/Espresso.jpg";
 import SweetPo from "./image/SweetPo.jpg";
@@ -23,7 +22,9 @@ export const kioskObj = [
         cost: 3500,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
+
     {
         id: "1", 
         sub:"Cafe 요약본입니다.",
@@ -32,7 +33,9 @@ export const kioskObj = [
         cost: 4000,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
+    
     {
         id: "2", 
         sub:"식당 예약본입니다.",
@@ -41,6 +44,7 @@ export const kioskObj = [
         cost: 3000,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
     
     {
@@ -51,6 +55,7 @@ export const kioskObj = [
         cost: 4000,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
 
     {
@@ -61,6 +66,7 @@ export const kioskObj = [
         cost: 3000,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
     {
         id: "5", 
@@ -70,6 +76,7 @@ export const kioskObj = [
         cost: 3000,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
     {
         id: "6", 
@@ -79,6 +86,7 @@ export const kioskObj = [
         cost: 4500,
         selected: false,
         quantity: 1,
+        iced:"iced",
     },
 ];
 

@@ -22,7 +22,6 @@ const StyledSlider = styled(Slider)`
     .slick-list{
         width: 400px;
         margin: 0 auto;
-        margin-left: 20px;
     }
 
     .slick-dots{

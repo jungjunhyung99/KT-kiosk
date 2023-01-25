@@ -1,0 +1,221 @@
+.one_set_beverage {
+    display: flex;
+    justify-content: space-between;
+    width: 40vw;
+    margin-left:8%;
+    height: 5vh;
+}
+
+.One {
+    display: flex;
+    font-size: 250%;
+    color: darkgray !important;
+}
+
+.one {
+    display: flex;
+    font-size: 250%;
+}
+
+.Set {
+    display: flex;
+    font-size: 250%;
+    color: darkgray !important;
+}
+
+.set {
+    display:flex;
+    font-size: 250%;
+}
+
+.Beverage {
+    display: flex;
+    font-size: 250%;
+    color: darkgray !important;
+}
+
+.beverage {
+    display:flex;
+    font-size: 250%;
+}
+
+.line {
+    display: flex;
+    margin-top:10%;
+}
+
+.Order {
+    display: flex;
+    background-color:red !important;
+    font-size:30%;
+    margin-top: -70%;
+    height: 10vh;
+}
+
+.order {
+    display: flex;
+    font-size: 300%;
+    color:white;
+    margin-top: -0.8%;
+    margin-left: -35%;
+}
+
+.cnt {
+    display: flex;
+    height: 250vh;
+    margin-top: 30%
+}
+
+.First_cnt {
+    display: flex;
+    font-size: 800%;
+    color:black;
+    margin-left: 10%;
+    margin-top: 0%;
+    height: 0vh;
+}
+
+.first_cnt{
+    display: flex;
+    font-size:800%;
+    color:black;
+    margin-left: -300%;
+    margin-top: 100%;
+}
+
+.second_cnt {
+    display: flex;
+    font-size:800%;
+    color:black;
+    margin-left: 80%;
+    margin-top: 0%;
+}
+
+.third_cnt {
+    display: flex;
+    font-size:800%;
+    color:black;
+    margin-left: -8%;
+    margin-top: 0%;
+}
+
+.fourth_cnt {
+    display: flex;
+    font-size:800%;
+    color:black;
+    margin-left: -105%;
+    margin-top: 0%;
+}
+
+.care {
+    display: flex;
+    margin-left: 6%;
+    font-size: 180%;
+    color: black;
+    font-weight: bold;
+    margin-top:3.5%;
+}
+
+.box {
+    display: flex;
+    margin-top: 5%;
+    margin-left: 0%;
+}
+
+.box2 {
+    display:flex;
+    margin-top: 0.3%;
+    margin-left: 15.5%;
+}
+
+.box_2 {
+    display: flex;
+    margin-left: 67%;
+    margin-top: -4%;
+}
+
+.box3 {
+    display: flex;
+    margin-left: -50%;
+    margin-top: 0%;
+    height: 19vh;
+    width: 100vw;
+}
+
+.A_name {
+    display: flex;
+    font-size: 200%;
+    margin-left: 30%;
+}
+
+.A_price {
+    display: flex;
+    font-size: 200%;
+    margin-left: 25%;
+}
+
+.B_name {
+    display: flex;
+    font-size: 200%;
+    margin-left: 30%;
+}
+
+.B_price {
+    display: flex;
+    font-size: 200%;
+    margin-left: 25%;
+}
+
+.C_name {
+    display: flex;
+    font-size: 200%;
+    margin-left: 30%;
+}
+
+.C_price {
+    display: flex;
+    font-size: 200%;
+    margin-left: 25%;
+}
+
+.D_name {
+    display: flex;
+    font-size: 200%;
+    margin-left: 30%;
+}
+
+.D_price {
+    display: flex;
+    font-size: 200%;
+    margin-left: 25%;
+}
+
+.A_content {
+    display: flex;
+    font-size: 150%;
+}
+
+.B_content {
+    display: flex;
+    font-size: 150%;
+}
+
+.C_content {
+    display: flex;
+    font-size: 150%;
+}
+
+.D_content {
+    display: flex;
+    font-size: 150%;
+}
+
+.total{
+    display: flex;
+    font-size: 150%;
+}
+
+.naeyuk {
+    display: flex;
+    font-size: 200%;
+}

@@ -5,7 +5,8 @@ import { useLayoutEffect, useState } from "react";
 import { useEffect } from "react";
 import { kioskObj } from "../kisok";
 import { kioskObj2 } from "../kisok";
-import { color } from "@mui/system";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Container = styled(motion.div)`
     display:flex;
@@ -21,6 +22,7 @@ const MenuContainer = styled(motion.div)`
 
 const OrderSlider = styled(motion.div)`
   display: flex; 
+  width: 27vw;
 `;
 
 const Payment = styled.div`
@@ -176,6 +178,15 @@ const rowVariants = {
     },
   };
 
+  const StyledLink = styled(Link)`
+    text-decoration: none;
+    color:white;
+    font-weight: 800;
+    &:focus, &hover, &:visited, &:link, &active{
+        text-decoration: none;
+    }
+  `;
+
 interface Ikiosk {
     id: string;
     sub: string;
@@ -186,27 +197,37 @@ interface Ikiosk {
     quantity: number;
 }
 
-// const Overlay = styled(motion.div)`
-//   position: fixed;
-//   top: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(0, 0, 0, 0.5);
-//   opacity: 0;
-// `;
+interface ICondiment{
+    name: string;
+    quantity: number;
+}
+
+interface IItem{
+    item: ICondiment;
+};
+
+interface IPay {
+    store: string;
+    level: string;
+    basket: ICondiment[];
+};
+
 
 const offset = 4;
 
 function Cafe () {
-    const [menu, setKiosk] = useState<Ikiosk[]>(kioskObj);
     const navigate = useNavigate();
     const modalMatch = useMatch("/Menu/explain/:objId");
     const selectionMatch = useMatch("/Menu/explain/:objId/selection");
+    const [iceModal,setIceModal] = useState(false);
+    const [menu, setKiosk] = useState<Ikiosk[]>(kioskObj);
     const [index, setIndex] = useState(0);
     const [leaving, setLeaving] = useState(false);
     const [cost, setCost] = useState(0);
     const [choice, setChoice] = useState<Ikiosk[]>([]);
     const [focus,setFocus] = useState(0);
+    const [send, setSend] = useState<IPay>();
+    const [condiment,setCondiment] = useState<ICondiment[]>([]);
     const toggleLeaving = () => setLeaving((prev) => !prev);
     const onBackClick = () => navigate(-1);
     const increaseIndex = (array:Ikiosk[]) => {
@@ -270,10 +291,35 @@ function Cafe () {
         }
     };
     
+    const onPayClicked = (obj: Ikiosk[]) => {
+        let item2 = [];
+        for(let i = 0; i < obj.length; i++){
+            const item = {
+                name: obj[i].name,
+                quantity: obj[i].quantity,
+            };
+            item2.push(item);
+        }
+    setSend({
+        store: "cafe",
+        level: "middle",
+        basket:[
+            ...item2
+        ]
+    });
+    
+    fetch("http://minho2618.dothome.co.kr/test1/api/kiosk_answer.php",{
+        method: "POST",
+        body: JSON.stringify(
+          send  
+        ),
+    }).then((response) => response.json()).then((result) => console.log(result));
+
+    }
 
     useEffect(() => {
         
-    },)
+    },[])
 
     return (
         <AnimatePresence initial={false} onExitComplete={toggleLeaving}>    
@@ -319,42 +365,45 @@ function Cafe () {
                 </MenuContainer>
                 )}
             </Row>
-            <div style={{display:"flex", backgroundColor:"#d3d7d6"}}>
+            <div style={{display:"flex", backgroundColor:"#d3d7d6",height:"11.5vh"}}>
                     <div style={{display:"flex",alignItems:"center"}}>
-            <Button onClick={() => increaseIndex(choice)}>{'<'}</Button>
-            <OrderSlider
-            variants={rowVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            transition={{type: "tween", duration: 1}}
-            key="row"
-            >
-                <Order key="order" layoutId="row">
-                    {choice.slice(offset * index, offset * index + offset).map((choice) => 
-                    <MenuContainer>
-                    <SmallBox
-                    bgPhoto={choice.img} 
-                    key={choice.id}
-                    variants={smboxVariant} initial animate="exit"
-                    transition={{type:"tween"}}
-                >          
-                    </SmallBox>
-                    <div style={{display:"flex", alignItems:"center"}}>
-                    <QuantityButton onClick={() => onMinusClicked(choice.id,choice)}>-</QuantityButton>
-                    <div style={{margin: "0 auto", fontSize: "25px", fontWeight:"bold"}}>{choice.quantity}</div>
-                    <QuantityButton onClick={() => onPlusClicked(choice.id,choice)}>+</QuantityButton>
-                    </div>    
-                    </MenuContainer>)}
-                </Order>
-            </OrderSlider>
-            <Button onClick={() => increaseIndex(choice)}>{'>'}</Button>
-            </div>
+                        <Button onClick={() => increaseIndex(choice)}>{'<'}</Button>
+                            <OrderSlider
+                            variants={rowVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            transition={{type: "tween", duration: 1}}
+                            key="row"
+                            >
+                                <Order key="order" layoutId="row">
+                                    {choice.slice(offset * index, offset * index + offset).map((choice) => 
+                                    <MenuContainer>
+                                    <SmallBox
+                                    bgPhoto={choice.img}
+                                    key={choice.id}
+                                    variants={smboxVariant} initial animate="exit"
+                                    transition={{type:"tween"}}
+                                >          
+                                    </SmallBox>
+                                    <div style={{display:"flex", alignItems:"center"}}>
+                                    <QuantityButton onClick={() => onMinusClicked(choice.id,choice)}>-</QuantityButton>
+                                    <div style={{margin: "0 auto", fontSize: "25px", fontWeight:"bold"}}>{choice.quantity}</div>
+                                    <QuantityButton onClick={() => onPlusClicked(choice.id,choice)}>+</QuantityButton>
+                                    </div>
+                                    </MenuContainer>)}
+                                </Order>
+                            </OrderSlider>
+                        <Button onClick={() => increaseIndex(choice)}>{'>'}</Button>
+                        </div>
             <div style={{display:"flex", fontSize:"20px", alignItems:"center"}}>
-            <div style={{backgroundColor:"white", height:"100%",alignItems:"center"}}><h4>{cost}원</h4></div>
+            <div style={{backgroundColor:"white", height:"100%",alignItems:"center", width: "5.5vw"}}><h4>{cost}원</h4></div>
             
-            <div style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center"}}>
-                <h4>결제하기</h4>
+            <div onClick={() => onPayClicked(choice)} style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "5.5vw", border: "1px solid white", cursor:"pointer"}}>
+                <StyledLink to="/Menu/home/hard/cafe/payment"><h4>결제하기</h4></StyledLink>
+            </div>
+            <div style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "6vw", border: "1px solid white", cursor:"pointer"}}>
+                <h4>쿠폰사용</h4>
             </div>
             </div>
             </div>
