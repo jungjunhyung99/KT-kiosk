@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router,Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Menu from "./routes/Menu";
 import Home from "./routes/Home"
 import Chart from './routes/Chart';
@@ -22,7 +22,10 @@ import TopMenu from './routes/TopMenu';
 import Hamburger_single from './routes/Hamburger_single';
 import Movie from './routes/Movie';
 import Payment from './routes/Payment';
-
+/* 임시 테스트용  */
+/* 테스트 완료시 수정할 것 */
+import HamburgerKiosk from './routes/HamburgerKiosk';
+import ChooseScreen from "./hamburger/screens/ChooseScreen";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -96,38 +99,45 @@ function App() {
   return (
     <RecoilRoot>
       <ThemeProvider theme={theme}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home/>}>
-          </Route>
-          <Route path="/Menu" element={<Menu/>}>
-            <Route path="/Menu/explain2" element={<Explain/>}/>
-            <Route path="/Menu/explain" element={<Explain2/>}>
-            </Route>
-            <Route path="/Menu/gamechoice" element={<Game/>}>
-            </Route>
-              <Route path="/Menu/gamechoice/game" element={<Game2/>}/>
-            <Route path="/Menu/test" element={<Sample/>}/>
-            <Route path="/Menu/chart" element={<Hamburger_single/>}/>
-              <Route path="/Menu/home" element={<Choice/>}>
-              <Route path="/Menu/home/easy" element={<EasyChoice/>}/>
-              <Route path="/Menu/home/middle" element={<MiddleChoice/>}/>
-              <Route path="/Menu/home/hard" element={<HardChoice/>}>
-              <Route path="/Menu/home/hard/:objId" element={<Menu/>}/>
-              </Route>
-              <Route path="/Menu/home/hard/cafe" element={<Explain2/>}>
-              <Route path="/Menu/home/hard/cafe/payment" element={<Payment/>}/>
-              </Route>
-              <Route path="/Menu/home/hard/cgv" element={<Movie/>}/>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
 
-          </Route>
-          <Route path="/Menu/intro" element={<TopMenu/>}/>
-          </Route>
-        </Routes>
+            {/* element={<Home />} 을 임시로 수정  */}
+
+            <Route path="/hamburger" element={<HamburgerKiosk />}></Route>
+            <Route path="/hamburger/choose" element={<ChooseScreen />}></Route>
+
+            {/* 여기까지가 햄버거 키오스크 */}
+
+            <Route path="/Menu" element={<Menu />}>
+              <Route path="/Menu/explain2" element={<Explain />} />
+              <Route path="/Menu/explain" element={<Explain2 />}>
+              </Route>
+              <Route path="/Menu/gamechoice" element={<Game />}>
+              </Route>
+              <Route path="/Menu/gamechoice/game" element={<Game2 />} />
+              <Route path="/Menu/test" element={<Sample />} />
+              <Route path="/Menu/chart" element={<Hamburger_single />} />
+              <Route path="/Menu/home" element={<Choice />}>
+                <Route path="/Menu/home/easy" element={<EasyChoice />} />
+                <Route path="/Menu/home/middle" element={<MiddleChoice />} />
+                <Route path="/Menu/home/hard" element={<HardChoice />}>
+                  <Route path="/Menu/home/hard/:objId" element={<Menu />} />
+                </Route>
+                <Route path="/Menu/home/hard/cafe" element={<Explain2 />}>
+                  <Route path="/Menu/home/hard/cafe/payment" element={<Payment />} />
+                </Route>
+                <Route path="/Menu/home/hard/cgv" element={<Movie />} />
+
+              </Route>
+              <Route path="/Menu/intro" element={<TopMenu />} />
+            </Route>
+          </Routes>
         </Router>
-        </ThemeProvider>
-      </RecoilRoot>
-      );
+      </ThemeProvider>
+    </RecoilRoot >
+  );
 }
 
 export default App;
