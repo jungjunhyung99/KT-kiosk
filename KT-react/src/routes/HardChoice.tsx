@@ -5,13 +5,27 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Americano from "../image/americano.png";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import CGV from "../image/CGV.jpg";
-import Ramen from "../image/Ramen.jpg";
+import CGV from "../image/CGV.png";
+import Hamburger from "../image/Hamburger.png";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface IChoice{
     name: string;
     url: string;
+    sub: string;
+    color: string;
 }
+
+const ItemContainer = styled.div`
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+`;
+
+const Subscribe = styled.div`
+`;
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -23,26 +37,40 @@ const StyledLink = styled(Link)`
 `;
 
 
+const HeadVariable = {
+    initial:{
+        opacity: 0,
+        screenY: -1,
+    },
+
+    end:{
+        opacity: 1,
+        transition:{
+            screenY: 0,
+            delay: 0.5,
+            duration: 1,
+        }
+    }
+};
+
+
 const SliderItem = styled.div`
   width: 100%;
-  background-size: cover;
-  img{
-    
+
+  img,div{
     max-width: 100%;
-    height: auto;
   }
 `;
 
 const StyledSlider = styled(Slider)`
     .slick-list{
-        width: 25vw;
-        margin: 0 auto;
+        width: 70vw;
         margin-left: 20px;
     }
 
     .slick-slide img {
         object-fit: cover;
-        height: 300px;
+        height: 40vh;
         width: 100%;
         box-sizing: border-box;
     }
@@ -54,6 +82,7 @@ const StyledSlider = styled(Slider)`
     
     .slick-slide div{
         cursor: pointer;
+        margin-right: 20px;
     }
 
     .slick-track{
@@ -87,18 +116,60 @@ const Img = styled.img`
     height: 100%;
 `;
 
+const Section = styled(motion.section)`
+`;
+
 const items : IChoice[] = [
-    { name: "cafe", url: Americano },
-    { name: "ramen", url: Ramen },
-    { name: "cgv", url: CGV },
-    { name: "cafe", url: Americano},
-    { name: "ramen", url: Ramen},
-    { name: "cgv", url: CGV }
+    { name: "cafe", url: Americano, sub:"카페에서 커피를 주문해주세요!", color: "#F7DC6F"},
+    { name: "ramen", url: Hamburger, sub: "햄버거 세트와 음료를 시켜주세요!",color: "#D5A991"},
+    { name: "cgv", url: CGV,sub: "영화관 표를 예매해주세요!", color: "#e6b1b1"},
+    { name: "cafe", url: Americano, sub: "카페에서 커피를 주문해주세요!",color: "#F7DC6F"},
+    { name: "ramen", url: Hamburger, sub: "햄버거 세트와 음료를 시켜주세요!",color: "#D5A991"},
+    { name: "cgv", url: CGV, sub: "영화관 표를 예매해주세요!", color: "#2BB7B3"}
     ];
 
 function HardChoice () {
     const navigate = useNavigate();
     const settings = {
+            dots: true, // 캐러셀의 점 출력 여부 
+            infinite: true, // 무한 반복 여부  
+            speed: 500, // 넘기는 속도 
+            arrows: true,
+            autoplay: true,
+            autoplaySpeed: 2300,
+            pauseOnHover: true,
+            className: '',
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [ // 반응형 
+                {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true,
+                },
+                },
+                {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2,
+                },
+                },
+                {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+                },
+            ],
+      };
+
+      const initialSetting = {
         dots: true,
         infinite: true,
         speed: 1500,
@@ -109,26 +180,40 @@ function HardChoice () {
         fade:true,
         centerPadding: "60px",
         autoplay: true,
-        autoSpeed: 5000,
+        autoSpeed: 7000,
         pauseOnHover: true,
+
       };
 
       const handleClickProducts= (objId:string) => {
         navigate(`/Menu/home/hard/${objId}`);
       };
 
-    return (<div>
-        <section className="carousel">
-            <StyledSlider {...settings}
-            >
-                {items.map((item,index) => (
-                   <SliderItem key={index}> 
-                        <Img onClick={() => {handleClickProducts(item.name)}} src={item.url}></Img>
-                    </SliderItem>
-                ))} 
-            </StyledSlider>
-         </section>
-        </div>
+      
+
+    return (
+        <AnimatePresence>
+            <Section 
+            className="carousel"
+            variants={HeadVariable}
+            initial="initial"
+            animate="end">
+            <div style={{width:"70vw",backgroundColor:"#f0cf2a", color:"black",height:"15vh",display:"flex", justifyContent:"center",alignItems:"center"}}>        
+                <h1>키오스크 실전연습</h1>
+            </div>
+                <StyledSlider {...settings}
+                >
+                    {items.map((item,index) => (
+                            <SliderItem key={index}> 
+                                    <div><Img onClick={() => {handleClickProducts(item.name)}} src={item.url}></Img></div>
+                                    <div style={{backgroundColor:`${item.color}`, height:"15vh", marginTop:"-2vh"}}>
+                                        <h3 style={{fontWeight:"500", fontFamily:"fantasy"}}>{item.sub}</h3>
+                                    </div>
+                            </SliderItem>
+                    ))} 
+                </StyledSlider>
+            </Section>
+         </AnimatePresence>        
     );
 }
 

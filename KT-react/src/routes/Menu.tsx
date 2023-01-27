@@ -8,12 +8,13 @@ import Chart from "./Chart";
 import basicIcon from "../image/basicIcon.png";
 import { useRef } from "react";
 import Dropdown from "./Dropdown";
+import {AnimatePresence, motion} from "framer-motion";
 
 interface Iprops {
     isActive: boolean;
 }
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     margin-bottom: 7vh;
 `;
 
@@ -33,7 +34,7 @@ const HeadOl = styled.ol`
     list-style-type: disc;
     flex-direction: row;
     justify-content: center;    
-    max-width: 1000px;
+    max-width: 100vw;
     z-index: 2;
     width: 100%;
     margin: 0 auto;
@@ -42,7 +43,7 @@ const HeadOl = styled.ol`
 `;
 
 const HeadLi = styled.li<{isActive: boolean}>`
-    width: 5vw;
+    width: 7.5vw;
     height: 6vh;
     margin: -40px 10px;
     padding: 10px 30px;
@@ -63,7 +64,8 @@ const HeadLi = styled.li<{isActive: boolean}>`
 
 const BodyContainer = styled.div`
     display: flex;
-    height: 3vh;
+    justify-content: center;
+    height: 100vh;
 `;
 
 const NavBar = styled.nav`
@@ -84,14 +86,13 @@ const NavBar = styled.nav`
   }
 `;
 
-const Body = styled.div`
+const Body = styled(motion.div)`
     padding-top: 50px;
-    padding-right: 10vw;
     display: flex;
     justify-content: center;
     flex-direction: row;
     text-align: center;
-    flex: 5;
+    
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
@@ -102,6 +103,17 @@ const ContentContainer = styled.div`
 const ListContainer = styled.div`
     display: flex;
     justify-content: center;
+`;
+
+const HeadImg = styled(motion.img)`
+    display: flex;
+    justify-content: center;    
+    max-width: 400px;
+    height: 200px;
+    z-index: 2;
+    width: 100%;
+    margin: 0 auto;
+    transform: translateY(-140%);
 `;
 
  const Img = styled.img.attrs({
@@ -189,27 +201,69 @@ const StyledLink = styled(Link)`
     }
 `;
 
+const introBar = [
+    {name: "디지털 기초",
+    link: "/Menu/intro/1",
+    },
+    {name: "디지털 생활",
+    link: "/Menu/intro/2",
+    },
+    
+    {name: "디지털 에듀",
+    link: "/Menu/intro/3",
+    },
+    {name: "디지털 특화",
+    link: "/Menu/intro/4",
+    },
+    {name: "교육문의",
+    link: "/Menu/intro/5",
+    },
+    {name: "키오스크체험",
+    link: "/Menu/home/introduce",
+    },
+];
+
+
+const mainBar = [
+    {name: "숫자게임",
+    link: "/Menu/intro/1",
+    },
+    {name: "글자색 게임",
+    link: "/Menu/intro/2",
+    },
+    {name: "디지털 에듀",
+    link: "/Menu/intro/3",
+    },
+    
+]
+
+
 function Menu() {
     const contentMatch = useMatch("/Menu/*");
-    const contentMatch2 = useMatch("/Menu/intro");
+    const contentMatch2 = useMatch("/Menu/intro/*");
     const notMatch = useMatch("/");
     const baseMatch = useMatch("/Menu/intro");
+    const kioskMatch = useMatch("/Menu/home/introduce");
+    const gameMatch = useMatch("/Menu/gamechoice");
+    const testMatch = useMatch("/Menu/home/hard");
     const [display, setDisplay] = useState<boolean[]>([false,false,false]);
     const outMouseDisplay = (index:number) => {
         let newDisplay = [...display];
         newDisplay[index] = false;
         setDisplay(newDisplay);
     }
-
+    let para = useParams();
     const inMouseDisplay = (index:number) => {
         let newDisplay = [...display];
         newDisplay[index] = true;
         setDisplay(newDisplay);
     }
 
-    return (<div>
+    return (
+    <AnimatePresence>
+    <div>
         <Header>
-            <Link to={"/"}>
+            <Link to={"/Menu/intro/1"}>
                 <Img />
             </Link>
         <>
@@ -242,22 +296,38 @@ function Menu() {
         </>
         </Header>
         <Container>
-        <Middle_bg></Middle_bg>
+        <div>
+            <Middle_bg></Middle_bg>
+        </div>
         <HeadOl>
-            <StyledLink to="/Menu/intro">
-            <HeadLi isActive={baseMatch !== null}>디지털기초</HeadLi>
-            </StyledLink>
-            <HeadLi isActive={notMatch !== null}>디지털생활</HeadLi>
-            <HeadLi isActive={notMatch !== null}>디지털에듀</HeadLi>
-            <HeadLi isActive={notMatch !== null}>디지털특화</HeadLi>
-            <HeadLi isActive={notMatch !== null}>교육문의</HeadLi>
-            <StyledLink to="/Menu/home/middle">
-                <HeadLi isActive={contentMatch !== null}>키오스크 체험</HeadLi>
-            </StyledLink>
+            {contentMatch2 ? introBar.map((intro,index) => 
+            <StyledLink to={intro.link}>
+                <HeadLi isActive={para.id as unknown as number == index +1}> {intro.name}
+                
+                </HeadLi>
+            </StyledLink>    
+                ) : <HeadOl>
+                    
+                <StyledLink to="/Menu/intro/1"><HeadLi isActive={notMatch !== null}>IT교육과정</HeadLi></StyledLink>
+                <StyledLink to="/Menu/home/introduce">
+                    <HeadLi isActive={kioskMatch !== null}>키오스크설명</HeadLi>
+                </StyledLink>
+                
+                <StyledLink to="/Menu/gamechoice/game">
+                    <HeadLi isActive={gameMatch !== null}>글자게임</HeadLi>
+                </StyledLink>
+    
+                <StyledLink to="/Menu/gamechoice/numberGame">
+                    <HeadLi isActive={notMatch !== null}>숫자게임</HeadLi>
+                </StyledLink>
+                <StyledLink to="/Menu/home/hard">
+                    <HeadLi isActive={testMatch !== null}>키오스크 체험</HeadLi>
+                </StyledLink></HeadOl>}
+            
         </HeadOl>
         </Container>
         <BodyContainer>
-            <NavBar>
+            {/* <NavBar>
                 <NavWrapper>
                 {contentMatch2 ? <img src={basicIcon}/>: 
                     <NavMenu>
@@ -300,12 +370,13 @@ function Menu() {
                         </StyledLink>
                     </NavMenu>}
                 </NavWrapper>
-            </NavBar>
+            </NavBar> */}
         <Body>
             <Outlet/>
         </Body>
         </BodyContainer>
         </div>
+        </AnimatePresence>
     );
 }
 export default Menu;

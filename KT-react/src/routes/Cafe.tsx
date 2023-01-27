@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useMatch, useNavigate, useParams } from "react-router-dom";
 import { useLayoutEffect, useState } from "react";
 import { useEffect } from "react";
-import { kioskObj } from "../kisok";
+import { kioskObj, kioskObj3 } from "../kisok";
 import { kioskObj2 } from "../kisok";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -224,6 +224,7 @@ function Cafe () {
     const [index, setIndex] = useState(0);
     const [leaving, setLeaving] = useState(false);
     const [cost, setCost] = useState(0);
+    const [apiContent, setApiCount] = useState<ICondiment[]>([]);//여기부터 하면됨
     const [choice, setChoice] = useState<Ikiosk[]>([]);
     const [focus,setFocus] = useState(0);
     const [send, setSend] = useState<IPay>();
@@ -242,7 +243,7 @@ function Cafe () {
     };
 
     const onListClicked = (num:Number) => {
-        {num == 1 ? setKiosk(kioskObj) : setKiosk(kioskObj2) }
+        {num == 1 ? setKiosk(kioskObj) : num == 2 ? setKiosk(kioskObj2) : setKiosk(kioskObj3) }
     };
 
     const onBoxClicked = (objId : string, array:Ikiosk) => {
@@ -313,8 +314,8 @@ function Cafe () {
         body: JSON.stringify(
           send  
         ),
-    }).then((response) => response.json()).then((result) => console.log(result));
-
+    }).then((response) => response.json()).then((result) => setCondiment(result));
+    console.log(condiment);
     }
 
     useEffect(() => {
@@ -338,10 +339,10 @@ function Cafe () {
                         <Li onClick={() => onListClicked(2)}>
                          DESSERT
                         </Li>
-                        <Li>
+                        <Li onClick={() => onListClicked(4)}>
                             ADE/TEA
                         </Li>
-                        <Li onClick={() => onListClicked(3)}>
+                        <Li onClick={() => onListClicked(4)}>
                             OTHER
                         </Li>
                     </Ul>
@@ -400,10 +401,11 @@ function Cafe () {
             <div style={{backgroundColor:"white", height:"100%",alignItems:"center", width: "5.5vw"}}><h4>{cost}원</h4></div>
             
             <div onClick={() => onPayClicked(choice)} style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "5.5vw", border: "1px solid white", cursor:"pointer"}}>
-                <StyledLink to="/Menu/home/hard/cafe/payment"><h4>결제하기</h4></StyledLink>
+            <StyledLink to="/Menu/home/hard/cafe/payment"><h4>카드결제</h4>
+            </StyledLink>
             </div>
             <div style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "6vw", border: "1px solid white", cursor:"pointer"}}>
-                <h4>쿠폰사용</h4>
+                <h4>현금결제</h4>
             </div>
             </div>
             </div>

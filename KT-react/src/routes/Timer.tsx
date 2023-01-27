@@ -16,22 +16,23 @@ function Timer(){
     },[]);
     return (
         <Container>
-            <Front>{Math.floor(timeElapsed/1000)}:</Front>
-            <Back>{(timeElapsed/1000)/10}</Back>
+            <Front>{Math.floor(timeElapsed/1000)}초</Front>
+            
         </Container>
     );
 }
 
 const Container=styled.div`
-    margin-top:30px;
-    width:100px;
-    height:50px;
+    
+    width:100%;
+    height:100%;
     display:flex;
-    position:relative;
+    justify-content: center;
+    
 `;
 
 const Front=styled.div`
-    text-align:right;
+    font-size: 40px;
 `;
 
 const Back=styled.div`

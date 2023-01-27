@@ -67,7 +67,7 @@ const BigMovie = styled(motion.div)`
   background-color: white;
   border: 2px solid white;
   overflow: hidden;
-  background-color: #A43433;
+  background-color: #2BB7B3;
 `;
 
 interface Iscroll {

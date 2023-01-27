@@ -1,14 +1,24 @@
 import { darken } from "@mui/material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link, useNavigate } from "react-router-dom";
+import styled from "styled-components"; 
 
 const Li = styled.li`
+    display:flex;
     list-style: none;
     border-radius: 15px;
     width: 100%;
     &:hover{
         color: #2BB7B3;
+    }
+`;
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    &:focus, &hover, &:visited, &:link, &active{
+        text-decoration: none;
     }
 `;
 
@@ -38,41 +48,42 @@ const LiContainer = styled.div`
   background-color: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  width: 8vw;
+  width: 10vw;
   position: absolute;
   display:none;
   ${DropDown}:active & {
-    display: block;    
-    h2{
-      color:white;
-    }
+    display: flex;
+    justify-content: center;
   }
 
   
 
   ${DropDown}:focus & {
     display: block;
-    h2{
-      color:white;
-    }
   }
 `;
 
 
 function Dropdown(){
-  
+  const navigate = useNavigate();
   
   return(
-    <Li>
+    <div>
         <DropDown>
             <h2 style={{fontSize:"1rem"}}>
             IT서포터즈 소개
             </h2>
           <LiContainer>
              <Ul>
+                
                  <Li>프로필</Li>
-                 <Li>로그아웃</Li>
+                
+                
+                 <Li onClick={()=>navigate("/Menu/intro/1")}>로그아웃</Li>
+                
+                <StyledLink to="Menu/intro/1">
                  <Li>구뜨</Li>
+                 </StyledLink>
             </Ul>
           </LiContainer>
         </DropDown>
@@ -82,26 +93,28 @@ function Dropdown(){
             </h2>
           <LiContainer>
              <Ul>
-                 <Li>프로필</Li>
-                 <Li>로그아웃</Li>
-                 <Li>구뜨</Li>
+                 <Li onClick={()=>navigate("/Menu/intro/1")}>디지털 기초</Li>
+                 <Li onClick={()=>navigate("/Menu/intro/2")}>디지털 생활</Li>
+                 <Li onClick={()=>navigate("/Menu/intro/3")}>디지털 에듀</Li>
+                 <Li onClick={()=>navigate("/Menu/intro/4")}>디지털 특화</Li>
+                 <Li onClick={()=>navigate("/Menu/intro/5")}>교육문의</Li>
             </Ul>
           </LiContainer>
         </DropDown>
         
         <DropDown>
-            <h2 style={{fontSize:"1rem", fontWeight:"750"}}>
-            KT장기사회공헌
+            <h2 style={{fontSize:"1rem"}}>
+            KT키오스크
             </h2>
           <LiContainer>
              <Ul>
-                 <Li>프로필</Li>
-                 <Li>로그아웃</Li>
-                 <Li>구뜨</Li>
+              <Li onClick={()=>navigate("/Menu/intro/1")}>뇌활력 게임</Li>
+              <Li onClick={()=>navigate("/Menu/home/hard")}>키오스크 체험</Li>
+              <Li onClick={()=>navigate("/Menu/intro/3")}>우울증 테스트</Li>
             </Ul>
           </LiContainer>
         </DropDown>
-    </Li>
+    </div>
   );
 }
 

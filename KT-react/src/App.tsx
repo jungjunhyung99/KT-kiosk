@@ -18,10 +18,14 @@ import Cafe from './routes/Cafe';
 import Sample from './routes/Sample';
 import TakeOut from './routes/TakeOut';
 import Game2 from './routes/Game2';
-import TopMenu from './routes/TopMenu';
+import Intro1 from './routes/intro/Intro1';
 import Hamburger_single from './routes/Hamburger_single';
 import Movie from './routes/Movie';
 import Payment from './routes/Payment';
+import OneToFifty from './routes/NumberGame';
+import Intro2 from './routes/intro/intro2';
+import Intro3 from './routes/intro/intro3';
+import Introduce from './routes/introduce';
 
 
 
@@ -98,15 +102,18 @@ function App() {
       <ThemeProvider theme={theme}>
       <Router>
         <Routes>
-          <Route path="/" element={<Home/>}>
+          <Route path="/" element={<Menu/>}>
           </Route>
           <Route path="/Menu" element={<Menu/>}>
+          <Route path="/Menu/intro/:id" element={<Intro1/>}/>
+          <Route path="/Menu/home/introduce" element={<Introduce/>}/>
             <Route path="/Menu/explain2" element={<Explain/>}/>
             <Route path="/Menu/explain" element={<Explain2/>}>
             </Route>
             <Route path="/Menu/gamechoice" element={<Game/>}>
             </Route>
               <Route path="/Menu/gamechoice/game" element={<Game2/>}/>
+              <Route path="/Menu/gamechoice/numberGame" element={<OneToFifty/>}/>
             <Route path="/Menu/test" element={<Sample/>}/>
             <Route path="/Menu/chart" element={<Hamburger_single/>}/>
               <Route path="/Menu/home" element={<Choice/>}>
@@ -119,9 +126,7 @@ function App() {
               <Route path="/Menu/home/hard/cafe/payment" element={<Payment/>}/>
               </Route>
               <Route path="/Menu/home/hard/cgv" element={<Movie/>}/>
-
           </Route>
-          <Route path="/Menu/intro" element={<TopMenu/>}/>
           </Route>
         </Routes>
         </Router>

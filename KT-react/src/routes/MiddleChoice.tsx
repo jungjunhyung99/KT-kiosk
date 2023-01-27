@@ -138,14 +138,42 @@ const Tab = styled.span<{ isActive: boolean }>`
 
 function MiddleChoice () {
     const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        centerMode: true,
-        fade: true,
+      dots: true, // 캐러셀의 점 출력 여부 
+      infinite: true, // 무한 반복 여부  
+      speed: 500, // 넘기는 속도 
+      arrows: true,
+      autoplay: true,
+      autoplaySpeed: 2300,
+      pauseOnHover: true,
+      className: '',
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      responsive: [ // 반응형 
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
       };
 
     const items : IChoice[] = [
