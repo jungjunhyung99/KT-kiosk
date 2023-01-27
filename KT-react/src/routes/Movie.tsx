@@ -6,6 +6,7 @@ import styled from "styled-components";
 import MovieFood from "./MovieFood";
 import MovieMain from "./MovieMain";
 import MovieSeat from "./MovieSeat";
+import MovieWhen from "./MovieWhen";
 
 const Overlay = styled(motion.div)`
 position: fixed;
@@ -34,7 +35,7 @@ function Movie() {
     const navigate = useNavigate();
     const onOverlayClick = () => navigate(-1);
     const modalMatch = useMatch("/Menu/home/hard/cgv");
-
+    const [general, setGeneral] = useState(0);
     
     const useScroll = () => {
         const [state, setState] = useState({
@@ -63,7 +64,7 @@ function Movie() {
                     <BigMovie 
                     style={{ top: y + 10 }}
                     layoutId={modalMatch.params as any}>
-                        <MovieSeat/>
+                        <MovieWhen/>
                     </BigMovie>
                 </> : null}
         </AnimatePresence>

@@ -5,8 +5,7 @@ import styled from 'styled-components';
 function Home() {
     return (
         <div>
-            
-            <Link to="/Menu">click here to go to Menu!</Link>
+            <img src="http://itsupporters.com/theme/it/img/main_bg_01.png" style={{width:"100vw"}}></img>
         </div>
     );
 }

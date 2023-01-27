@@ -9,9 +9,13 @@ import Bagle from "./image/Bagle.png";
 import Browny from "./image/Browny.png";
 import Apogatto from "./image/Apogatto.png";
 import Soybean from "./image/Soybean.png";
+import jado from "./image/JaduAde.png";
+import grape from "./image/grapes.png";
+
 
 export const image = [Americano, SweetPo, Espresso, Latte,IceTea, Apogatto,Soybean];
 export const image2 = [Tiramisu, Chococake, Bagle, Browny];
+export const image3 = [jado, grape];
 
 export const kioskObj = [
     {
@@ -125,6 +129,28 @@ export const kioskObj2 = [
         sub:"단게 땡길때 먹는 브라우니",
         img: image2[3],
         name: "브라우니",
+        cost: 4000,
+        selected: false,
+        quantity: 1,
+    },
+];
+
+
+export const kioskObj3 = [
+    {
+        id: "14", 
+        sub:"",
+        img: image3[0],
+        name: "자두에이드",
+        cost: 3500,
+        selected: false,
+        quantity: 1,
+    },
+    {
+        id: "15", 
+        sub:"",
+        img: image3[1],
+        name: "청포도 에이드",
         cost: 4000,
         selected: false,
         quantity: 1,
