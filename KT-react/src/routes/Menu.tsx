@@ -308,7 +308,7 @@ function Menu() {
             </StyledLink>    
                 ) : <HeadOl>
                     
-                <StyledLink to="/Menu/intro/1"><HeadLi isActive={notMatch !== null}>IT교육과정</HeadLi></StyledLink>
+                <StyledLink to="/Menu/intro/1"><HeadLi isActive={false}>IT교육과정</HeadLi></StyledLink>
                 <StyledLink to="/Menu/home/introduce">
                     <HeadLi isActive={kioskMatch !== null}>키오스크설명</HeadLi>
                 </StyledLink>
@@ -318,7 +318,7 @@ function Menu() {
                 </StyledLink>
     
                 <StyledLink to="/Menu/gamechoice/numberGame">
-                    <HeadLi isActive={notMatch !== null}>숫자게임</HeadLi>
+                    <HeadLi isActive={false}>숫자게임</HeadLi>
                 </StyledLink>
                 <StyledLink to="/Menu/home/hard">
                     <HeadLi isActive={testMatch !== null}>키오스크 체험</HeadLi>
