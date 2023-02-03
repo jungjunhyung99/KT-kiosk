@@ -1,149 +1,167 @@
 import styled from "styled-components";
-import { useState } from "react";
+import {useEffect, useState} from "react";
+import { makeImagePath } from "./utils";
+import { useRecoilState } from "recoil";
+import { IAtomMovie, movieObj } from "./atom";
+import { useNavigate } from "react-router-dom";
 
-const MDayBox = styled.div`
-  width : 100rem;
-  height : 7rem;
-  padding : 1rem;
+const Container = styled.div`
+  width: 50vw;
+  height: 110vh;
+`;
+
+const TimeBox = styled.div`
+  display:flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-top: 5px;
+  justify-content: center;
+  border: 1px solid #666666;
+  width: 9vw;
+  height: 6vh;
+`;
+
+const Button = styled.button`
+    font-size: 25px;
+    width: 30vw;
+    padding: 7px 0;
+    border-radius: 16px;
+    background-color: #666666;
+    color: #fff;
+    letter-spacing: -1px;
+    border: none;
+    margin-top: 8vh;
+`;
+
+const Box = styled.div<{bgPhoto: string}>`
   display: flex;
-  justify-content:center; 
-`
-const MTimeBox = styled.div`
-  width : 100rem;
-  height : 4rem;
-  padding : 1rem;
+  width: 8vw;
+  height: 19vh;
+  background-image:
+  url(${(props) => props.bgPhoto});
+  background-size: cover;
+  margin: 10px;
+`;
+
+const Banner = styled.div<{bgPhoto: string}>`
+height: 25vh;
+width: 50vw;
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding: 60px;
+background-image:
+  url(${(props) => props.bgPhoto});
+background-size: cover;
+`;
+
+const Footer = styled.div`
   display: flex;
-  justify-content:center; 
-`
+  background-color:#454444;
+  width: 100%;
+  height: 9vh;
+`;
 
-const CenterText = styled.div`
-  width:100rem;
-  justify-content:center;
-  display: flex;
-  font-size :22px;
+const BackButton = styled.button`
+  font-size: 40px;
+  color: white;
+  font-weight: 800;
+  background-color: #454444;
+  border: none;
+  margin-left: 10px;
+`;
 
-`
+const HomeButton = styled.button`
+  font-size: 40px;
+  color: white;
+  font-weight: 800;
+  background-color: #454444;
+  border: none;
+  margin-left: 10px;
+`;
+
+const when = 
+  {
+      time: ["11:40", "12:55","14:05","15:20","16:35"],
+      seat: ["26/218", "26/218", "26/218", "26/218", "26/218"]
+  };
+
+interface IGetMoives{
+  dates:{
+    maximum: string;
+    minimum: string;
+  }
+  page: number;
+  results: IMovie[];
+  total_page: number;
+  total_results: number;
+}
 
 
-const MovieDate = styled.button`
-    padding : 1rem 1rem;
-    border-radius : 2rem;
-    font-size : 20px;
-    line-height: 2rem;
-    background-color : ${props => props.color};
-    justify-content:center; 
-    display:flex;
-    margin:0.3rem 1.05rem;
-    width : 4.5rem;
-`
+interface IMovie {
+  id: number;
+  backdrop_path: string;
+  poster_path: string;
+  title: string;
+  overview: string;
+  vote_average: number;
+}
 
-const MovieDay = styled.div`
-  font-size : 20px;
-  justify-content:center;
-  display: flex;
-`
+function MovieWhen() {
+  const navigate = useNavigate();
+  const [movies, setMovies] = useState<IGetMoives>();
+  const [movieRecoil, SetMovieRecoil] = useRecoilState<IAtomMovie>(movieObj);
+  const TimeClick = (timeline:string) => {
+    SetMovieRecoil({title:movieRecoil.title, seat:0,time:timeline});
+    navigate("/Menu/home/hard/cgv/seat");
+  
+  };
+    const getMovies = async () => {
+      const json = await (
+        await fetch(
+            `https://api.themoviedb.org/3/movie/now_playing?api_key=1e1dd98e7bbdb858a49359dbec86444f`
+        )
+        
+      ).json();
+      setMovies(json);
+    console.log(json);
+    };
 
-const MovieWhen = styled.div`
-    width:6.8rem;
-    height:7em;
-    border : 0.1rem black solid;
-`
-
-const MovieTime = styled.button`
-    width:12.1rem;
-    height : 3rem;
-    border : 0.1rem black solid;
-    background-color : ${props => props.color};
-`
-
-function When() {
-  const [MDateColor1, setMDateColor1] = useState('white');
-  const MDateClick1 = () => {
-    MDateColor1 === 'white' ? setMDateColor1('lightblue') : setMDateColor1('white');
-  };
-  const [MDateColor2, setMDateColor2] = useState('white');
-  const MDateClick2 = () => {
-    MDateColor2 === 'white' ? setMDateColor2('lightblue') : setMDateColor2('white');
-  };
-  const [MDateColor3, setMDateColor3] = useState('white');
-  const MDateClick3 = () => {
-    MDateColor3 === 'white' ? setMDateColor3('lightblue') : setMDateColor3('white');
-  };
-  const [MDateColor4, setMDateColor4] = useState('white');
-  const MDateClick4 = () => {
-    MDateColor4 === 'white' ? setMDateColor4('lightblue') : setMDateColor4('white');
-  };
-  const [MDateColor5, setMDateColor5] = useState('white');
-  const MDateClick5 = () => {
-    MDateColor5 === 'white' ? setMDateColor5('lightblue') : setMDateColor5('white');
-  };
-  const [MDateColor6, setMDateColor6] = useState('white');
-  const MDateClick6 = () => {
-    MDateColor6 === 'white' ? setMDateColor6('lightblue') : setMDateColor6('white');
-  };
-  const [MDateColor7, setMDateColor7] = useState('white');
-  const MDateClick7 = () => {
-    MDateColor7 === 'white' ? setMDateColor7('lightblue') : setMDateColor7('white');
-  };
-  const [MTimeColor1, setMTimeColor1] = useState('white');
-  const MTimeClick1 = () => {
-    MTimeColor1 === 'white' ? setMTimeColor1('lightblue') : setMTimeColor1('white');
-  };
-  const [MTimeColor2, setMTimeColor2] = useState('white');
-  const MTimeClick2 = () => {
-    MTimeColor2 === 'white' ? setMTimeColor2('lightblue') : setMTimeColor2('white');
-  };
-  const [MTimeColor3, setMTimeColor3] = useState('white');
-  const MTimeClick3 = () => {
-    MTimeColor3 === 'white' ? setMTimeColor3('lightblue') : setMTimeColor3('white');
-  };
-  const [MTimeColor4, setMTimeColor4] = useState('white');
-  const MTimeClick4 = () => {
-    MTimeColor4 === 'white' ? setMTimeColor4('lightblue') : setMTimeColor4('white');
-  };
+    useEffect(() => {
+      getMovies();
+    }, []);
+  
   return (
-    <div>
-      <CenterText>2. 영화를 볼 날짜를 선택해주세요</CenterText>
-      <MDayBox style={{ display: 'flex' }}>
-        <MovieWhen>
-          <MovieDate color={MDateColor1} onClick={MDateClick1}>2</MovieDate>
-          <MovieDay>월</MovieDay>
-        </MovieWhen>
-        <MovieWhen>
-          <MovieDate color={MDateColor2} onClick={MDateClick2}>3</MovieDate>
-          <MovieDay>화</MovieDay>
-        </MovieWhen>
-        <MovieWhen>
-          <MovieDate color={MDateColor3} onClick={MDateClick3}>4</MovieDate>
-          <MovieDay>수</MovieDay>
-        </MovieWhen>
-        <MovieWhen>
-          <MovieDate color={MDateColor4} onClick={MDateClick4}>5</MovieDate>
-          <MovieDay>목</MovieDay>
-        </MovieWhen>
-        <MovieWhen>
-          <MovieDate color={MDateColor5} onClick={MDateClick5}>6</MovieDate>
-          <MovieDay>금</MovieDay>
-        </MovieWhen>
-        <MovieWhen>
-          <MovieDate color={MDateColor6} onClick={MDateClick6}>7</MovieDate>
-          <MovieDay>토</MovieDay>
-        </MovieWhen>
-        <MovieWhen>
-          <MovieDate color={MDateColor7} onClick={MDateClick7}>8</MovieDate>
-          <MovieDay>일</MovieDay>
-        </MovieWhen>
-
-      </MDayBox>
-      <CenterText>3. 영화를 볼 시간을 선택해주세요</CenterText>
-      <MTimeBox>
-        <MovieTime color={MTimeColor1} onClick={MTimeClick1}>13:40~15:54</MovieTime>
-        <MovieTime color={MTimeColor2} onClick={MTimeClick2}>16:25~18:39</MovieTime>
-        <MovieTime color={MTimeColor3} onClick={MTimeClick3}>19:10~21:24</MovieTime>
-        <MovieTime color={MTimeColor4} onClick={MTimeClick4}>21:45~23:59</MovieTime>
-      </MTimeBox>
-    </div>
+    <Container>
+          <div style={{display:"flex",flexDirection:"column",justifyContent:"center"}}>
+            <Banner bgPhoto={makeImagePath(movies?.results[4].backdrop_path || "")}/>
+            {movies?.results.slice(1,4).map((movie) => (
+               <div style={{display:"flex",justifyContent:"center",alignContent:"center"}}>
+              <Box bgPhoto={makeImagePath(movie?.poster_path)}>
+              </Box>
+              <div style={{display:"flex", flexDirection:"column"}}>
+                <div style={{display:"block",left:"0",top:"0"}}>
+                  <p style={{fontWeight:"500",fontSize:"20px"}}>{movie.title}</p>
+                </div>
+                <div style={{display:"flex", flexWrap:"wrap"}}>
+                  {when.time.map((time,index) => <TimeBox onClick={() => TimeClick(time)}>
+                    <p>
+                    {when.time[index]}
+                    <br/>
+                    {when.seat[index]}
+                    </p>
+                    </TimeBox>)}
+                </div>
+              </div>
+              </div>
+              ))}
+          </div>
+          <Footer>
+            <BackButton>←</BackButton>
+            <HomeButton></HomeButton>
+          </Footer>
+        </Container>   
   );
 }
 
-export default When;
+export default MovieWhen;

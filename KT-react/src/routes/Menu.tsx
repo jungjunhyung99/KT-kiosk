@@ -9,6 +9,7 @@ import basicIcon from "../image/basicIcon.png";
 import { useRef } from "react";
 import Dropdown from "./Dropdown";
 import {AnimatePresence, motion} from "framer-motion";
+import TopButton from "./TopButton";
 
 interface Iprops {
     isActive: boolean;
@@ -32,7 +33,6 @@ const Header = styled.header`
 const HeadOl = styled.ol`
     display: flex;
     list-style-type: disc;
-    flex-direction: row;
     justify-content: center;    
     max-width: 100vw;
     z-index: 2;
@@ -40,6 +40,10 @@ const HeadOl = styled.ol`
     margin: 0 auto;
     transform: translateY(-50%);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    @media screen and (max-width: 1000px) {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
 `;
 
 const HeadLi = styled.li<{isActive: boolean}>`
@@ -120,6 +124,7 @@ const HeadImg = styled(motion.img)`
     src: `${logo}`,
     alt: "kt_logo",
  })`
+    margin-left: 10vw;
  `;
 
  const Middle_bg = styled.img.attrs({
@@ -166,6 +171,7 @@ const Olist = styled.ol`
     list-style: none;
     padding: 0.5rem;
     margin: 0.5rem;
+    margin-right: 10vw;
     &:hover{
         li{
             display: block;        
@@ -292,7 +298,7 @@ function Menu() {
         </Olist> */}
         <Dropdown></Dropdown>
         </ListContainer>
-        <Olist>로그인</Olist>
+        <Olist>version 1.0</Olist>
         </>
         </Header>
         <Container>
@@ -374,6 +380,7 @@ function Menu() {
         <Body>
             <Outlet/>
         </Body>
+        <TopButton/>
         </BodyContainer>
         </div>
         </AnimatePresence>

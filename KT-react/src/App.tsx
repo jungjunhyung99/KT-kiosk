@@ -26,6 +26,10 @@ import OneToFifty from './routes/NumberGame';
 import Intro2 from './routes/intro/intro2';
 import Intro3 from './routes/intro/intro3';
 import Introduce from './routes/introduce';
+import MovieMain from './routes/MovieMain';
+import MovieWhen from './routes/MovieWhen';
+import Seat from './routes/MovieSeat';
+import MovieResult from './routes/MovieResult';
 
 
 
@@ -122,16 +126,21 @@ function App() {
               <Route path="/Menu/home/hard" element={<HardChoice/>}>
               <Route path="/Menu/home/hard/:objId" element={<Menu/>}/>
               </Route>
-              <Route path="/Menu/home/hard/cafe" element={<Explain2/>}>
-              <Route path="/Menu/home/hard/cafe/payment" element={<Payment/>}/>
+                <Route path="/Menu/home/hard/cafe" element={<Explain2/>}>
+                <Route path="/Menu/home/hard/cafe/payment" element={<Payment/>}/>
               </Route>
-              <Route path="/Menu/home/hard/cgv" element={<Movie/>}/>
-          </Route>
+                <Route path="/Menu/home/hard/cgv" element={<Movie/>}>
+                <Route path="/Menu/home/hard/cgv/main" element={<MovieMain/>}/>
+                <Route path="/Menu/home/hard/cgv/when" element={<MovieWhen/>}/>
+                <Route path="/Menu/home/hard/cgv/seat" element={<Seat/>}/>
+                <Route path="/Menu/home/hard/cgv/result" element={<MovieResult/>}/>
+              </Route>
+              </Route>
           </Route>
         </Routes>
         </Router>
         </ThemeProvider>
-      </RecoilRoot>
+        </RecoilRoot>
       );
 }
 

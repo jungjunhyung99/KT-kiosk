@@ -7,6 +7,8 @@ import { kioskObj, kioskObj3 } from "../kisok";
 import { kioskObj2 } from "../kisok";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { cafeObj, IAtomCafe } from "./atom";
 
 const Container = styled(motion.div)`
     display:flex;
@@ -203,7 +205,8 @@ interface ICondiment{
 }
 
 interface IItem{
-    item: ICondiment;
+    in: ICondiment[];
+    not_in: ICondiment[];
 };
 
 interface IPay {
@@ -219,6 +222,7 @@ function Cafe () {
     const navigate = useNavigate();
     const modalMatch = useMatch("/Menu/explain/:objId");
     const selectionMatch = useMatch("/Menu/explain/:objId/selection");
+    const [menuRecoil,SetMenuRecoil] = useRecoilState<IAtomCafe[]>(cafeObj);
     const [iceModal,setIceModal] = useState(false);
     const [menu, setKiosk] = useState<Ikiosk[]>(kioskObj);
     const [index, setIndex] = useState(0);
@@ -228,7 +232,7 @@ function Cafe () {
     const [choice, setChoice] = useState<Ikiosk[]>([]);
     const [focus,setFocus] = useState(0);
     const [send, setSend] = useState<IPay>();
-    const [condiment,setCondiment] = useState<ICondiment[]>([]);
+    const [condiment,setCondiment] = useState<IItem>();
     const toggleLeaving = () => setLeaving((prev) => !prev);
     const onBackClick = () => navigate(-1);
     const increaseIndex = (array:Ikiosk[]) => {
@@ -292,6 +296,7 @@ function Cafe () {
         }
     };
     
+    
     const onPayClicked = (obj: Ikiosk[]) => {
         let item2 = [];
         for(let i = 0; i < obj.length; i++){
@@ -311,12 +316,25 @@ function Cafe () {
     
     fetch("http://minho2618.dothome.co.kr/test1/api/kiosk_answer.php",{
         method: "POST",
+        headers:{
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
         body: JSON.stringify(
           send  
         ),
     }).then((response) => response.json()).then((result) => setCondiment(result));
-    console.log(condiment);
-    }
+    
+    };
+
+    const onPayClicked2 = (obj: Ikiosk[]) => {
+        let arr:IAtomCafe[] = [];
+        for(let i = 0; i < obj.length ; i++){
+            arr.push({name:obj[i].name, quantity:obj[i].quantity});
+        }
+        SetMenuRecoil(arr);
+        navigate("/Menu/home/hard/cafe/payment");
+    };
 
     useEffect(() => {
         
@@ -366,6 +384,7 @@ function Cafe () {
                 </MenuContainer>
                 )}
             </Row>
+            {condiment?.in[0].name}
             <div style={{display:"flex", backgroundColor:"#d3d7d6",height:"11.5vh"}}>
                     <div style={{display:"flex",alignItems:"center"}}>
                         <Button onClick={() => increaseIndex(choice)}>{'<'}</Button>
@@ -400,7 +419,7 @@ function Cafe () {
             <div style={{display:"flex", fontSize:"20px", alignItems:"center"}}>
             <div style={{backgroundColor:"white", height:"100%",alignItems:"center", width: "5.5vw"}}><h4>{cost}원</h4></div>
             
-            <div onClick={() => onPayClicked(choice)} style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "5.5vw", border: "1px solid white", cursor:"pointer"}}>
+            <div onClick={() => {onPayClicked2(choice)}} style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "5.5vw", border: "1px solid white", cursor:"pointer"}}>
             <StyledLink to="/Menu/home/hard/cafe/payment"><h4>카드결제</h4>
             </StyledLink>
             </div>

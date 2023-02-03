@@ -3,12 +3,24 @@ import styled from "styled-components";
 import Americano from "../image/americano.png"
 import CGV from "../image/CGV.jpg";
 import Ramen from "../image/Ramen.jpg";
-import { useMatch, useNavigate, useParams } from "react-router-dom";
+import { Outlet, useMatch, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Cafe from "./Cafe";
 import Takeout from "../image/Takeout.jpg";
 import Mug from "../image/Mug.png"
 import Payment from "./Payment";
+
+const SmallMovie = styled(motion.div)`
+    position: absolute;
+    width: 20vw;
+    height: 40vh;
+    right: 0;
+    background-color: #343333;
+    color: white;
+    border: 2px solid white;
+    overflow: hidden;
+    margin-right: 20px;
+`;
 
 const Container = styled(motion.div)`
     background: gray;
@@ -241,13 +253,26 @@ function Explain2 () {
                   exit={{opacity: 0}}
                   animate={{opacity:1}}
                 />
+                <div style={{display:"flex"}}>
                 <BigMovie
                   style={{ top: y + 10 }}
                   layoutId={modalMatch.params as any}
                 >
-                  {paymentMatch2 ? <Payment/> : <Cafe/> } 
+                  {paymentMatch2 ? <Outlet/> : <Cafe/> } 
                 </BigMovie>
+                <SmallMovie
+                        style={{ top: y + 10 ,lineHeight:"0.9"}}
+                        >
+                            <h1>이렇게 담아주세요!</h1>
+                            <hr/>
+                            <p><h2>커피 : </h2>아메리카노 3잔<br/>
+                            <h2>디저트 : </h2>티라미수 케이크 1개 <br/>
+                            <h2>에이드 : </h2> 청포도 에이드 2잔</p>
+
+                        </SmallMovie>
+                </div>
               </>
+              
             ) : <BigMovie></BigMovie>}
           </AnimatePresence>
           </>

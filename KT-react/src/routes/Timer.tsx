@@ -3,14 +3,13 @@ import styled from "styled-components";
 
 function Timer(){
     const [timeElapsed, setTimeElapsed] = useState(0);
-    const record = useRef<Number>();
+    const record = useRef<any>(0);
     record.current = timeElapsed;
     useEffect(() => {
         const timer = setInterval(
             () => {setTimeElapsed(timeElapsed=>timeElapsed+30);}, 30);
 
         return ()=>{
-            alert("Your Record:" + (record.current));
             clearInterval(timer);
         };
     },[]);

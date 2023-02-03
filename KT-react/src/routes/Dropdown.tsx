@@ -41,6 +41,9 @@ const DropDown = styled.button`
   position: relative;
   background-color: white;
   width: 12vw;
+  @media screen and (max-width: 800px) {
+        display: none;
+    }
 `;
 
 const LiContainer = styled.div`
@@ -75,15 +78,9 @@ function Dropdown(){
             </h2>
           <LiContainer>
              <Ul>
+                 <Li onClick={()=>navigate("/Menu/intro/1")}>KT서포터즈</Li>
+                 <Li onClick={()=>navigate("/Menu/home/hard")}>KT키오스크</Li>
                 
-                 <Li>프로필</Li>
-                
-                
-                 <Li onClick={()=>navigate("/Menu/intro/1")}>로그아웃</Li>
-                
-                <StyledLink to="Menu/intro/1">
-                 <Li>구뜨</Li>
-                 </StyledLink>
             </Ul>
           </LiContainer>
         </DropDown>
@@ -108,9 +105,9 @@ function Dropdown(){
             </h2>
           <LiContainer>
              <Ul>
-              <Li onClick={()=>navigate("/Menu/intro/1")}>뇌활력 게임</Li>
+              <Li onClick={()=>navigate("/Menu/gamechoice/game")}>글자 게임</Li>
               <Li onClick={()=>navigate("/Menu/home/hard")}>키오스크 체험</Li>
-              <Li onClick={()=>navigate("/Menu/intro/3")}>우울증 테스트</Li>
+              <Li onClick={()=>navigate("/Menu/test")}>우울증 테스트</Li>
             </Ul>
           </LiContainer>
         </DropDown>

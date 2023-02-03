@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useMatch, useNavigate } from "react-router-dom";
+import { Outlet, useMatch, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import MovieFood from "./MovieFood";
 import MovieMain from "./MovieMain";
@@ -21,38 +21,35 @@ opacity: 0;
 const BigMovie = styled(motion.div)`
   position: absolute;
   width: 50vw;
-  height: 95vh;
+  height: 110vh;
   left: 0;
   right: 0;
   margin: 0 auto;
-  background-color: white;
+  background-color: #343333;
+  color: white;
   border: 2px solid white;
   overflow: hidden;
-  background-color: #666666;
+`;
+
+const SmallMovie = styled(motion.div)`
+    position: absolute;
+    width: 20vw;
+    height: 40vh;
+    right: 0;
+    background-color: #343333;
+    color: white;
+    border: 2px solid white;
+    overflow: hidden;
+    margin-right: 20px;
 `;
 
 function Movie() {
     const navigate = useNavigate();
-    const onOverlayClick = () => navigate(-1);
-    const modalMatch = useMatch("/Menu/home/hard/cgv");
+    const onOverlayClick = () => navigate("/Menu/home/hard");
+    const modalMatch = useMatch("/Menu/home/hard/cgv/*");
+    const modalMatch2 = useMatch("/Menu/home/hard/cgv");
     const [general, setGeneral] = useState(0);
-    
-    const useScroll = () => {
-        const [state, setState] = useState({
-          x: 0, // x와 y의 초기값을 0으로 지정
-          y: 450,
-        });
-        const onScroll = () => {
-          setState({ x: window.scrollX, y: window.scrollY });
-        };
-        useEffect(() => {
-          window.addEventListener("scroll", onScroll); // scorll할 때 onScroll 이벤트 핸들러 지정
-          return () => window.removeEventListener("scroll", onScroll); // clean up
-        }, []);
-        return state;
-      };
-      const {y} = useScroll();
-
+    console.log(modalMatch);
     return (
         <AnimatePresence>
             {modalMatch ? 
@@ -61,12 +58,24 @@ function Movie() {
                     onClick={onOverlayClick}
                     exit={{opacity: 0}}
                     animate={{opacity:1}}/>
-                    <BigMovie 
-                    style={{ top: y + 10 }}
-                    layoutId={modalMatch.params as any}>
-                        <MovieWhen/>
-                    </BigMovie>
-                </> : null}
+                    <div style={{display:"flex"}}>
+                        <BigMovie 
+                        style={{ top: 200 }}
+                        >
+                            {modalMatch2 ? <MovieMain/> : <Outlet/>}
+                        </BigMovie>
+                        <SmallMovie
+                        style={{ top: 200 }}
+                        >
+                            <h1>이렇게 담아주세요!</h1>
+                            <hr/>
+                            <p><h2>영화 : </h2>Avatar: The Way of Water<br/>
+                            <h2>시간대 : </h2>11:40 <br/>
+                            <h2>좌석 수 : </h2> 3자리</p>
+
+                        </SmallMovie>
+                    </div>
+                </> : <div></div>}
         </AnimatePresence>
     );
 }
