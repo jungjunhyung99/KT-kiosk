@@ -10,6 +10,8 @@ import { useRef } from "react";
 import Dropdown from "./Dropdown";
 import {AnimatePresence, motion} from "framer-motion";
 import TopButton from "./TopButton";
+import Bottom from "./Bottom";
+import Footer from "./Footer";
 
 interface Iprops {
     isActive: boolean;
@@ -17,6 +19,16 @@ interface Iprops {
 
 const Container = styled(motion.div)`
     margin-bottom: 7vh;
+    @media screen and (max-width: 700px) {
+        margin-bottom: 0px;
+    }
+`;
+
+const BgContainer = styled.div`
+    @media screen and (max-width: 700px) {
+        width:100%;
+        height:200px;
+    }
 `;
 
 const Header = styled.header`
@@ -40,8 +52,9 @@ const HeadOl = styled.ol`
     margin: 0 auto;
     transform: translateY(-50%);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    @media screen and (max-width: 1000px) {
-        flex-direction: column;
+    @media screen and (max-width: 700px) {
+        
+    transform: translateY(-25%);
         flex-wrap: wrap;
     }
 `;
@@ -64,6 +77,12 @@ const HeadLi = styled.li<{isActive: boolean}>`
     0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
     background-color: ${(props) => props.isActive ? props.theme.accentColor : props.theme.spanColor};
     color: ${(props) => props.isActive ? props.theme.spanColor : props.theme.textColor};
+    @media screen and (max-width: 700px) {
+        min-width: 10vw;
+        height: 4vh;
+        margin: 3px;
+        font-size: 11px;
+    }
 `;
 
 const BodyContainer = styled.div`
@@ -91,17 +110,20 @@ const NavBar = styled.nav`
 `;
 
 const Body = styled(motion.div)`
+    width:100vw;
     padding-top: 50px;
     display: flex;
+    min-height: 80vh;
     justify-content: center;
     flex-direction: row;
     text-align: center;
-    
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-`;
-
-const ContentContainer = styled.div`
+    
+    @media screen and (max-width: 700px) {
+        width: 100%;
+        padding-top: 0px;
+    }
 `;
 
 const ListContainer = styled.div`
@@ -129,12 +151,19 @@ const HeadImg = styled(motion.img)`
 
  const Middle_bg = styled.img.attrs({
     src: `${kt_header}`,
-    alt: "kt_bodyImage",
- })`
+    alt: "kt_bodyImage",   
+})
+
+`
     display: block;
     width: 100%;
     height: 400px;
     margin: 0px auto;
+    @media screen and (max-width: 700px) {
+    scr: url("	http://itsupporters.com/theme/it/img/m/sub/sub02.png");
+    width:100%;
+    height:100%;
+}
  `;
 
  const ChartContainer = styled.div`
@@ -302,9 +331,9 @@ function Menu() {
         </>
         </Header>
         <Container>
-        <div>
+        <BgContainer>
             <Middle_bg></Middle_bg>
-        </div>
+        </BgContainer>
         <HeadOl>
             {contentMatch2 ? introBar.map((intro,index) => 
             <StyledLink to={intro.link}>
@@ -377,9 +406,12 @@ function Menu() {
                     </NavMenu>}
                 </NavWrapper>
             </NavBar> */}
+        <div style={{display:"flex",flexDirection:"column"}}>
         <Body>
             <Outlet/>
         </Body>
+        <Footer/>
+        </div>
         <TopButton/>
         </BodyContainer>
         </div>

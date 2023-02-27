@@ -13,10 +13,6 @@ function Board({numbers, handleClick}: any){
 }
 
 const Container=styled.div`
-    display: flex;
-    justify-content: center;
-    
-    
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-template-columns: repeat(5,1fr);

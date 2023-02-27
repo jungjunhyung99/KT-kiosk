@@ -117,14 +117,18 @@ const Img = styled.img`
 `;
 
 const Section = styled(motion.section)`
+    display:flex;
+    flex-direction: column;
+    min-height: 80vh;
+    height: 100%;
 `;
 
 const items : IChoice[] = [
     { name: "cafe", url: Americano, sub:"카페에서 커피를 주문해주세요!", color: "#F7DC6F"},
-    { name: "ramen", url: Hamburger, sub: "햄버거 세트와 음료를 시켜주세요!",color: "#D5A991"},
+    { name: "hamburger", url: Hamburger, sub: "햄버거 세트와 음료를 시켜주세요!",color: "#D5A991"},
     { name: "cgv", url: CGV,sub: "영화관 표를 예매해주세요!", color: "#e6b1b1"},
     { name: "cafe", url: Americano, sub: "카페에서 커피를 주문해주세요!",color: "#F7DC6F"},
-    { name: "ramen", url: Hamburger, sub: "햄버거 세트와 음료를 시켜주세요!",color: "#D5A991"},
+    { name: "hamburger", url: Hamburger, sub: "햄버거 세트와 음료를 시켜주세요!",color: "#D5A991"},
     { name: "cgv", url: CGV, sub: "영화관 표를 예매해주세요!", color: "#2BB7B3"}
     ];
 

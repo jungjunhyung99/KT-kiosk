@@ -1,3 +1,4 @@
+import { IFastItem, cafeObj } from './routes/atom';
 import Americano from "./image/americano.png"
 import Espresso from "./image/Espresso.jpg";
 import SweetPo from "./image/SweetPo.jpg";
@@ -17,7 +18,7 @@ export const image = [Americano, SweetPo, Espresso, Latte,IceTea, Apogatto,Soybe
 export const image2 = [Tiramisu, Chococake, Bagle, Browny];
 export const image3 = [jado, grape];
 
-export const kioskObj = [
+export const cafeItem = [
     {
         id: "0", 
         sub:"CGV 요약본입니다.",
@@ -26,7 +27,7 @@ export const kioskObj = [
         cost: 3500,
         selected: false,
         quantity: 1,
-        iced:"iced",
+        category: "음료"
     },
 
     {
@@ -37,7 +38,7 @@ export const kioskObj = [
         cost: 4000,
         selected: false,
         quantity: 1,
-        iced:"iced",
+        category: "음료"
     },
     
     {
@@ -48,7 +49,7 @@ export const kioskObj = [
         cost: 3000,
         selected: false,
         quantity: 1,
-        iced:"iced",
+        category: "음료"
     },
     
     {
@@ -59,7 +60,7 @@ export const kioskObj = [
         cost: 4000,
         selected: false,
         quantity: 1,
-        iced:"iced",
+        category: "음료"
     },
 
     {
@@ -70,7 +71,7 @@ export const kioskObj = [
         cost: 3000,
         selected: false,
         quantity: 1,
-        iced:"iced",
+        category: "음료"
     },
     {
         id: "5", 
@@ -80,7 +81,7 @@ export const kioskObj = [
         cost: 3000,
         selected: false,
         quantity: 1,
-        iced:"iced",
+        category: "음료"
     },
     {
         id: "6", 
@@ -90,12 +91,12 @@ export const kioskObj = [
         cost: 4500,
         selected: false,
         quantity: 1,
-        iced:"iced",
+        category: "음료"
     },
 ];
 
 
-export const kioskObj2 = [
+export const cafeItem2 = [
     {
         id: "10", 
         sub:"달콤한 티라미수",
@@ -104,6 +105,7 @@ export const kioskObj2 = [
         cost: 3500,
         selected: false,
         quantity: 1,
+        category: "디저트"
     },
     {
         id: "11", 
@@ -113,6 +115,7 @@ export const kioskObj2 = [
         cost: 4000,
         selected: false,
         quantity: 1,
+        category: "디저트"
     },
     {
         id: "12", 
@@ -122,6 +125,7 @@ export const kioskObj2 = [
         cost: 3000,
         selected: false,
         quantity: 1,
+        category: "디저트"
     },
     
     {
@@ -132,11 +136,12 @@ export const kioskObj2 = [
         cost: 4000,
         selected: false,
         quantity: 1,
+        category: "디저트"
     },
 ];
 
 
-export const kioskObj3 = [
+export const cafeItem3 = [
     {
         id: "14", 
         sub:"",
@@ -145,6 +150,7 @@ export const kioskObj3 = [
         cost: 3500,
         selected: false,
         quantity: 1,
+        category: "에이드"
     },
     {
         id: "15", 
@@ -153,6 +159,61 @@ export const kioskObj3 = [
         name: "청포도 에이드",
         cost: 4000,
         selected: false,
+        quantity: 1,
+        category: "에이드"
+    },
+];
+
+
+export const BerverageMenu : IFastItem[] = [
+    {   id: "1",
+        category: "음료수",   
+        name: "콜라",
+        cost: 2000,
+        cal: 120,
+        quantity: 1,
+    },
+    {
+        id: "2",
+        category: "음료수",   
+        name: "바닐라 쉐이크",
+        cost: 2000,
+        cal: 120,
+        quantity: 1,
+    },
+    {
+        id: "3",
+        category: "음료수",   
+        name: "핫초코",
+        cost: 2000,
+        cal: 120,
+        quantity: 1,
+    },
+];
+
+export const HamburgerMenu:IFastItem[] = [
+    {
+        id: "10",
+        category: "메인 메뉴",   
+        name: "베이컨 & 비스킷",
+        cost: 4500,
+        cal: 420,
+        quantity: 1,
+    },
+    {
+        id: "11",
+        category: "메인 메뉴",   
+        name: "블루베리 비스킷",
+        cost: 4500,
+        cal: 420,
+        quantity: 1,
+    },
+    {
+        id: "12",
+        category: "메인 메뉴",   
+        name: "빅맥",
+        cost: 4500,
+        cal: 420,
         quantity: 1,
     },
 ];

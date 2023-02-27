@@ -4,10 +4,11 @@ import { makeImagePath } from "./utils";
 import { useRecoilState } from "recoil";
 import { IAtomMovie, movieObj } from "./atom";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 50vw;
-  height: 110vh;
+  height: 100%;
 `;
 
 const TimeBox = styled.div`
@@ -19,6 +20,10 @@ const TimeBox = styled.div`
   border: 1px solid #666666;
   width: 9vw;
   height: 6vh;
+  cursor: pointer;
+  &:hover{
+    background-color: #666666;
+  }
 `;
 
 const Button = styled.button`
@@ -33,6 +38,7 @@ const Button = styled.button`
     margin-top: 8vh;
 `;
 
+
 const Box = styled.div<{bgPhoto: string}>`
   display: flex;
   width: 8vw;
@@ -44,22 +50,22 @@ const Box = styled.div<{bgPhoto: string}>`
 `;
 
 const Banner = styled.div<{bgPhoto: string}>`
-height: 25vh;
+top:0;
+height: 18rem ;
 width: 50vw;
 display: flex;
-flex-direction: column;
-justify-content: center;
-padding: 60px;
 background-image:
   url(${(props) => props.bgPhoto});
 background-size: cover;
 `;
 
 const Footer = styled.div`
+  position: absolute;
   display: flex;
   background-color:#454444;
   width: 100%;
-  height: 9vh;
+  height: 9%;
+  bottom:0;
 `;
 
 const BackButton = styled.button`
@@ -69,6 +75,7 @@ const BackButton = styled.button`
   background-color: #454444;
   border: none;
   margin-left: 10px;
+  cursor: pointer;
 `;
 
 const HomeButton = styled.button`
@@ -114,7 +121,6 @@ function MovieWhen() {
   const TimeClick = (timeline:string) => {
     SetMovieRecoil({title:movieRecoil.title, seat:0,time:timeline});
     navigate("/Menu/home/hard/cgv/seat");
-  
   };
     const getMovies = async () => {
       const json = await (
@@ -124,26 +130,30 @@ function MovieWhen() {
         
       ).json();
       setMovies(json);
-    console.log(json);
     };
 
     useEffect(() => {
       getMovies();
     }, []);
-  
   return (
-    <Container>
+    <Container
+    initial={{opacity: 0}}
+        animate={{opacity: 1, transition:{
+            duration: 0.5,
+            delay: 0.2,
+        }}}
+        exit={{opacity: 0}}>
           <div style={{display:"flex",flexDirection:"column",justifyContent:"center"}}>
             <Banner bgPhoto={makeImagePath(movies?.results[4].backdrop_path || "")}/>
-            {movies?.results.slice(1,4).map((movie) => (
-               <div style={{display:"flex",justifyContent:"center",alignContent:"center"}}>
+            {movies?.results.slice(0,3).map((movie) => (
+               <div style={{display:"flex",justifyContent:"center",alignContent:"center",height:"9rem",marginBottom:"3rem"}}>
               <Box bgPhoto={makeImagePath(movie?.poster_path)}>
               </Box>
               <div style={{display:"flex", flexDirection:"column"}}>
                 <div style={{display:"block",left:"0",top:"0"}}>
                   <p style={{fontWeight:"500",fontSize:"20px"}}>{movie.title}</p>
                 </div>
-                <div style={{display:"flex", flexWrap:"wrap"}}>
+                <div style={{display:"flex", flexWrap:"wrap",transform:"translateY(-15%)"}}>
                   {when.time.map((time,index) => <TimeBox onClick={() => TimeClick(time)}>
                     <p>
                     {when.time[index]}
@@ -157,7 +167,7 @@ function MovieWhen() {
               ))}
           </div>
           <Footer>
-            <BackButton>←</BackButton>
+            <BackButton onClick={()=>navigate(-1)}>←</BackButton>
             <HomeButton></HomeButton>
           </Footer>
         </Container>   

@@ -9,6 +9,9 @@ import Cafe from "./Cafe";
 import Takeout from "../image/Takeout.jpg";
 import Mug from "../image/Mug.png"
 import Payment from "./Payment";
+import { useRecoilState } from "recoil";
+import { CafeAnswer, ICafe } from "./atom";
+import { cafeItem, cafeItem2, cafeItem3 } from "../kisok";
 
 const SmallMovie = styled(motion.div)`
     position: absolute;
@@ -186,6 +189,28 @@ function Explain2 () {
     const paymentMatch2 = useMatch("/Menu/home/hard/cafe/payment");
     const [index, setIndex] = useState(0);
     const [leaving, setLeaving] = useState(false);
+    const [answerRecoil, setAnswerRecoil] = useRecoilState<ICafe[]>(CafeAnswer);
+    const [menu, setMenu] = useState<ICafe[]>([]);
+    const setAnswer = () => {
+      const idx = Math.floor(Math.random()*cafeItem.length);
+      const idx2 = Math.floor(Math.random() * cafeItem2.length)
+      const idx3 = Math.floor(Math.random() * cafeItem3.length)
+      const idx4 = Math.floor(Math.random()*3 + 1);
+      const idx5 = Math.floor(Math.random()*3 + 1);
+      const idx6 = Math.floor(Math.random()*3 + 1);
+
+      setMenu([
+        {index: idx, name:cafeItem[idx].name, quantity:idx4}
+      ,{index: idx2, name:cafeItem2[idx2].name, quantity: idx5}
+      ,{index: idx3, name:cafeItem3[idx3].name, quantity: idx6}
+      ]);
+      setAnswerRecoil([{index: idx, name:cafeItem[idx].name, quantity:idx4}
+      ,{index: idx2, name:cafeItem2[idx2].name, quantity: idx5}
+      ,{index: idx3, name:cafeItem3[idx3].name, quantity: idx6}
+    ]);
+    console.log(answerRecoil);
+    };
+    
     const increaseIndex = () => {
         if (kioskObj){
             if(leaving) return;
@@ -209,6 +234,11 @@ function Explain2 () {
       const onScroll = () => {
         setState({ x: window.scrollX, y: window.scrollY });
       };
+
+      useEffect(() => {
+        setAnswer();
+      },[])
+
       useEffect(() => {
         window.addEventListener("scroll", onScroll); // scorll할 때 onScroll 이벤트 핸들러 지정
         return () => window.removeEventListener("scroll", onScroll); // clean up
@@ -254,21 +284,32 @@ function Explain2 () {
                   animate={{opacity:1}}
                 />
                 <div style={{display:"flex"}}>
-                <BigMovie
+                <BigMovie        
+                initial={{opacity: 0}}
+                animate={{opacity: 1, transition:{
+                    duration: 0.5,
+                    delay: 0.2,
+                }}}
+                exit={{opacity: 0}}
                   style={{ top: y + 10 }}
                   layoutId={modalMatch.params as any}
                 >
                   {paymentMatch2 ? <Outlet/> : <Cafe/> } 
                 </BigMovie>
                 <SmallMovie
+                initial={{opacity: 0}}
+                animate={{opacity: 1, transition:{
+                    duration: 0.5,
+                    delay: 0.2,
+                }}}
+                exit={{opacity: 0}}
                         style={{ top: y + 10 ,lineHeight:"0.9"}}
                         >
                             <h1>이렇게 담아주세요!</h1>
                             <hr/>
-                            <p><h2>커피 : </h2>아메리카노 3잔<br/>
-                            <h2>디저트 : </h2>티라미수 케이크 1개 <br/>
-                            <h2>에이드 : </h2> 청포도 에이드 2잔</p>
-
+                            <p><h2>커피 : </h2>{menu[0]?.name} {menu[0]?.quantity}개<br/>
+                            <h2>디저트 : </h2>{menu[1]?.name} {menu[1]?.quantity}개 <br/>
+                            <h2>에이드 : </h2> {menu[2]?.name} {menu[2]?.quantity}개</p>
                         </SmallMovie>
                 </div>
               </>

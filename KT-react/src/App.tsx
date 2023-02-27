@@ -19,7 +19,6 @@ import Sample from './routes/Sample';
 import TakeOut from './routes/TakeOut';
 import Game2 from './routes/Game2';
 import Intro1 from './routes/intro/Intro1';
-import Hamburger_single from './routes/Hamburger_single';
 import Movie from './routes/Movie';
 import Payment from './routes/Payment';
 import OneToFifty from './routes/NumberGame';
@@ -30,6 +29,17 @@ import MovieMain from './routes/MovieMain';
 import MovieWhen from './routes/MovieWhen';
 import Seat from './routes/MovieSeat';
 import MovieResult from './routes/MovieResult';
+import Hamburger from './routes/Hamburger';
+import Hamburger_main from './routes/Hamburger_main';
+import Hamburger_take from './routes/Hamburger_take';
+import Hamburger_choice from './routes/Hamburger_choice';
+import Hamburger_quantity from './routes/Hamburger_quantity';
+import Hamburger_last from './routes/Hamburger_last';
+import { AnimatePresence } from 'framer-motion';
+import Cafe_result from './routes/Cafe_result';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Hamburger_result from './routes/Hamburger_result';
+
 
 
 
@@ -102,8 +112,14 @@ a {
 
 function App() {
   return (
+    <HelmetProvider>
+      <Helmet>
+        <title>
+        KT IT 서포터즈</title>
+      </Helmet>
     <RecoilRoot>
       <ThemeProvider theme={theme}>
+      <AnimatePresence>
       <Router>
         <Routes>
           <Route path="/" element={<Menu/>}>
@@ -119,7 +135,6 @@ function App() {
               <Route path="/Menu/gamechoice/game" element={<Game2/>}/>
               <Route path="/Menu/gamechoice/numberGame" element={<OneToFifty/>}/>
             <Route path="/Menu/test" element={<Sample/>}/>
-            <Route path="/Menu/chart" element={<Hamburger_single/>}/>
               <Route path="/Menu/home" element={<Choice/>}>
               <Route path="/Menu/home/easy" element={<EasyChoice/>}/>
               <Route path="/Menu/home/middle" element={<MiddleChoice/>}/>
@@ -128,6 +143,7 @@ function App() {
               </Route>
                 <Route path="/Menu/home/hard/cafe" element={<Explain2/>}>
                 <Route path="/Menu/home/hard/cafe/payment" element={<Payment/>}/>
+                <Route path="/Menu/home/hard/cafe/result" element={<Cafe_result/>}/>
               </Route>
                 <Route path="/Menu/home/hard/cgv" element={<Movie/>}>
                 <Route path="/Menu/home/hard/cgv/main" element={<MovieMain/>}/>
@@ -135,12 +151,23 @@ function App() {
                 <Route path="/Menu/home/hard/cgv/seat" element={<Seat/>}/>
                 <Route path="/Menu/home/hard/cgv/result" element={<MovieResult/>}/>
               </Route>
+              <Route path="/Menu/home/hard/hamburger" element={<Hamburger/>}>
+                <Route path="/Menu/home/hard/hamburger/main" element={<Hamburger_main/>}/>
+                <Route path="/Menu/home/hard/hamburger/take" element={<Hamburger_take/>}/>
+                <Route path="/Menu/home/hard/hamburger/choice" element={<Hamburger_choice/>}>
+                  <Route path="/Menu/home/hard/hamburger/choice/quantity" element={<Hamburger_quantity/>}/>
+                </Route>
+                <Route path="/Menu/home/hard/hamburger/last" element={<Hamburger_last/>}/>
+                <Route path="/Menu/home/hard/hamburger/result" element={<Hamburger_result/>}/>
+              </Route>
               </Route>
           </Route>
         </Routes>
         </Router>
+        </AnimatePresence>
         </ThemeProvider>
         </RecoilRoot>
+        </HelmetProvider>
       );
 }
 

@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { useMatch, useNavigate, useParams } from "react-router-dom";
 import { useLayoutEffect, useState } from "react";
 import { useEffect } from "react";
-import { kioskObj, kioskObj3 } from "../kisok";
-import { kioskObj2 } from "../kisok";
+import { cafeItem, cafeItem2 } from "../kisok";
+import { cafeItem3 } from "../kisok";
 import React from "react";
 import { Link } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import { cafeObj, IAtomCafe } from "./atom";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { CafeAnswer, cafeObj, IAtomCafe, ICafe } from "./atom";
 
 const Container = styled(motion.div)`
     display:flex;
@@ -168,6 +168,17 @@ const infoVariants = {
     },
   };
 
+const XButton = styled(motion.button)`  
+    position: relative;
+    left:50%;
+    bottom:90%;
+    border-radius: 5em;
+    font-weight: 700;
+    width:2em;
+    height:2em;
+    cursor: pointer;
+`;
+
 const rowVariants = {
     hidden: {
       x: window.outerWidth + 5,
@@ -197,6 +208,7 @@ interface Ikiosk {
     cost: number;
     selected: boolean;
     quantity: number;
+    category: string;
 }
 
 interface ICondiment{
@@ -223,16 +235,15 @@ function Cafe () {
     const modalMatch = useMatch("/Menu/explain/:objId");
     const selectionMatch = useMatch("/Menu/explain/:objId/selection");
     const [menuRecoil,SetMenuRecoil] = useRecoilState<IAtomCafe[]>(cafeObj);
-    const [iceModal,setIceModal] = useState(false);
-    const [menu, setKiosk] = useState<Ikiosk[]>(kioskObj);
+    const [menu, setKiosk] = useState<Ikiosk[]>(cafeItem);
     const [index, setIndex] = useState(0);
     const [leaving, setLeaving] = useState(false);
     const [cost, setCost] = useState(0);
-    const [apiContent, setApiCount] = useState<ICondiment[]>([]);//여기부터 하면됨
     const [choice, setChoice] = useState<Ikiosk[]>([]);
     const [focus,setFocus] = useState(0);
     const [send, setSend] = useState<IPay>();
     const [condiment,setCondiment] = useState<IItem>();
+    const answer = useRecoilValue<ICafe[]>(CafeAnswer);
     const toggleLeaving = () => setLeaving((prev) => !prev);
     const onBackClick = () => navigate(-1);
     const increaseIndex = (array:Ikiosk[]) => {
@@ -247,10 +258,11 @@ function Cafe () {
     };
 
     const onListClicked = (num:Number) => {
-        {num == 1 ? setKiosk(kioskObj) : num == 2 ? setKiosk(kioskObj2) : setKiosk(kioskObj3) }
+        {num == 1 ? setKiosk(cafeItem) : num == 2 ? setKiosk(cafeItem2) : setKiosk(cafeItem3) }
     };
 
-    const onBoxClicked = (objId : string, array:Ikiosk) => {
+    const onBoxClicked = (objId: string, array:Ikiosk) => {
+        
         const boxCopy = choice;
         for(let i = 0; i < choice.length; i++){
             if(boxCopy[i].id === objId){
@@ -263,7 +275,7 @@ function Cafe () {
         }
         //navigate(`/Menu/explain/${objId}/selection`);
         const costCopy = cost;
-        setChoice([...boxCopy,array]);
+        setChoice((prev)=>[...prev,array]);
         setCost(costCopy + array.cost);
     };
 
@@ -330,19 +342,39 @@ function Cafe () {
     const onPayClicked2 = (obj: Ikiosk[]) => {
         let arr:IAtomCafe[] = [];
         for(let i = 0; i < obj.length ; i++){
-            arr.push({name:obj[i].name, quantity:obj[i].quantity});
+            arr.push({name:obj[i].name, quantity: obj[i].quantity});
         }
         SetMenuRecoil(arr);
         navigate("/Menu/home/hard/cafe/payment");
     };
 
-    useEffect(() => {
-        
-    },[])
+    const XClicked = (num: number) => {
+        setChoice([...choice.slice(0,num),...choice.slice(num+1)]);  
+        setCost((prev) => prev - choice[num].cost * choice[num].quantity);
+      
+    };
 
+    useEffect(()=> {
+        for(let i = 0; i < cafeItem.length; i++){
+            cafeItem[i].quantity = 1;
+        }
+        for(let i = 0; i < cafeItem2.length; i++){
+            cafeItem2[i].quantity = 1;
+        }
+        for(let i = 0; i < cafeItem3.length; i++){
+            cafeItem3[i].quantity = 1;
+        }
+    },[]);
+     
     return (
         <AnimatePresence initial={false} onExitComplete={toggleLeaving}>    
-            <Container>
+            <Container
+        initial={{opacity: 0}}
+            animate={{opacity: 1, transition:{
+                duration: 0.5,
+                delay: 0.2,
+            }}}
+            exit={{opacity: 0}}>
                 <Head>
                     <div style={{color:"white", display: "flex" }}>
                         <div style={{flex:1, display:"flex", justifyContent:"center"}}><button onClick={onBackClick}>Home</button></div>
@@ -366,8 +398,7 @@ function Cafe () {
                     </Ul>
                     </div>
                 </Head>
-            <Row
-            >
+            <Row>
                 {menu.map((obj) => 
                 <MenuContainer>
                 <Box 
@@ -397,19 +428,26 @@ function Cafe () {
                             key="row"
                             >
                                 <Order key="order" layoutId="row">
-                                    {choice.slice(offset * index, offset * index + offset).map((choice) => 
-                                    <MenuContainer>
+                                    {choice.slice(offset * index, offset * index + offset).map((cho,index) => 
+                                    <MenuContainer
+                                    initial={{opacity: 0}}
+                                    animate={{opacity: 1, transition:{
+                                        duration: 0.5,
+                                        delay: 0.2,
+                                    }}}
+                                    exit={{opacity: 0}}>
                                     <SmallBox
-                                    bgPhoto={choice.img}
-                                    key={choice.id}
+                                    bgPhoto={cho.img}
+                                    key={cho.id}
                                     variants={smboxVariant} initial animate="exit"
                                     transition={{type:"tween"}}
-                                >          
+                                >
+                                    <XButton onClick={() => XClicked(index)}>X</XButton>          
                                     </SmallBox>
                                     <div style={{display:"flex", alignItems:"center"}}>
-                                    <QuantityButton onClick={() => onMinusClicked(choice.id,choice)}>-</QuantityButton>
-                                    <div style={{margin: "0 auto", fontSize: "25px", fontWeight:"bold"}}>{choice.quantity}</div>
-                                    <QuantityButton onClick={() => onPlusClicked(choice.id,choice)}>+</QuantityButton>
+                                    <QuantityButton onClick={() => onMinusClicked(cho.id,cho)}>-</QuantityButton>
+                                    <div style={{margin: "0 auto", fontSize: "25px", fontWeight:"bold"}}>{cho.quantity}</div>
+                                    <QuantityButton onClick={() => onPlusClicked(cho.id,cho)}>+</QuantityButton>
                                     </div>
                                     </MenuContainer>)}
                                 </Order>
@@ -423,7 +461,7 @@ function Cafe () {
             <StyledLink to="/Menu/home/hard/cafe/payment"><h4>카드결제</h4>
             </StyledLink>
             </div>
-            <div style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "6vw", border: "1px solid white", cursor:"pointer"}}>
+            <div onClick={() => navigate("/Menu/home/hard/cafe/payment")} style={{height:"100%",backgroundColor:"#212020",color:"white", alignItems:"center", width: "6vw", border: "1px solid white", cursor:"pointer"}}>
                 <h4>현금결제</h4>
             </div>
             </div>

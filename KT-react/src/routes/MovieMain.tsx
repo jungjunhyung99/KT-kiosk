@@ -3,12 +3,13 @@ import {useEffect, useState} from "react";
 import { makeImagePath } from "./utils";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { IAtomMovie, movieObj } from "./atom";
+import { IAtomMovie, IGetMoives, movieObj } from "./atom";
 import { title } from "process";
+import { motion } from "framer-motion";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 50vw;
-  height: 110vh;
+  height: 100%;
 `;
 
 const Button = styled.button`
@@ -20,26 +21,25 @@ const Button = styled.button`
     color: #fff;
     letter-spacing: -1px;
     border: none;
-    margin-top: 8vh;
 `;
 
 const Box = styled.div<{bgPhoto: string}>`
   display: flex;
   width: 13vw;
-  height: 25vh;
+  height: 33vh;
   background-image:
   url(${(props) => props.bgPhoto});
   background-size: cover;
   margin: 10px;
+  cursor: pointer;
 `;
 
 const Banner = styled.div<{bgPhoto: string}>`
-height: 25vh;
+height: 18rem;
 width: 50vw;
 display: flex;
 flex-direction: column;
 justify-content: center;
-padding: 60px;
 background-image:
   url(${(props) => props.bgPhoto});
 background-size: cover;
@@ -74,34 +74,13 @@ const MovieContainer = styled.div`
   flex-direction: column;
 `;
 
-interface IGetMoives{
-  dates:{
-    maximum: string;
-    minimum: string;
-  }
-  page: number;
-  results: IMovie[];
-  total_page: number;
-  total_results: number;
-}
-
-
-interface IMovie {
-  id: number;
-  backdrop_path: string;
-  poster_path: string;
-  title: string;
-  overview: string;
-  vote_average: number;
-}
-
 function Movie(){
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState<IGetMoives>();
     const [movieRecoil, setMovieRecoil] = useRecoilState<IAtomMovie>(movieObj);
     const BoxClicked = (MovieTitle: string) => {
-      setMovieRecoil({title:MovieTitle, seat:0,time:""});
+      setMovieRecoil({title:MovieTitle, seat:0, time:""});
       navigate("/Menu/home/hard/cgv/when");
     };
 
@@ -110,25 +89,29 @@ function Movie(){
         await fetch(
             `https://api.themoviedb.org/3/movie/now_playing?api_key=1e1dd98e7bbdb858a49359dbec86444f`
         )
-        
       ).json();
       setMovies(json);
-    console.log(json);
     };
     useEffect(() => {
       getMovies();
     }, []);
     
     return (
-        <Container>
+        <Container
+        initial={{opacity: 0}}
+            animate={{opacity: 1, transition:{
+                duration: 0.5,
+                delay: 0.2,
+            }}}
+            exit={{opacity: 0}}>
           <div style={{display:"flex",flexDirection:"column",justifyContent:"center"}}>
-            <Banner bgPhoto={makeImagePath(movies?.results[1].backdrop_path || "")}/>
+            <Banner bgPhoto={makeImagePath(movies?.results[4].backdrop_path || "")}/>
             <div>
               <h2 style={{color:"#666666", display:"flex",justifyContent:"center"}}>가장 빨리 볼 수 있는 영화</h2>
             </div>
             <div style={{display:"flex", justifyContent:"center"}}>
               
-              {movies?.results.slice(1,4).map((movie) => (
+              {movies?.results.slice(0,3).map((movie) => (
                 <div style={{display:"flex",justifyContent:"center",flexDirection:"column",margin:"5px"}}>
                   <Box onClick={() => BoxClicked(movie.title)} bgPhoto={makeImagePath(movie?.poster_path)}>
                   </Box>

@@ -5,8 +5,9 @@ import { stringify } from "querystring";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { IAtomMovie, movieObj } from "./atom";
+import { motion } from "framer-motion";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 50vw;
   height: 110vh;
 
@@ -75,6 +76,7 @@ const Button = styled.button<{isActive:boolean}>`
     border: none;
     margin: 0 auto;
     margin-bottom: 20px;
+    cursor: ${(props) => props.isActive ? "pointer" :"default"};
 `;
 
 
@@ -289,7 +291,13 @@ function Seat(){
     }, [person] );
     
     return (
-        <Container>
+        <Container
+        initial={{opacity: 0}}
+            animate={{opacity: 1, transition:{
+                duration: 0.5,
+                delay: 0.2,
+            }}}
+            exit={{opacity: 0}}>
           <Body>
                 
             <Banner bgPhoto={makeImagePath(movies?.results[5].backdrop_path || "")}/>

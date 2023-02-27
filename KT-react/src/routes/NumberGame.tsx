@@ -20,8 +20,8 @@ const BigMovie = styled(motion.div)`
   width: 50vw;
   max-width: 50vw;
   min-width: 50vw;
-  min-height: 95vh;
-  max-height: 95vh;
+  min-height: 60vh;
+  max-height: 60vh;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -30,10 +30,35 @@ const BigMovie = styled(motion.div)`
   overflow: hidden;
 `;
 
+
+const shuffleArray= (array:number[]) =>{
+    for(let i=array.length-1;i>0;i--){
+        let j=Math.floor(Math.random()*(i+1));
+        [array[i], array[j]]=[array[j], array[i]];
+    }
+    return array;
+};
+
+const Container = styled.div`
+    width:50vw;
+    height:80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+`;
+
+const StartButton=styled.button`
+    margin-top:30px;
+    width:100px;
+    height:50px;
+`;
+
+
 let array :number[] = [];
 for (let i=1;i<=25;i++){
     array.push(i);
-}
+};
 
 function NumberGame(){
     const navigate = useNavigate();
@@ -113,28 +138,5 @@ function NumberGame(){
         </AnimatePresence>
     );
 }
-
-const shuffleArray= (array:number[]) =>{
-    for(let i=array.length-1;i>0;i--){
-        let j=Math.floor(Math.random()*(i+1));
-        [array[i], array[j]]=[array[j], array[i]];
-    }
-    return array;
-}
-const Container = styled.div`
-    width:50vw;
-    height:80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items:center;
-    position:inherit;
-`;
-
-const StartButton=styled.button`
-    margin-top:30px;
-    width:100px;
-    height:50px;
-`;
 
 export default NumberGame;

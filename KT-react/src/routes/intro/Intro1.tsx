@@ -26,9 +26,23 @@ const images5 = [inquire];
 
 const Container = styled(motion.div)`
     display: flex;
+    width:100%;
+    min-height: 80vh;
+    height:100%;
+    justify-content: center;
     flex-direction: column;
+    @media screen and (max-width: 700px) {
+        width: 100%;
+    }
 `;
 
+const SubContainer = styled(motion.div)`
+    margin: 0 auto;
+`;
+
+const Img = styled(motion.img)`
+    width: 90%;
+`;
 
 const BodyVariable = {
     initial:{
@@ -82,7 +96,9 @@ const choice = (index: string | undefined) => {
             variants={BodyVariable}
             initial="initial"
             animate="end">
-                {img?.map((choice,index) => <Container> <img src={choice} alt="대체"/> </Container>)}
+                {img?.map((choice,index) => <SubContainer> 
+                    <Img
+                src={choice} alt="대체"/> </SubContainer>)}
             </Container>
         </AnimatePresence>    
     );

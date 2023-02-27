@@ -15,8 +15,6 @@ const Container=styled.div`
     justify-content:center;
     align-items:center;
     font-size:30px;
-    position:inherit;
-    left: 500px;
 `;
 
 export default Cell;

@@ -26,9 +26,36 @@ const Container = styled(motion.div)`
   width: 100vw;
 `;
 
+const Img = styled.img`
+    margin: 0 10vw;
+    width:40vw; 
+    height: 60vh;
+    @media screen and (max-width:700px){
+        width: 80%;
+    }
+`;
+
+
+const Img2 = styled.img`
+    margin: 0 auto;
+    width:40vw; 
+    height:60vh;
+    @media screen and (max-width:700px){
+        width: 80%;
+    }
+`;
+
+const ImgContainer = styled.div`
+  display: flex;
+`;
+
 const BodyContainer = styled.div`
   display: flex;
   margin-top: 10vh;
+  @media screen and (max-width: 700px) {
+    width:100%;
+    flex-direction: column;
+  }
 `;
 
 const Button = styled.button`
@@ -53,6 +80,14 @@ const StyledLink = styled(Link)`
     }
 `;
 
+
+const SubContainer = styled.div`
+    width:30vw;
+  @media screen and (max-width: 700px){
+    display:none;
+  }  
+`;
+
 function introduce(){
     return (
     <AnimatePresence>
@@ -65,7 +100,7 @@ function introduce(){
         <hr/>
         </span>
         <BodyContainer>
-            <img src={monitor1} alt="대체" style={{margin:"0 10vw",width:"40vw", height: "60vh"}}/>
+            <Img src={monitor1} alt="대체"/>
             <div>
                 <h3 style={{fontSize:"25px"}}>
                 <span style={{fontSize:"40px",color:"#a69eb0", marginRight:"15px"}}>
@@ -73,7 +108,7 @@ function introduce(){
                 </span>
                 여러 키오스크 체험하기
                 </h3>
-                <div style={{width:"30vw"}}>
+                <SubContainer>
                     <p style={{fontSize:"20px",fontFamily:"seoul-hangang-jung-m!important" ,wordBreak:"keep-all",lineHeight:"1.3"}}>
                         <br/><br/>
                         리액트를 학습하며 제작한 시니어대상의 키오스크 연습 페이지 입니다.
@@ -81,7 +116,7 @@ function introduce(){
                         미션이 주어지고, 주어진 미션대로 키오스크 주문을 완료하면 성공입니다.
                         <br/><br/>
                     </p>
-                </div>
+                </SubContainer>
                 <StyledLink to="/Menu/home/hard"><Button>Go to</Button></StyledLink>
             </div>
         </BodyContainer>
@@ -95,7 +130,7 @@ function introduce(){
                 </span>
                 뇌활력 게임 체험하기
                 </h3>
-                <div style={{width:"30vw",marginLeft:"70px"}}>
+                <SubContainer style={{marginLeft:"70px"}}>
                     <p style={{fontSize:"20px",wordBreak:"keep-all",lineHeight:"1.3"}}>
                         <br/><br/>
                         남녀노소 즐길 수 있는 뇌활력 게임입니다.
@@ -103,10 +138,10 @@ function introduce(){
                         주어진 시간 동안, 최대한 많이 클리어 해보세요!
                         <br/><br/>
                     </p>
-                </div>
+                </SubContainer>
                 <StyledLink to="/Menu/home/gamechoice/game"><Button>Go to</Button></StyledLink>
             </div>
-            <img src={monitor2} alt="대체" style={{margin:"0 auto",width:"40vw", height: "60vh"}}/>
+            <Img2 src={monitor2} alt="대체"/>
         </BodyContainer>
     </Container>
     </AnimatePresence>
